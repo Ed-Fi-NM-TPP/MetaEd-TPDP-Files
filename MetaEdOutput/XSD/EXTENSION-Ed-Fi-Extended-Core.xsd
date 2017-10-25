@@ -1106,7 +1106,7 @@
           </xs:element>
           <xs:element name="IndicatorInformation" type="EXTENSION-IndicatorInformation" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>?</xs:documentation>
+              <xs:documentation>A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>

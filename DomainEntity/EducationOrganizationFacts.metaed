@@ -52,5 +52,5 @@ Domain Entity EducationOrganizationFacts
 
     // NM TPP Extensions
     common IndicatorInformation
-	documentation "?"
+      documentation "A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS."
       is optional collection

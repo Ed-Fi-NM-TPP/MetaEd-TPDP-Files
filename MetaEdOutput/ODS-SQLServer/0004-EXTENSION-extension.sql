@@ -3776,7 +3776,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationFactsIndicatorInformation] ADD CONSTRAINT [EducationOrganizationFactsIndicatorInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsIndicatorInformation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsIndicatorInformation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsIndicatorInformation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
