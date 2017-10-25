@@ -1,6 +1,7 @@
 Domain Entity TeacherCandidateAcademicRecord
-  documentation "This educational entity represents the cumulative record of academic achievement for a teacher candidate."
 
+  // TNTP
+  documentation "This educational entity represents the cumulative record of academic achievement for a teacher candidate."
   inline common Credits
       documentation "The cumulative number of credits an individual earns by completing courses or examinations during his or her enrollment in the current school as well as those credits transferred from schools in which the individual had been previously enrolled."
       is optional
@@ -57,6 +58,7 @@ Domain Entity TeacherCandidateAcademicRecord
       documentation "The term for the session during the school year."
       is part of identity
 
+  // TPDP Extensions
   domain entity TeacherCandidate
       documentation "Identifies the teacher candidate who is associated with the TeacherCandidateAcademicRecord."
       is part of identity
@@ -72,3 +74,15 @@ Domain Entity TeacherCandidateAcademicRecord
   descriptor TPPDegreeType
     documentation "The degree type that a teacher candidate accomplishes."
     is required
+
+  // NM TPP Extensions
+  decimal AdmittingGPA
+    documentation "The GPA the Teacher Candidate had at the time of admittance into the EPP program."
+    is optional
+    total digits 18
+    decimal places 0
+  decimal GraduatingGradePointAverage
+    documentation "The grade point averate the teacher candidate had at the time of graduating from high school."
+    is optional
+    total digits 18
+    decimal places 0

@@ -1,4 +1,5 @@
 Domain Entity Staff additions
+    // TNTP
     common BackgroundCheck
         documentation "Staff background check history and disposition."
         is optional collection
@@ -22,6 +23,7 @@ Domain Entity Staff additions
         documentation "Reference to applicant(s) represented by this staff member."
         is optional collection
 
+    // TPDP Extensions
     enumeration Gender
       documentation "The gender with which a person associates."
       is optional
@@ -34,3 +36,13 @@ Domain Entity Staff additions
     bool TenureTrack
         documentation "An indication that the staff is on track for tenure."
         is optional
+
+    // NM TPP Extensions
+    string ObservationEndYear
+      documentation "The year the last teacher observation was conducted for the staff."
+      is optional
+      min length 1
+      max length 16
+    common EvaluationInformation
+      documentation "?"
+      is optional

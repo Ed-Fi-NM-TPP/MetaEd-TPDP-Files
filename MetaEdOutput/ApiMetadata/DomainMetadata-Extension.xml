@@ -139,6 +139,7 @@
   <Aggregate root="EducationOrganizationFacts">
     <Entity table="EducationOrganizationFacts" schema="extension"/>
     <Entity table="EducationOrganizationFactsAggregatedSalary" schema="extension"/>
+    <Entity table="EducationOrganizationFactsIndicatorInformation" schema="extension"/>
     <Entity table="EducationOrganizationFactsVacancies" schema="extension"/>
   </Aggregate>
   <Aggregate root="EducationOrganizationStudentAcademicRecordFacts">
@@ -482,6 +483,7 @@
   <Aggregate root="TeacherCandidateFieldworkExperience">
     <Entity table="TeacherCandidateFieldworkExperience" schema="extension"/>
     <Entity table="TeacherCandidateFieldworkExperienceCoteaching" schema="extension"/>
+    <Entity table="TeacherCandidateFieldworkExperienceIdentificationDocument" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateProfessionalDevelopmentEventAttendance">
     <Entity table="TeacherCandidateProfessionalDevelopmentEventAttendance" schema="extension"/>
@@ -547,14 +549,19 @@
   </Aggregate>
 
   <AggregateExtension root="Credential">
+    <Entity table="CredentialBilingualMinor" schema="extension"/>
     <Entity table="CredentialBoardCertification" schema="extension"/>
     <Entity table="CredentialCertificationExam" schema="extension"/>
+    <Entity table="CredentialConcentrationArea" schema="extension"/>
+    <Entity table="CredentialOtherMinor" schema="extension"/>
+    <Entity table="CredentialProgramArea" schema="extension"/>
     <Entity table="CredentialRecommendation" schema="extension"/>
     <Entity table="CredentialRecommendingInstitution" schema="extension"/>
   </AggregateExtension>
   <AggregateExtension root="Staff">
     <Entity table="StaffApplicant" schema="extension"/>
     <Entity table="StaffBackgroundCheck" schema="extension"/>
+    <Entity table="StaffEvaluationInformation" schema="extension"/>
     <Entity table="StaffHighlyQualifiedAcademicSubject" schema="extension"/>
     <Entity table="StaffSalary" schema="extension"/>
     <Entity table="StaffSeniority" schema="extension"/>

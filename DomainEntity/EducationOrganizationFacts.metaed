@@ -49,3 +49,8 @@ Domain Entity EducationOrganizationFacts
     shared decimal NumberOfYears named AverageYearsInDistrictEmployed
       documentation "The average number of years that all staff have been employed in the current district of employment."
       is optional
+
+    // NM TPP Extensions
+    common IndicatorInformation
+	documentation "?"
+      is optional collection

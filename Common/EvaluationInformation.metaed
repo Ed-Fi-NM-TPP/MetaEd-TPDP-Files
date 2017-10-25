@@ -1,0 +1,38 @@
+// NM TPP Extension
+Common EvaluationInformation
+  documentation "?"
+  integer AttendanceScore
+    documentation "The score that reflects the teachers attendance."
+    is optional
+  integer ProfessionalismScore
+    documentation "The score that reflects the teachers professionalism."
+    is optional
+  integer ClassroomObservationScore
+    documentation "The score that reflects the teachers classroom observation rating."
+    is optional
+  integer TotalEvalPoints
+    documentation "The score that reflects the teachers total evalutation."
+    is optional
+  integer SurveyScore
+    documentation "The score that reflects the teachers survey rating."
+    is optional
+  integer NumberDaysAbsent
+    documentation "The number of days the teacher was absent."
+    is optional
+  integer NumberLocations
+    documentation "The number of locations at which the teacher attendance was taken."
+    is optional
+  string SurveyType
+    documentation "The type of survey that was received"
+    is optional
+    min length 1
+    max length 32
+  integer TotalNumberStudents
+    documentation "The total number of students the teacher is associated with.  "
+    is optional
+  integer VASOverallScore
+    documentation "The overall value added score provided for the teacher."
+    is optional
+  integer EffectivenessRating
+    documentation "The effectiveness rating provided for the teacher."
+    is optional

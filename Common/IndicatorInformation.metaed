@@ -1,0 +1,18 @@
+// NM TPP Extension
+Common IndicatorInformation
+  documentation "A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS."
+  string IndicatorFacts
+    documentation "The category of the indicator."
+    is required
+    min length 1
+    max length 60
+  string IndicatorCriteria
+    documentation "The name of the indicator."
+    is required
+    min length 1
+    max length 60
+  decimal PointsPossible
+    documentation "The possible points for the indicator."
+    is required
+    total digits 18
+    decimal places 0
