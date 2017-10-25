@@ -3,12 +3,12 @@ Common IndicatorInformation
   documentation "A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS."
   string IndicatorFacts
     documentation "The category of the indicator."
-    is required
+    is part of identity
     min length 1
     max length 60
   string IndicatorCriteria
     documentation "The name of the indicator."
-    is required
+    is part of identity
     min length 1
     max length 60
   decimal PointsPossible

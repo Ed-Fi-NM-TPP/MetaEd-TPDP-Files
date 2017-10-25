@@ -7992,7 +7992,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (required)<br />LastSurname (required)<br />MiddleName (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.CoordinatingTeacherName (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />MiddleName (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.CoordinatingTeacherName (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8800,7 +8800,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />IndicatorCriteria (required)<br />IndicatorFacts (required)<br />PointsPossible (required)<br /><br />Used By:<br />EducationOrganizationFacts.IndicatorInformation (as optional collection)</div>
+                <div><br />Contains:<br />IndicatorCriteria (identity)<br />IndicatorFacts (identity)<br />PointsPossible (required)<br /><br />Used By:<br />EducationOrganizationFacts.IndicatorInformation (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -28082,15 +28082,17 @@ SchoolYear
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-IndicatorFacts [NVARCHAR](60) NOT NULL
 IndicatorCriteria [NVARCHAR](60) NOT NULL
+IndicatorFacts [NVARCHAR](60) NOT NULL
+SchoolYear [SMALLINT] NOT NULL
 PointsPossible [DECIMAL](18, 0) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
 FactsAsOfDate
+IndicatorCriteria
+IndicatorFacts
 SchoolYear
 <br />extension.EducationOrganizationFactsVacancies
 
@@ -40269,16 +40271,18 @@ TeacherCandidateIdentifier
 BeginDate [DATE] NOT NULL
 FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 FirstName [NVARCHAR](75) NOT NULL
-MiddleName [NVARCHAR](75) NULL
 LastSurname [NVARCHAR](75) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+MiddleName [NVARCHAR](75) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
 FieldworkExperienceSchoolId
 FieldworkIdentifier
+FirstName
+LastSurname
 TeacherCandidateIdentifier
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
@@ -52470,7 +52474,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CoordinatingTeacherName.FirstName (as required)<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstName (as required)<br />Reviewer.FirstName (as identity)</div>
+                <div><br />Used By:<br />CoordinatingTeacherName.FirstName (as identity)<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstName (as required)<br />Reviewer.FirstName (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52889,7 +52893,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />IndicatorInformation.IndicatorCriteria (as required)</div>
+                <div><br />Used By:<br />IndicatorInformation.IndicatorCriteria (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52931,7 +52935,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />IndicatorInformation.IndicatorFacts (as required)</div>
+                <div><br />Used By:<br />IndicatorInformation.IndicatorFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53057,7 +53061,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CoordinatingTeacherName.LastSurname (as required)<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastSurname (as required)<br />Reviewer.LastSurname (as identity)</div>
+                <div><br />Used By:<br />CoordinatingTeacherName.LastSurname (as identity)<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastSurname (as required)<br />Reviewer.LastSurname (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
