@@ -7977,6 +7977,53 @@ BeginDate
             </div>
         </p>
         <p>
+            <h2>CoordinatingTeacherName</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />FirstName (required)<br />LastSurname (required)<br />MiddleName (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.CoordinatingTeacherName (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-CoordinatingTeacherName&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;FirstName&quot; type=&quot;FirstName&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The first name of the Coordinating Teacher associated with the Teacher Candidate.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;MiddleName&quot; type=&quot;MiddleName&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The middle name/initial of the Coordinating Teacher associated with the Teacher Candidate.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;LastSurname&quot; type=&quot;LastSurname&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The last name of the Coordinating Teacher associated with the Teacher Candidate.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>Coteaching</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -40177,7 +40224,7 @@ TeacherCandidateIdentifier
             &lt;xs:documentation&gt;An indication of whether or not the field placement is also considered an intership.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;Name&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+        &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;EXTENSION-CoordinatingTeacherName&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -40208,15 +40255,25 @@ HoursPerWeek [DECIMAL](5, 2) NULL
 EndDate [DATE] NULL
 ProgramGatewayDescriptorId [INT] NULL
 Internship [BIT] NULL
-CoordinatingTeacherPersonalTitlePrefix [NVARCHAR](30) NULL
-CoordinatingTeacherFirstName [NVARCHAR](75) NOT NULL
-CoordinatingTeacherMiddleName [NVARCHAR](75) NULL
-CoordinatingTeacherLastSurname [NVARCHAR](75) NOT NULL
-CoordinatingTeacherGenerationCodeSuffix [NVARCHAR](10) NULL
-CoordinatingTeacherMaidenName [NVARCHAR](75) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+BeginDate
+FieldworkExperienceSchoolId
+FieldworkIdentifier
+TeacherCandidateIdentifier
+<br />extension.TeacherCandidateFieldworkExperienceCoordinatingTeacherName
+
+BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
+FieldworkIdentifier [NVARCHAR](20) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+FirstName [NVARCHAR](75) NOT NULL
+MiddleName [NVARCHAR](75) NULL
+LastSurname [NVARCHAR](75) NOT NULL
+CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
@@ -40235,28 +40292,6 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
-FieldworkExperienceSchoolId
-FieldworkIdentifier
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateFieldworkExperienceIdentificationDocument
-
-BeginDate [DATE] NOT NULL
-CoordinatingTeacherIdentificationDocumentUseTypeId [INT] NOT NULL
-CoordinatingTeacherPersonalInformationVerificationTypeId [INT] NOT NULL
-FieldworkExperienceSchoolId [INT] NOT NULL
-FieldworkIdentifier [NVARCHAR](20) NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-CoordinatingTeacherDocumentTitle [NVARCHAR](60) NULL
-CoordinatingTeacherDocumentExpirationDate [DATE] NULL
-CoordinatingTeacherIssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-CoordinatingTeacherIssuerName [NVARCHAR](150) NULL
-CoordinatingTeacherIssuerCountryDescriptorId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-BeginDate
-CoordinatingTeacherIdentificationDocumentUseTypeId
-CoordinatingTeacherPersonalInformationVerificationTypeId
 FieldworkExperienceSchoolId
 FieldworkIdentifier
 TeacherCandidateIdentifier
@@ -47167,7 +47202,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MaidenName (optional)<br />MiddleName (optional)<br />PersonalIdentificationDocument (optional collection)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.Name (as required)<br />Staff.Name (as required)<br />Student.Name (as required)<br />Applicant.Name (as required)<br />Prospect.Name (as required)<br />TeacherCandidate.Name (as required)<br />TeacherCandidateFieldworkExperience.CoordinatingTeacherName (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MaidenName (optional)<br />MiddleName (optional)<br />PersonalIdentificationDocument (optional collection)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.Name (as required)<br />Staff.Name (as required)<br />Student.Name (as required)<br />Applicant.Name (as required)<br />Prospect.Name (as required)<br />TeacherCandidate.Name (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52435,7 +52470,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstName (as required)<br />Reviewer.FirstName (as identity)</div>
+                <div><br />Used By:<br />CoordinatingTeacherName.FirstName (as required)<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstName (as required)<br />Reviewer.FirstName (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53022,7 +53057,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastSurname (as required)<br />Reviewer.LastSurname (as identity)</div>
+                <div><br />Used By:<br />CoordinatingTeacherName.LastSurname (as required)<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastSurname (as required)<br />Reviewer.LastSurname (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53399,7 +53434,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.MiddleName (as optional)<br />OtherName.MiddleName (as optional)</div>
+                <div><br />Used By:<br />CoordinatingTeacherName.MiddleName (as optional)<br />Name.MiddleName (as optional)<br />OtherName.MiddleName (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

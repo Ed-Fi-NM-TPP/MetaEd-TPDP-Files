@@ -1,0 +1,12 @@
+// MM TPP Extension
+Common CoordinatingTeacherName
+  documentation "A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience."
+  shared string FirstName
+    documentation "The first name of the Coordinating Teacher associated with the Teacher Candidate."
+    is required
+  shared string MiddleName
+    documentation "The middle name/initial of the Coordinating Teacher associated with the Teacher Candidate."
+    is optional
+  shared string LastSurname
+    documentation "The last name of the Coordinating Teacher associated with the Teacher Candidate."
+    is required

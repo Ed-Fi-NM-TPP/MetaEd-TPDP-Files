@@ -12306,12 +12306,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
     [EndDate] [DATE] NULL,
     [ProgramGatewayDescriptorId] [INT] NULL,
     [Internship] [BIT] NULL,
-    [CoordinatingTeacherPersonalTitlePrefix] [NVARCHAR](30) NULL,
-    [CoordinatingTeacherFirstName] [NVARCHAR](75) NOT NULL,
-    [CoordinatingTeacherMiddleName] [NVARCHAR](75) NULL,
-    [CoordinatingTeacherLastSurname] [NVARCHAR](75) NOT NULL,
-    [CoordinatingTeacherGenerationCodeSuffix] [NVARCHAR](10) NULL,
-    [CoordinatingTeacherMaidenName] [NVARCHAR](75) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -12366,17 +12360,45 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not the field placement is also considered an intership.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'Internship'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A prefix used to denote the title, degree, position, or seniority of the person.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherPersonalTitlePrefix'
+
+
+/****** Table: [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] ******/
+
+CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName](
+    [BeginDate] [DATE] NOT NULL,
+    [FieldworkExperienceSchoolId] [INT] NOT NULL,
+    [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
+    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
+    [FirstName] [NVARCHAR](75) NOT NULL,
+    [MiddleName] [NVARCHAR](75) NULL,
+    [LastSurname] [NVARCHAR](75) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [TeacherCandidateFieldworkExperienceCoordinatingTeacherName_PK] PRIMARY KEY CLUSTERED (
+        [BeginDate] ASC,
+        [FieldworkExperienceSchoolId] ASC,
+        [FieldworkIdentifier] ASC,
+        [TeacherCandidateIdentifier] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherFirstName'
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] ADD CONSTRAINT [TeacherCandidateFieldworkExperienceCoordinatingTeacherName_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A secondary name given to an individual at birth, baptism, or during another naming ceremony.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherMiddleName'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherLastSurname'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts fieldwork.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'BeginDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An appendage, if any, used to denote an individual''s generation in his family (e.g., Jr., Sr., III).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherGenerationCodeSuffix'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The person''s maiden name.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherMaidenName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FirstName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The middle name/initial of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'MiddleName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The last name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'LastSurname'
 GO
 
 
@@ -12414,60 +12436,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'CoteachingBeginDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate stopped co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'CoteachingEndDate'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] ******/
-
-CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument](
-    [BeginDate] [DATE] NOT NULL,
-    [CoordinatingTeacherIdentificationDocumentUseTypeId] [INT] NOT NULL,
-    [CoordinatingTeacherPersonalInformationVerificationTypeId] [INT] NOT NULL,
-    [FieldworkExperienceSchoolId] [INT] NOT NULL,
-    [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
-    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
-    [CoordinatingTeacherDocumentTitle] [NVARCHAR](60) NULL,
-    [CoordinatingTeacherDocumentExpirationDate] [DATE] NULL,
-    [CoordinatingTeacherIssuerDocumentIdentificationCode] [NVARCHAR](60) NULL,
-    [CoordinatingTeacherIssuerName] [NVARCHAR](150) NULL,
-    [CoordinatingTeacherIssuerCountryDescriptorId] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateFieldworkExperienceIdentificationDocument_PK] PRIMARY KEY CLUSTERED (
-        [BeginDate] ASC,
-        [CoordinatingTeacherIdentificationDocumentUseTypeId] ASC,
-        [CoordinatingTeacherPersonalInformationVerificationTypeId] ASC,
-        [FieldworkExperienceSchoolId] ASC,
-        [FieldworkIdentifier] ASC,
-        [TeacherCandidateIdentifier] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] ADD CONSTRAINT [TeacherCandidateFieldworkExperienceIdentificationDocument_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The documents presented as evident to verify one''s personal identity; for example: drivers license, passport, birth certificate, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts fieldwork.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'BeginDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary function of the document used for establishing identity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherIdentificationDocumentUseTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of the document relative to its purpose.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherPersonalInformationVerificationTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of the document given by the issuer.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherDocumentTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The day when the document  expires, if null then never expires.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherDocumentExpirationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier on the issuer''s identification system.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherIssuerDocumentIdentificationCode'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Name of the entity or institution that issued the document.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherIssuerName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Country of origin of the document.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceIdentificationDocument', @level2type=N'COLUMN', @level2name=N'CoordinatingTeacherIssuerCountryDescriptorId'
 GO
 
 
@@ -20191,6 +20159,14 @@ GO
 
 
 
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoordinatingTeacherName_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+ON DELETE CASCADE
+
+GO
+
+
+
 ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_AttendanceEventCategoryDescriptor] FOREIGN KEY ([AttendanceEventCategoryDescriptorId])
 REFERENCES [edfi].[AttendanceEventCategoryDescriptor] ([AttendanceEventCategoryDescriptorId])
 
@@ -20467,46 +20443,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateIdentificationDocument_TeacherCandidate]
 ON [extension].[TeacherCandidateIdentificationDocument]([TeacherCandidateIdentifier] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_CountryDescriptor] FOREIGN KEY ([CoordinatingTeacherIssuerCountryDescriptorId])
-REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_CountryDescriptor]
-ON [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument]([CoordinatingTeacherIssuerCountryDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_IdentificationDocumentUseType] FOREIGN KEY ([CoordinatingTeacherIdentificationDocumentUseTypeId])
-REFERENCES [edfi].[IdentificationDocumentUseType] ([IdentificationDocumentUseTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_IdentificationDocumentUseType]
-ON [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument]([CoordinatingTeacherIdentificationDocumentUseTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_PersonalInformationVerificationType] FOREIGN KEY ([CoordinatingTeacherPersonalInformationVerificationTypeId])
-REFERENCES [edfi].[PersonalInformationVerificationType] ([PersonalInformationVerificationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_PersonalInformationVerificationType]
-ON [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument]([CoordinatingTeacherPersonalInformationVerificationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
-REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceIdentificationDocument_TeacherCandidateFieldworkExperience]
-ON [extension].[TeacherCandidateFieldworkExperienceIdentificationDocument]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
 

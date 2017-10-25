@@ -482,8 +482,8 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateFieldworkExperience">
     <Entity table="TeacherCandidateFieldworkExperience" schema="extension"/>
+    <Entity table="TeacherCandidateFieldworkExperienceCoordinatingTeacherName" schema="extension"/>
     <Entity table="TeacherCandidateFieldworkExperienceCoteaching" schema="extension"/>
-    <Entity table="TeacherCandidateFieldworkExperienceIdentificationDocument" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateProfessionalDevelopmentEventAttendance">
     <Entity table="TeacherCandidateProfessionalDevelopmentEventAttendance" schema="extension"/>
