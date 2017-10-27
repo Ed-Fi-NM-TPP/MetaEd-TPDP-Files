@@ -4492,7 +4492,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidateFieldworkExperience.Internship (as optional)</div>
+                <div><br />Used By:<br />FieldworkInformation.Internship (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7992,7 +7992,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />MiddleName (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.CoordinatingTeacherName (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />MiddleName (optional)<br /><br />Used By:<br />FieldworkInformation.CoordinatingTeacherName (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8708,6 +8708,58 @@ BeginDate
     &lt;xs:element name=&quot;TeacherCandidateReference&quot; type=&quot;EXTENSION-TeacherCandidateReferenceType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The teacher candidate associated with the fieldwork experience.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>FieldworkInformation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Contains information about each fieldwork experience.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />CoordinatingTeacherName (optional collection)<br />FieldworkSchool (required)<br />HoursPerWeek (required)<br />Internship (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.FieldworkInformation (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-FieldworkInformation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Contains information about each fieldwork experience.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;Internship&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;An indication of whether or not the field placement is also considered an intership.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;HoursPerWeek&quot; type=&quot;HoursPerWeek&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The number of hours the teacher candidate completed for each fieldwork experience.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;FieldworkSchool&quot; type=&quot;EXTENSION-FieldworkSchool&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school at which the teacher candidate completed each fieldwork experience.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;EXTENSION-CoordinatingTeacherName&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -9738,6 +9790,63 @@ BeginDate
     &lt;xs:element name=&quot;TotalHours&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The number of total hours the professional development contains.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>ProgramInformation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>This is documentation.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BilingualMinor (optional collection)<br />ConcentrationArea (optional collection)<br />OtherMinor (optional collection)<br />PrimarySubjectArea (optional collection)<br />SecondarySubjectArea (optional collection)<br /><br />Used By:<br />Credential.ProgramInformation (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-ProgramInformation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;This is documentation.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;OtherMinor&quot; type=&quot;EXTENSION-OtherMinor&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;An additional minor identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;ConcentrationArea&quot; type=&quot;EXTENSION-ConcentrationArea&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;A concentration area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;PrimarySubjectArea&quot; type=&quot;EXTENSION-PrimarySubjectArea&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The primary subject area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;SecondarySubjectArea&quot; type=&quot;EXTENSION-SecondarySubjectArea&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The secondary subject area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;BilingualMinor&quot; type=&quot;EXTENSION-BilingualMinor&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;An minor that is specific to bilingual education identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -16723,48 +16832,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>AdmittingGPA</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The GPA the Teacher Candidate had at the time of admittance into the EPP program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Decimal Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>total digits: 18<br />decimal places: 0</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidateAcademicRecord.AdmittingGPA (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-AdmittingGPA&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The GPA the Teacher Candidate had at the time of admittance into the EPP program.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
-    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
-    &lt;xs:fractionDigits value=&quot;0&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>AdmittingGPA [DECIMAL](18, 0)</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>AverageNumericResponse</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -16953,7 +17020,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
+                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.AdmittingGPA (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.GraduatingGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -16974,48 +17041,6 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>GPA [DECIMAL](18, 4)</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>GraduatingGradePointAverage</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The grade point averate the teacher candidate had at the time of graduating from high school.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Decimal Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>total digits: 18<br />decimal places: 0</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidateAcademicRecord.GraduatingGradePointAverage (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-GraduatingGradePointAverage&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The grade point averate the teacher candidate had at the time of graduating from high school.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
-    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
-    &lt;xs:fractionDigits value=&quot;0&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>GraduatingGradePointAverage [DECIMAL](18, 0)</pre></div>
             </div>
         </p>
         <p>
@@ -17124,7 +17149,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />FieldworkExperience.HoursPerWeek (as optional)<br />StaffFieldworkExperience.HoursPerWeek (as optional)<br />StudentSpecialEducationProgramAssociation.SchoolHoursPerWeek (as optional)<br />StudentSpecialEducationProgramAssociation.SpecialEducationHoursPerWeek (as optional)<br />TeacherCandidateFieldworkExperience.HoursPerWeek (as optional)</div>
+                <div><br />Used By:<br />FieldworkExperience.HoursPerWeek (as optional)<br />FieldworkInformation.HoursPerWeek (as required)<br />StaffFieldworkExperience.HoursPerWeek (as optional)<br />StudentSpecialEducationProgramAssociation.SchoolHoursPerWeek (as optional)<br />StudentSpecialEducationProgramAssociation.SpecialEducationHoursPerWeek (as optional)<br />TeacherCandidateFieldworkExperience.HoursPerWeek (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -17374,7 +17399,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Type Characteristics:</div>
-                <div>total digits: 18<br />decimal places: 0</div>
+                <div>total digits: 18<br />decimal places: 4</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
@@ -17391,13 +17416,13 @@ BeginDate
   &lt;/xs:annotation&gt;
   &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
     &lt;xs:totalDigits value=&quot;18&quot; /&gt;
-    &lt;xs:fractionDigits value=&quot;0&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
   &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</pre></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>PointsPossible [DECIMAL](18, 0)</pre></div>
+                <div><pre>PointsPossible [DECIMAL](18, 4)</pre></div>
             </div>
         </p>
         <p>
@@ -28085,7 +28110,7 @@ FactsAsOfDate [DATE] NOT NULL
 IndicatorCriteria [NVARCHAR](60) NOT NULL
 IndicatorFacts [NVARCHAR](60) NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-PointsPossible [DECIMAL](18, 0) NOT NULL
+PointsPossible [DECIMAL](18, 4) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -39713,12 +39738,12 @@ VisaTypeId
             &lt;/xs:appinfo&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AdmittingGPA&quot; type=&quot;EXTENSION-AdmittingGPA&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;AdmittingGPA&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The GPA the Teacher Candidate had at the time of admittance into the EPP program.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;GraduatingGradePointAverage&quot; type=&quot;EXTENSION-GraduatingGradePointAverage&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;GraduatingGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The grade point averate the teacher candidate had at the time of graduating from high school.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -39758,8 +39783,8 @@ ContentGradePointAverage [DECIMAL](18, 4) NULL
 ContentGradePointEarned [DECIMAL](18, 4) NULL
 ProgramGatewayDescriptorId [INT] NOT NULL
 TPPDegreeTypeDescriptorId [INT] NOT NULL
-AdmittingGPA [DECIMAL](18, 0) NULL
-GraduatingGradePointAverage [DECIMAL](18, 0) NULL
+AdmittingGPA [DECIMAL](18, 4) NULL
+GraduatingGradePointAverage [DECIMAL](18, 4) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -40151,7 +40176,7 @@ TeacherCandidateIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (identity)<br />CoordinatingTeacherName (optional collection)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />Internship (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkInformation (optional)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40221,14 +40246,9 @@ TeacherCandidateIdentifier
             &lt;/xs:appinfo&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Internship&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;FieldworkInformation&quot; type=&quot;EXTENSION-FieldworkInformation&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;An indication of whether or not the field placement is also considered an intership.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;EXTENSION-CoordinatingTeacherName&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;Contains information about each fieldwork experience.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
@@ -40256,7 +40276,6 @@ FieldworkTypeDescriptorId [INT] NOT NULL
 HoursPerWeek [DECIMAL](5, 2) NULL
 EndDate [DATE] NULL
 ProgramGatewayDescriptorId [INT] NULL
-Internship [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -40266,7 +40285,38 @@ BeginDate
 FieldworkExperienceSchoolId
 FieldworkIdentifier
 TeacherCandidateIdentifier
-<br />extension.TeacherCandidateFieldworkExperienceCoordinatingTeacherName
+<br />extension.TeacherCandidateFieldworkExperienceCoteaching
+
+BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
+FieldworkIdentifier [NVARCHAR](20) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+CoteachingBeginDate [DATE] NOT NULL
+CoteachingEndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+BeginDate
+FieldworkExperienceSchoolId
+FieldworkIdentifier
+TeacherCandidateIdentifier
+<br />extension.TeacherCandidateFieldworkExperienceFieldworkInformation
+
+BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
+FieldworkIdentifier [NVARCHAR](20) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+Internship [BIT] NULL
+HoursPerWeek [DECIMAL](5, 2) NOT NULL
+FieldworkSchool [NVARCHAR](60) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+BeginDate
+FieldworkExperienceSchoolId
+FieldworkIdentifier
+TeacherCandidateIdentifier
+<br />extension.TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName
 
 BeginDate [DATE] NOT NULL
 FieldworkExperienceSchoolId [INT] NOT NULL
@@ -40283,21 +40333,6 @@ FieldworkExperienceSchoolId
 FieldworkIdentifier
 FirstName
 LastSurname
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateFieldworkExperienceCoteaching
-
-BeginDate [DATE] NOT NULL
-FieldworkExperienceSchoolId [INT] NOT NULL
-FieldworkIdentifier [NVARCHAR](20) NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-CoteachingBeginDate [DATE] NOT NULL
-CoteachingEndDate [DATE] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-BeginDate
-FieldworkExperienceSchoolId
-FieldworkIdentifier
 TeacherCandidateIdentifier
 </pre></div>
             </div>
@@ -50713,7 +50748,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.BilingualMinor (as optional collection)</div>
+                <div><br />Used By:<br />ProgramInformation.BilingualMinor (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50901,6 +50936,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>CertificationExamTitle [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>CertificationType</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The type of credential received.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Credential.CertificationType (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CertificationType&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CertificationType [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>
@@ -51216,7 +51293,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.ConcentrationArea (as optional collection)</div>
+                <div><br />Used By:<br />ProgramInformation.ConcentrationArea (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51698,6 +51775,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>CourseTitle [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>CredentialCategory</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The type of credential received.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Credential.CredentialCategory (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CredentialCategory&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CredentialCategory [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>
@@ -52452,6 +52571,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>FieldworkIdentifier [NVARCHAR](20)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>FieldworkSchool</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The school at which the teacher candidate completed each fieldwork experience.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />FieldworkInformation.FieldworkSchool (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-FieldworkSchool&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The school at which the teacher candidate completed each fieldwork experience.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>FieldworkSchool [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>
@@ -53774,7 +53935,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.OtherMinor (as optional collection)</div>
+                <div><br />Used By:<br />ProgramInformation.OtherMinor (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -54007,6 +54168,48 @@ VisaTypeId
             </div>
         </p>
         <p>
+            <h2>PrimarySubjectArea</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The primary subject area identified in the teacher candidates educational programming.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />ProgramInformation.PrimarySubjectArea (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-PrimarySubjectArea&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The primary subject area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>PrimarySubjectArea [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>ProfessionalDevelopmentReason</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -54130,48 +54333,6 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>ProfileThumbnail [NVARCHAR](59)</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>ProgramArea</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The program area identified in the teacher candidates educational programming.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>String Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 1<br />max length: 60</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.ProgramArea (as optional collection)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ProgramArea&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The program area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;1&quot; /&gt;
-    &lt;xs:maxLength value=&quot;60&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProgramArea [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>
@@ -55095,6 +55256,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>RubricTitle [NVARCHAR](15)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>SecondarySubjectArea</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The secondary subject area identified in the teacher candidates educational programming.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />ProgramInformation.SecondarySubjectArea (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-SecondarySubjectArea&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The secondary subject area identified in the teacher candidates educational programming.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>SecondarySubjectArea [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>

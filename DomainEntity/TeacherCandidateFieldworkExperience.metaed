@@ -38,9 +38,6 @@ Domain Entity TeacherCandidateFieldworkExperience
     is optional
 
   // NM TPP Extensions
-  bool Internship
-    documentation "An indication of whether or not the field placement is also considered an intership."
+  common FieldworkInformation
+    documentation "Contains information about each fieldwork experience."
     is optional
-  common CoordinatingTeacherName
-    documentation "A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience."
-    is optional collection

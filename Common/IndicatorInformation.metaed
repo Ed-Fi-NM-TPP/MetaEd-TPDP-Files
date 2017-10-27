@@ -15,4 +15,4 @@ Common IndicatorInformation
     documentation "The possible points for the indicator."
     is required
     total digits 18
-    decimal places 0
+    decimal places 4

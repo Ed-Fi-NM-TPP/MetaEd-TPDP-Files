@@ -1,0 +1,28 @@
+// TPDP Extension
+Common ProgramInformation
+    documentation "This is documentation."
+    string OtherMinor
+      documentation "An additional minor identified in the teacher candidates educational programming."
+      is optional collection
+      min length 1
+      max length 60
+    string ConcentrationArea
+      documentation "A concentration area identified in the teacher candidates educational programming."
+      is optional collection
+      min length 1
+      max length 60
+    string PrimarySubjectArea
+      documentation "The primary subject area identified in the teacher candidates educational programming."
+      is optional collection
+      min length 1
+      max length 60
+    string SecondarySubjectArea
+      documentation "The secondary subject area identified in the teacher candidates educational programming."
+      is optional collection
+      min length 1
+      max length 60
+    string BilingualMinor
+      documentation "An minor that is specific to bilingual education identified in the teacher candidates educational programming."
+      is optional collection
+      min length 1
+      max length 60

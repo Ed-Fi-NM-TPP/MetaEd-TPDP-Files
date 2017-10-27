@@ -3187,33 +3187,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used
 GO
 
 
-/****** Table: [extension].[CredentialBilingualMinor] ******/
-
-CREATE TABLE [extension].[CredentialBilingualMinor](
-    [BilingualMinor] [NVARCHAR](60) NOT NULL,
-    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialBilingualMinor_PK] PRIMARY KEY CLUSTERED (
-        [BilingualMinor] ASC,
-        [CredentialIdentifier] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[CredentialBilingualMinor] ADD CONSTRAINT [CredentialBilingualMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialBilingualMinor'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBilingualMinor', @level2type=N'COLUMN', @level2name=N'BilingualMinor'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBilingualMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBilingualMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
 /****** Table: [extension].[CredentialBoardCertification] ******/
 
 CREATE TABLE [extension].[CredentialBoardCertification](
@@ -3243,6 +3216,33 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
+GO
+
+
+/****** Table: [extension].[CredentialCategory] ******/
+
+CREATE TABLE [extension].[CredentialCategory](
+    [CredentialCategory] [NVARCHAR](60) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialCategory_PK] PRIMARY KEY CLUSTERED (
+        [CredentialCategory] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialCategory] ADD CONSTRAINT [CredentialCategory_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'CredentialCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
@@ -3278,30 +3278,30 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall sc
 GO
 
 
-/****** Table: [extension].[CredentialConcentrationArea] ******/
+/****** Table: [extension].[CredentialCertificationType] ******/
 
-CREATE TABLE [extension].[CredentialConcentrationArea](
-    [ConcentrationArea] [NVARCHAR](60) NOT NULL,
+CREATE TABLE [extension].[CredentialCertificationType](
+    [CertificationType] [NVARCHAR](60) NOT NULL,
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialConcentrationArea_PK] PRIMARY KEY CLUSTERED (
-        [ConcentrationArea] ASC,
+    CONSTRAINT [CredentialCertificationType_PK] PRIMARY KEY CLUSTERED (
+        [CertificationType] ASC,
         [CredentialIdentifier] ASC,
         [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[CredentialConcentrationArea] ADD CONSTRAINT [CredentialConcentrationArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[CredentialCertificationType] ADD CONSTRAINT [CredentialCertificationType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialConcentrationArea'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCertificationType'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialConcentrationArea', @level2type=N'COLUMN', @level2name=N'ConcentrationArea'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'CertificationType'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialConcentrationArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialConcentrationArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
@@ -3350,57 +3350,161 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of 
 GO
 
 
-/****** Table: [extension].[CredentialOtherMinor] ******/
+/****** Table: [extension].[CredentialProgramInformation] ******/
 
-CREATE TABLE [extension].[CredentialOtherMinor](
+CREATE TABLE [extension].[CredentialProgramInformation](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformation_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialProgramInformation] ADD CONSTRAINT [CredentialProgramInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the program details for the teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [extension].[CredentialProgramInformationBilingualMinor] ******/
+
+CREATE TABLE [extension].[CredentialProgramInformationBilingualMinor](
+    [BilingualMinor] [NVARCHAR](60) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationBilingualMinor_PK] PRIMARY KEY CLUSTERED (
+        [BilingualMinor] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialProgramInformationBilingualMinor] ADD CONSTRAINT [CredentialProgramInformationBilingualMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationBilingualMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'BilingualMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [extension].[CredentialProgramInformationConcentrationArea] ******/
+
+CREATE TABLE [extension].[CredentialProgramInformationConcentrationArea](
+    [ConcentrationArea] [NVARCHAR](60) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationConcentrationArea_PK] PRIMARY KEY CLUSTERED (
+        [ConcentrationArea] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialProgramInformationConcentrationArea] ADD CONSTRAINT [CredentialProgramInformationConcentrationArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationConcentrationArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'ConcentrationArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [extension].[CredentialProgramInformationOtherMinor] ******/
+
+CREATE TABLE [extension].[CredentialProgramInformationOtherMinor](
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [OtherMinor] [NVARCHAR](60) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialOtherMinor_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [CredentialProgramInformationOtherMinor_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
         [OtherMinor] ASC,
         [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[CredentialOtherMinor] ADD CONSTRAINT [CredentialOtherMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[CredentialProgramInformationOtherMinor] ADD CONSTRAINT [CredentialProgramInformationOtherMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialOtherMinor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationOtherMinor'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialOtherMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialOtherMinor', @level2type=N'COLUMN', @level2name=N'OtherMinor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'OtherMinor'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialOtherMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
-/****** Table: [extension].[CredentialProgramArea] ******/
+/****** Table: [extension].[CredentialProgramInformationPrimarySubjectArea] ******/
 
-CREATE TABLE [extension].[CredentialProgramArea](
+CREATE TABLE [extension].[CredentialProgramInformationPrimarySubjectArea](
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [ProgramArea] [NVARCHAR](60) NOT NULL,
+    [PrimarySubjectArea] [NVARCHAR](60) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialProgramArea_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [CredentialProgramInformationPrimarySubjectArea_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
-        [ProgramArea] ASC,
+        [PrimarySubjectArea] ASC,
         [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[CredentialProgramArea] ADD CONSTRAINT [CredentialProgramArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[CredentialProgramInformationPrimarySubjectArea] ADD CONSTRAINT [CredentialProgramInformationPrimarySubjectArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The program area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramArea'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationPrimarySubjectArea'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The program area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramArea', @level2type=N'COLUMN', @level2name=N'ProgramArea'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'PrimarySubjectArea'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [extension].[CredentialProgramInformationSecondarySubjectArea] ******/
+
+CREATE TABLE [extension].[CredentialProgramInformationSecondarySubjectArea](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [SecondarySubjectArea] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationSecondarySubjectArea_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [SecondarySubjectArea] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialProgramInformationSecondarySubjectArea] ADD CONSTRAINT [CredentialProgramInformationSecondarySubjectArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationSecondarySubjectArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'SecondarySubjectArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
@@ -3764,7 +3868,7 @@ CREATE TABLE [extension].[EducationOrganizationFactsIndicatorInformation](
     [IndicatorCriteria] [NVARCHAR](60) NOT NULL,
     [IndicatorFacts] [NVARCHAR](60) NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [PointsPossible] [DECIMAL](18, 0) NOT NULL,
+    [PointsPossible] [DECIMAL](18, 4) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationFactsIndicatorInformation_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -11417,8 +11521,8 @@ CREATE TABLE [extension].[TeacherCandidateAcademicRecord](
     [ContentGradePointEarned] [DECIMAL](18, 4) NULL,
     [ProgramGatewayDescriptorId] [INT] NOT NULL,
     [TPPDegreeTypeDescriptorId] [INT] NOT NULL,
-    [AdmittingGPA] [DECIMAL](18, 0) NULL,
-    [GraduatingGradePointAverage] [DECIMAL](18, 0) NULL,
+    [AdmittingGPA] [DECIMAL](18, 4) NULL,
+    [GraduatingGradePointAverage] [DECIMAL](18, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -12307,7 +12411,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
     [HoursPerWeek] [DECIMAL](5, 2) NULL,
     [EndDate] [DATE] NULL,
     [ProgramGatewayDescriptorId] [INT] NULL,
-    [Internship] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -12360,50 +12463,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the program gateway that is associated with continuation in a program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'ProgramGatewayDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not the field placement is also considered an intership.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'Internship'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] ******/
-
-CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName](
-    [BeginDate] [DATE] NOT NULL,
-    [FieldworkExperienceSchoolId] [INT] NOT NULL,
-    [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
-    [FirstName] [NVARCHAR](75) NOT NULL,
-    [LastSurname] [NVARCHAR](75) NOT NULL,
-    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
-    [MiddleName] [NVARCHAR](75) NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateFieldworkExperienceCoordinatingTeacherName_PK] PRIMARY KEY CLUSTERED (
-        [BeginDate] ASC,
-        [FieldworkExperienceSchoolId] ASC,
-        [FieldworkIdentifier] ASC,
-        [FirstName] ASC,
-        [LastSurname] ASC,
-        [TeacherCandidateIdentifier] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] ADD CONSTRAINT [TeacherCandidateFieldworkExperienceCoordinatingTeacherName_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts fieldwork.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'BeginDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FirstName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The last name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'LastSurname'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The middle name/initial of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'MiddleName'
-GO
 
 
 /****** Table: [extension].[TeacherCandidateFieldworkExperienceCoteaching] ******/
@@ -12440,6 +12499,88 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'CoteachingBeginDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate stopped co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'CoteachingEndDate'
+GO
+
+
+/****** Table: [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] ******/
+
+CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation](
+    [BeginDate] [DATE] NOT NULL,
+    [FieldworkExperienceSchoolId] [INT] NOT NULL,
+    [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
+    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
+    [Internship] [BIT] NULL,
+    [HoursPerWeek] [DECIMAL](5, 2) NOT NULL,
+    [FieldworkSchool] [NVARCHAR](60) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [TeacherCandidateFieldworkExperienceFieldworkInformation_PK] PRIMARY KEY CLUSTERED (
+        [BeginDate] ASC,
+        [FieldworkExperienceSchoolId] ASC,
+        [FieldworkIdentifier] ASC,
+        [TeacherCandidateIdentifier] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] ADD CONSTRAINT [TeacherCandidateFieldworkExperienceFieldworkInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Contains information about each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts fieldwork.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not the field placement is also considered an intership.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'Internship'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of hours the teacher candidate completed for each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'HoursPerWeek'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school at which the teacher candidate completed each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkSchool'
+GO
+
+
+/****** Table: [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName] ******/
+
+CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName](
+    [BeginDate] [DATE] NOT NULL,
+    [FieldworkExperienceSchoolId] [INT] NOT NULL,
+    [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
+    [FirstName] [NVARCHAR](75) NOT NULL,
+    [LastSurname] [NVARCHAR](75) NOT NULL,
+    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
+    [MiddleName] [NVARCHAR](75) NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_PK] PRIMARY KEY CLUSTERED (
+        [BeginDate] ASC,
+        [FieldworkExperienceSchoolId] ASC,
+        [FieldworkIdentifier] ASC,
+        [FirstName] ASC,
+        [LastSurname] ASC,
+        [TeacherCandidateIdentifier] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName] ADD CONSTRAINT [TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate first starts fieldwork.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FirstName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The last name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'LastSurname'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The middle name/initial of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'MiddleName'
 GO
 
 
@@ -14621,44 +14762,82 @@ CREATE NONCLUSTERED INDEX [FK_CredentialRecommendingInstitution_StateAbbreviatio
 ON [extension].[CredentialRecommendingInstitution]([RecommendingInstitutionStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[CredentialOtherMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialOtherMinor_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ALTER TABLE [extension].[CredentialCertificationType] WITH CHECK ADD CONSTRAINT [FK_CredentialCertificationType_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CredentialOtherMinor_Credential]
-ON [extension].[CredentialOtherMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+CREATE NONCLUSTERED INDEX [FK_CredentialCertificationType_Credential]
+ON [extension].[CredentialCertificationType]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[CredentialConcentrationArea] WITH CHECK ADD CONSTRAINT [FK_CredentialConcentrationArea_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ALTER TABLE [extension].[CredentialCategory] WITH CHECK ADD CONSTRAINT [FK_CredentialCategory_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CredentialConcentrationArea_Credential]
-ON [extension].[CredentialConcentrationArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+CREATE NONCLUSTERED INDEX [FK_CredentialCategory_Credential]
+ON [extension].[CredentialCategory]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[CredentialProgramArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramArea_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ALTER TABLE [extension].[CredentialProgramInformation] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformation_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CredentialProgramArea_Credential]
-ON [extension].[CredentialProgramArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
-GO
 
-ALTER TABLE [extension].[CredentialBilingualMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialBilingualMinor_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+
+ALTER TABLE [extension].[CredentialProgramInformationOtherMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationOtherMinor_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CredentialBilingualMinor_Credential]
-ON [extension].[CredentialBilingualMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationOtherMinor_CredentialProgramInformation]
+ON [extension].[CredentialProgramInformationOtherMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialProgramInformationConcentrationArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationConcentrationArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationConcentrationArea_CredentialProgramInformation]
+ON [extension].[CredentialProgramInformationConcentrationArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialProgramInformationPrimarySubjectArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationPrimarySubjectArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationPrimarySubjectArea_CredentialProgramInformation]
+ON [extension].[CredentialProgramInformationPrimarySubjectArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialProgramInformationSecondarySubjectArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationSecondarySubjectArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationSecondarySubjectArea_CredentialProgramInformation]
+ON [extension].[CredentialProgramInformationSecondarySubjectArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialProgramInformationBilingualMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationBilingualMinor_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationBilingualMinor_CredentialProgramInformation]
+ON [extension].[CredentialProgramInformationBilingualMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[GradebookEntryExtension] WITH CHECK ADD CONSTRAINT [FK_GradebookEntryExtension_GradebookEntry] FOREIGN KEY ([GradebookEntryTitle], [ClassroomIdentificationCode], [SchoolId], [ClassPeriodName], [LocalCourseCode], [SchoolYear], [TermDescriptorId], [UniqueSectionCode], [SequenceOfCourse], [DateAssigned])
@@ -20165,14 +20344,22 @@ GO
 
 
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoordinatingTeacherName_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceFieldworkInformation_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
 REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceCoordinatingTeacherName_TeacherCandidateFieldworkExperience]
-ON [extension].[TeacherCandidateFieldworkExperienceCoordinatingTeacherName]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [TeacherCandidateIdentifier] ASC)
+
+
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_TeacherCandidateFieldworkExperienceFieldworkIn] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+REFERENCES [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_TeacherCandidateFieldworkExperienceFieldworkIn]
+ON [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_AttendanceEventCategoryDescriptor] FOREIGN KEY ([AttendanceEventCategoryDescriptorId])

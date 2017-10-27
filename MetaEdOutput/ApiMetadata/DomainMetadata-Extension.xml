@@ -482,8 +482,9 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateFieldworkExperience">
     <Entity table="TeacherCandidateFieldworkExperience" schema="extension"/>
-    <Entity table="TeacherCandidateFieldworkExperienceCoordinatingTeacherName" schema="extension"/>
     <Entity table="TeacherCandidateFieldworkExperienceCoteaching" schema="extension"/>
+    <Entity table="TeacherCandidateFieldworkExperienceFieldworkInformation" schema="extension"/>
+    <Entity table="TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateProfessionalDevelopmentEventAttendance">
     <Entity table="TeacherCandidateProfessionalDevelopmentEventAttendance" schema="extension"/>
@@ -549,12 +550,16 @@
   </Aggregate>
 
   <AggregateExtension root="Credential">
-    <Entity table="CredentialBilingualMinor" schema="extension"/>
     <Entity table="CredentialBoardCertification" schema="extension"/>
+    <Entity table="CredentialCategory" schema="extension"/>
     <Entity table="CredentialCertificationExam" schema="extension"/>
-    <Entity table="CredentialConcentrationArea" schema="extension"/>
-    <Entity table="CredentialOtherMinor" schema="extension"/>
-    <Entity table="CredentialProgramArea" schema="extension"/>
+    <Entity table="CredentialCertificationType" schema="extension"/>
+    <Entity table="CredentialProgramInformation" schema="extension"/>
+    <Entity table="CredentialProgramInformationBilingualMinor" schema="extension"/>
+    <Entity table="CredentialProgramInformationConcentrationArea" schema="extension"/>
+    <Entity table="CredentialProgramInformationOtherMinor" schema="extension"/>
+    <Entity table="CredentialProgramInformationPrimarySubjectArea" schema="extension"/>
+    <Entity table="CredentialProgramInformationSecondarySubjectArea" schema="extension"/>
     <Entity table="CredentialRecommendation" schema="extension"/>
     <Entity table="CredentialRecommendingInstitution" schema="extension"/>
   </AggregateExtension>

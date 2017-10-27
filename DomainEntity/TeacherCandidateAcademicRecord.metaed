@@ -76,13 +76,9 @@ Domain Entity TeacherCandidateAcademicRecord
     is required
 
   // NM TPP Extensions
-  decimal AdmittingGPA
+  shared decimal GPA named AdmittingGPA
     documentation "The GPA the Teacher Candidate had at the time of admittance into the EPP program."
     is optional
-    total digits 18
-    decimal places 0
-  decimal GraduatingGradePointAverage
+  shared decimal GPA named GraduatingGradePointAverage
     documentation "The grade point averate the teacher candidate had at the time of graduating from high school."
     is optional
-    total digits 18
-    decimal places 0

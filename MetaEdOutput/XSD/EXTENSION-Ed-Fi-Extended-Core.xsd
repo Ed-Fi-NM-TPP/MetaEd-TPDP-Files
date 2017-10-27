@@ -946,29 +946,24 @@
               <xs:documentation>An indication of whether or not a person has completed their licensure.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="OtherMinor" type="EXTENSION-OtherMinor" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CertificationType" type="EXTENSION-CertificationType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
+              <xs:documentation>The type of credential received.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ConcentrationArea" type="EXTENSION-ConcentrationArea" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CredentialCategory" type="EXTENSION-CredentialCategory" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ProgramArea" type="EXTENSION-ProgramArea" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>The program area identified in the teacher candidates educational programming.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="BilingualMinor" type="EXTENSION-BilingualMinor" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
+              <xs:documentation>The type of credential received.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="CredentialStatus" type="EXTENSION-CredentialStatus" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The status of the credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ProgramInformation" type="EXTENSION-ProgramInformation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3732,12 +3727,12 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AdmittingGPA" type="EXTENSION-AdmittingGPA" minOccurs="0">
+          <xs:element name="AdmittingGPA" type="GPA" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The GPA the Teacher Candidate had at the time of admittance into the EPP program.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="GraduatingGradePointAverage" type="EXTENSION-GraduatingGradePointAverage" minOccurs="0">
+          <xs:element name="GraduatingGradePointAverage" type="GPA" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The grade point averate the teacher candidate had at the time of graduating from high school.</xs:documentation>
             </xs:annotation>
@@ -3950,14 +3945,9 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Internship" type="xs:boolean" minOccurs="0">
+          <xs:element name="FieldworkInformation" type="EXTENSION-FieldworkInformation" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>An indication of whether or not the field placement is also considered an intership.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="CoordinatingTeacherName" type="EXTENSION-CoordinatingTeacherName" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.</xs:documentation>
+              <xs:documentation>Contains information about each fieldwork experience.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -9538,6 +9528,36 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-FieldworkInformation">
+    <xs:annotation>
+      <xs:documentation>Contains information about each fieldwork experience.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Internship" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>An indication of whether or not the field placement is also considered an intership.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HoursPerWeek" type="HoursPerWeek">
+        <xs:annotation>
+          <xs:documentation>The number of hours the teacher candidate completed for each fieldwork experience.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FieldworkSchool" type="EXTENSION-FieldworkSchool">
+        <xs:annotation>
+          <xs:documentation>The school at which the teacher candidate completed each fieldwork experience.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CoordinatingTeacherName" type="EXTENSION-CoordinatingTeacherName" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-IndicatorInformation">
     <xs:annotation>
       <xs:documentation>A complex element that hold information regarding the points possible per indicator to calculate scores for the EPPS.</xs:documentation>
@@ -9684,6 +9704,41 @@
       <xs:element name="TotalHours" type="xs:int" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The number of total hours the professional development contains.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-ProgramInformation">
+    <xs:annotation>
+      <xs:documentation>This is documentation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OtherMinor" type="EXTENSION-OtherMinor" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ConcentrationArea" type="EXTENSION-ConcentrationArea" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PrimarySubjectArea" type="EXTENSION-PrimarySubjectArea" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SecondarySubjectArea" type="EXTENSION-SecondarySubjectArea" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BilingualMinor" type="EXTENSION-BilingualMinor" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -11725,6 +11780,18 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-CertificationType">
+    <xs:annotation>
+      <xs:documentation>The type of credential received.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-Comments">
     <xs:annotation>
       <xs:documentation>Any comments about the performance measure to be captured</xs:documentation>
@@ -11739,6 +11806,18 @@
   <xs:simpleType name="EXTENSION-ConcentrationArea">
     <xs:annotation>
       <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-CredentialCategory">
+    <xs:annotation>
+      <xs:documentation>The type of credential received.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Simple</ann:TypeGroup>
       </xs:appinfo>
@@ -11815,6 +11894,18 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-FieldworkSchool">
+    <xs:annotation>
+      <xs:documentation>The school at which the teacher candidate completed each fieldwork experience.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-FullName">
@@ -11959,6 +12050,18 @@
       <xs:maxLength value="64" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-PrimarySubjectArea">
+    <xs:annotation>
+      <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-ProfessionalDevelopmentReason">
     <xs:annotation>
       <xs:documentation>The reported reason for a teacher candidate's professional development.</xs:documentation>
@@ -11974,18 +12077,6 @@
   <xs:simpleType name="EXTENSION-ProfessionalDevelopmentTitle">
     <xs:annotation>
       <xs:documentation>The title or name for a professional development.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ProgramArea">
-    <xs:annotation>
-      <xs:documentation>The program area identified in the teacher candidates educational programming.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Simple</ann:TypeGroup>
       </xs:appinfo>
@@ -12112,6 +12203,18 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="2" />
       <xs:maxLength value="15" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-SecondarySubjectArea">
+    <xs:annotation>
+      <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-SocialMediaNetworkName">
@@ -12309,18 +12412,6 @@
   <xs:annotation>
     <xs:documentation>===== Numeric Simple Types =====</xs:documentation>
   </xs:annotation>
-  <xs:simpleType name="EXTENSION-AdmittingGPA">
-    <xs:annotation>
-      <xs:documentation>The GPA the Teacher Candidate had at the time of admittance into the EPP program.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:decimal">
-      <xs:totalDigits value="18" />
-      <xs:fractionDigits value="0" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-AverageNumericResponse">
     <xs:annotation>
       <xs:documentation>The average numeric response for the survey.</xs:documentation>
@@ -12331,18 +12422,6 @@
     <xs:restriction base="xs:decimal">
       <xs:totalDigits value="18" />
       <xs:fractionDigits value="4" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-GraduatingGradePointAverage">
-    <xs:annotation>
-      <xs:documentation>The grade point averate the teacher candidate had at the time of graduating from high school.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:decimal">
-      <xs:totalDigits value="18" />
-      <xs:fractionDigits value="0" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-HoursPerDay">
@@ -12392,7 +12471,7 @@
     </xs:annotation>
     <xs:restriction base="xs:decimal">
       <xs:totalDigits value="18" />
-      <xs:fractionDigits value="0" />
+      <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-ScoreResultAverage">
