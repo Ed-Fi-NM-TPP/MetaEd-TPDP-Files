@@ -1,6 +1,6 @@
 // TPDP Extension
 Common ProgramInformation
-    documentation "This is documentation."
+    documentation "Information about the program details for the teacher candidate."
     string OtherMinor
       documentation "An additional minor identified in the teacher candidates educational programming."
       is optional collection

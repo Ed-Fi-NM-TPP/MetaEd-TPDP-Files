@@ -9710,7 +9710,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-ProgramInformation">
     <xs:annotation>
-      <xs:documentation>This is documentation.</xs:documentation>
+      <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
