@@ -551,15 +551,12 @@
 
   <AggregateExtension root="Credential">
     <Entity table="CredentialBoardCertification" schema="extension"/>
-    <Entity table="CredentialCategory" schema="extension"/>
     <Entity table="CredentialCertificationExam" schema="extension"/>
-    <Entity table="CredentialCertificationType" schema="extension"/>
     <Entity table="CredentialProgramInformation" schema="extension"/>
     <Entity table="CredentialProgramInformationBilingualMinor" schema="extension"/>
     <Entity table="CredentialProgramInformationConcentrationArea" schema="extension"/>
     <Entity table="CredentialProgramInformationOtherMinor" schema="extension"/>
     <Entity table="CredentialProgramInformationPrimarySubjectArea" schema="extension"/>
-    <Entity table="CredentialProgramInformationSecondarySubjectArea" schema="extension"/>
     <Entity table="CredentialRecommendation" schema="extension"/>
     <Entity table="CredentialRecommendingInstitution" schema="extension"/>
   </AggregateExtension>

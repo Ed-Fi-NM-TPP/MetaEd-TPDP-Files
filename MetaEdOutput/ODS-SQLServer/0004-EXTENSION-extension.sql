@@ -3219,33 +3219,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of bo
 GO
 
 
-/****** Table: [extension].[CredentialCategory] ******/
-
-CREATE TABLE [extension].[CredentialCategory](
-    [CredentialCategory] [NVARCHAR](60) NOT NULL,
-    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialCategory_PK] PRIMARY KEY CLUSTERED (
-        [CredentialCategory] ASC,
-        [CredentialIdentifier] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[CredentialCategory] ADD CONSTRAINT [CredentialCategory_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCategory'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'CredentialCategory'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCategory', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
 /****** Table: [extension].[CredentialCertificationExam] ******/
 
 CREATE TABLE [extension].[CredentialCertificationExam](
@@ -3278,33 +3251,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall sc
 GO
 
 
-/****** Table: [extension].[CredentialCertificationType] ******/
-
-CREATE TABLE [extension].[CredentialCertificationType](
-    [CertificationType] [NVARCHAR](60) NOT NULL,
-    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialCertificationType_PK] PRIMARY KEY CLUSTERED (
-        [CertificationType] ASC,
-        [CredentialIdentifier] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[CredentialCertificationType] ADD CONSTRAINT [CredentialCertificationType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCertificationType'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'CertificationType'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationType', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
 /****** Table: [extension].[CredentialExtension] ******/
 
 CREATE TABLE [extension].[CredentialExtension](
@@ -3317,6 +3263,9 @@ CREATE TABLE [extension].[CredentialExtension](
     [ValueTypeId] [INT] NOT NULL,
     [CertificateGranted] [BIT] NULL,
     [LicensureComplete] [BIT] NULL,
+    [CertificationLevel] [NVARCHAR](60) NULL,
+    [CertificationType] [NVARCHAR](60) NULL,
+    [CredentialCategory] [NVARCHAR](60) NULL,
     [CredentialStatus] [NVARCHAR](32) NULL,
     CONSTRAINT [CredentialExtension_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
@@ -3346,6 +3295,12 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not a person has completed their licensure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'LicensureComplete'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level of certification received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CertificationLevel'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CertificationType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialCategory'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialStatus'
 GO
 
@@ -3355,6 +3310,7 @@ GO
 CREATE TABLE [extension].[CredentialProgramInformation](
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [SecondarySubjectArea] [NVARCHAR](60) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CredentialProgramInformation_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
@@ -3370,6 +3326,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'SecondarySubjectArea'
 GO
 
 
@@ -3478,33 +3436,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'PrimarySubjectArea'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
-/****** Table: [extension].[CredentialProgramInformationSecondarySubjectArea] ******/
-
-CREATE TABLE [extension].[CredentialProgramInformationSecondarySubjectArea](
-    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [SecondarySubjectArea] [NVARCHAR](60) NOT NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CredentialProgramInformationSecondarySubjectArea_PK] PRIMARY KEY CLUSTERED (
-        [CredentialIdentifier] ASC,
-        [SecondarySubjectArea] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[CredentialProgramInformationSecondarySubjectArea] ADD CONSTRAINT [CredentialProgramInformationSecondarySubjectArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationSecondarySubjectArea'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'SecondarySubjectArea'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationSecondarySubjectArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
@@ -14762,26 +14693,6 @@ CREATE NONCLUSTERED INDEX [FK_CredentialRecommendingInstitution_StateAbbreviatio
 ON [extension].[CredentialRecommendingInstitution]([RecommendingInstitutionStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[CredentialCertificationType] WITH CHECK ADD CONSTRAINT [FK_CredentialCertificationType_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CredentialCertificationType_Credential]
-ON [extension].[CredentialCertificationType]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[CredentialCategory] WITH CHECK ADD CONSTRAINT [FK_CredentialCategory_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CredentialCategory_Credential]
-ON [extension].[CredentialCategory]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
 ALTER TABLE [extension].[CredentialProgramInformation] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformation_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
@@ -14818,16 +14729,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationPrimarySubjectArea_CredentialProgramInformation]
 ON [extension].[CredentialProgramInformationPrimarySubjectArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[CredentialProgramInformationSecondarySubjectArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationSecondarySubjectArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-REFERENCES [extension].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationSecondarySubjectArea_CredentialProgramInformation]
-ON [extension].[CredentialProgramInformationSecondarySubjectArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[CredentialProgramInformationBilingualMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationBilingualMinor_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])

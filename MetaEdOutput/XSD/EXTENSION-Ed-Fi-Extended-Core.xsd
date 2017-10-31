@@ -946,12 +946,17 @@
               <xs:documentation>An indication of whether or not a person has completed their licensure.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="CertificationType" type="EXTENSION-CertificationType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CertificationLevel" type="EXTENSION-CertificationLevel" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The level of certification received.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CertificationType" type="EXTENSION-CertificationType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The type of credential received.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="CredentialCategory" type="EXTENSION-CredentialCategory" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CredentialCategory" type="EXTENSION-CredentialCategory" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The type of credential received.</xs:documentation>
             </xs:annotation>
@@ -9731,7 +9736,7 @@
           <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SecondarySubjectArea" type="EXTENSION-SecondarySubjectArea" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="SecondarySubjectArea" type="EXTENSION-SecondarySubjectArea" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
         </xs:annotation>
@@ -11771,6 +11776,18 @@
   <xs:simpleType name="EXTENSION-CertificationExamTitle">
     <xs:annotation>
       <xs:documentation>The title or name of the certification.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-CertificationLevel">
+    <xs:annotation>
+      <xs:documentation>The level of certification received.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Simple</ann:TypeGroup>
       </xs:appinfo>

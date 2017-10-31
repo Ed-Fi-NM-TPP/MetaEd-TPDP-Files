@@ -18,7 +18,7 @@ Common ProgramInformation
       max length 60
     string SecondarySubjectArea
       documentation "The secondary subject area identified in the teacher candidates educational programming."
-      is optional collection
+      is optional
       min length 1
       max length 60
     string BilingualMinor
