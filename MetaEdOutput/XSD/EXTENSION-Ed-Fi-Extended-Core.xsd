@@ -1879,6 +1879,11 @@
               <xs:documentation>Any comments about the performance measure to be captured</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="ValueAdd" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1930,11 +1935,6 @@
               <xs:appinfo>
                 <ann:Descriptor>GradeLevelDescriptor</ann:Descriptor>
               </xs:appinfo>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ValueAdd" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>

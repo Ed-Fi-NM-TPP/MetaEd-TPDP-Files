@@ -22,8 +22,3 @@ Domain Entity PerformanceMeasureFacts
   descriptor GradeLevel
     documentation "The grade levels for the aggregated performance measure data."
     is required collection
-
-  // NM TPP Extensions
-  integer ValueAdd
-    documentation "The possible points for the student achievement indicator for the teacher evaluation."
-    is optional

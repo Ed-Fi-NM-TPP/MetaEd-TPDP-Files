@@ -32169,7 +32169,7 @@ AsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br />ValueAdd (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32283,6 +32283,11 @@ AsOfDate
             &lt;xs:documentation&gt;Any comments about the performance measure to be captured&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -32308,6 +32313,7 @@ DurationOfPerformanceMeasure [INT] NULL
 Announced [BIT] NULL
 CoteachingObserved [BIT] NULL
 Comments [NVARCHAR](1024) NULL
+ValueAdd [INT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -32389,7 +32395,7 @@ PerformanceMeasureIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />FactsAsOfDate (identity)<br />GradeLevel (required collection)<br />PerformanceMeasureType (required)<br />Rubric (identity)<br />SchoolYear (identity)<br />ValueAdd (optional)<br /><br />Used By:<br />RubricLevelResponseFacts.PerformanceMeasureFacts (as identity)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />FactsAsOfDate (identity)<br />GradeLevel (required collection)<br />PerformanceMeasureType (required)<br />Rubric (identity)<br />SchoolYear (identity)<br /><br />Used By:<br />RubricLevelResponseFacts.PerformanceMeasureFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32442,11 +32448,6 @@ PerformanceMeasureIdentifier
             &lt;/xs:appinfo&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -32463,7 +32464,6 @@ RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
 AcademicSubjectDescriptorId [INT] NULL
-ValueAdd [INT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -49862,7 +49862,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />PerformanceMeasureFacts.ValueAdd (as optional)</div>
+                <div><br />Used By:<br />PerformanceMeasure.ValueAdd (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

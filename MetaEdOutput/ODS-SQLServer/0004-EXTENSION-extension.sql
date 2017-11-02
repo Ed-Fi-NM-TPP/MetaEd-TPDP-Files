@@ -6085,6 +6085,7 @@ CREATE TABLE [extension].[PerformanceMeasure](
     [Announced] [BIT] NULL,
     [CoteachingObserved] [BIT] NULL,
     [Comments] [NVARCHAR](1024) NULL,
+    [ValueAdd] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -6134,6 +6135,8 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indicator o
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any comments about the performance measure to be captured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'Comments'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The possible points for the student achievement indicator for the teacher evaluation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ValueAdd'
+GO
 
 
 /****** Table: [extension].[PerformanceMeasureFacts] ******/
@@ -6146,7 +6149,6 @@ CREATE TABLE [extension].[PerformanceMeasureFacts](
     [SchoolYear] [SMALLINT] NOT NULL,
     [PerformanceMeasureTypeDescriptorId] [INT] NOT NULL,
     [AcademicSubjectDescriptorId] [INT] NULL,
-    [ValueAdd] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -6181,8 +6183,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type (e.g., walkthrough, summative) of performance measure conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureFacts', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a performance measure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The possible points for the student achievement indicator for the teacher evaluation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureFacts', @level2type=N'COLUMN', @level2name=N'ValueAdd'
 GO
 
 

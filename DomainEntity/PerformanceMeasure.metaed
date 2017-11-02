@@ -53,3 +53,8 @@ Domain Entity PerformanceMeasure
     documentation "Any comments about the performance measure to be captured"
     is optional
     max length 1024
+
+    // NM TPP Extensions
+    integer ValueAdd
+      documentation "The possible points for the student achievement indicator for the teacher evaluation."
+      is optional
