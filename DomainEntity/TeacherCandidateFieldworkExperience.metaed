@@ -40,4 +40,4 @@ Domain Entity TeacherCandidateFieldworkExperience
   // NM TPP Extensions
   common FieldworkInformation
     documentation "Contains information about each fieldwork experience."
-    is optional
+    is optional collection

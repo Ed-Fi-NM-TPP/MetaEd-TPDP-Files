@@ -8555,7 +8555,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>The data elements that comprise the evaluation for the staff.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -8563,13 +8563,13 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />SurveyType (optional)<br />TotalEvalPoints (optional)<br />TotalNumberStudents (optional)<br />VASOverallScore (optional)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
+                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />SurveyType (optional)<br />TotalEvalPoints (optional)<br />VASResult (optional collection)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-EvaluationInformation&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;The data elements that comprise the evaluation for the staff.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -8615,14 +8615,9 @@ BeginDate
         &lt;xs:documentation&gt;The type of survey that was received&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;TotalNumberStudents&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;VASResult&quot; type=&quot;EXTENSION-VASResult&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
       &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The total number of students the teacher is associated with.  &lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;VASOverallScore&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The overall value added score provided for the teacher.&lt;/xs:documentation&gt;
+        &lt;xs:documentation&gt;A collection of data elements that provide information regarding Value Add Scores for the staff.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
     &lt;xs:element name=&quot;EffectivenessRating&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
@@ -8730,7 +8725,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CoordinatingTeacherName (optional collection)<br />FieldworkSchool (required)<br />HoursPerWeek (required)<br />Internship (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.FieldworkInformation (as optional)</div>
+                <div><br />Contains:<br />CoordinatingTeacherName (optional collection)<br />FieldworkSchool (identity)<br />HoursPerWeek (required)<br />Internship (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.FieldworkInformation (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -11706,6 +11701,53 @@ BeginDate
     &lt;xs:element name=&quot;NumberOfVacancies&quot; type=&quot;xs:int&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The number of vacancies, projected or actual, associated with an education organization.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>VASResult</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>A collection of data elements that provide information regardnig Value Add Scores for the staff.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />AssessmentSubtestGroup (identity)<br />TotalNumberStudents (required)<br />VASOverallScore (required)<br /><br />Used By:<br />EvaluationInformation.VASResult (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-VASResult&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;A collection of data elements that provide information regardnig Value Add Scores for the staff.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AssessmentSubtestGroup&quot; type=&quot;EXTENSION-AssessmentSubtestGroup&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The subtest group the VAS score is associated with.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;TotalNumberStudents&quot; type=&quot;xs:int&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The total number of students the teacher is associated with.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;VASOverallScore&quot; type=&quot;xs:int&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The overall value added score provided for the teacher.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -32254,7 +32296,7 @@ PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AcademicSubjectDescriptorId [INT] NULL
 CourseCode [NVARCHAR](60) NULL
@@ -32416,7 +32458,7 @@ PerformanceMeasureIdentifier
 
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
@@ -32437,7 +32479,7 @@ SchoolYear
 FactsAsOfDate [DATE] NOT NULL
 GradeLevelDescriptorId [INT] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33680,7 +33722,7 @@ RestraintEventReasonTypeId
                 <div><pre>extension.Rubric
 
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 RubricDescription [NVARCHAR](255) NULL
 InterRaterReliabilityScore [INT] NULL
@@ -33759,7 +33801,7 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -33774,10 +33816,10 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 LevelTypeDescriptorId [INT] NOT NULL
-LevelTitle [NVARCHAR](15) NOT NULL
+LevelTitle [NVARCHAR](240) NOT NULL
 LevelDescription [NVARCHAR](255) NULL
 MinimumScore [NVARCHAR](35) NULL
 MaximumScore [NVARCHAR](35) NULL
@@ -33792,7 +33834,7 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 ThemeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33878,7 +33920,7 @@ ThemeDescriptorId
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 NumericResponse [INT] NOT NULL
 TextResponse [NVARCHAR](255) NULL
@@ -33954,7 +33996,7 @@ RubricTypeDescriptorId
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33973,7 +34015,7 @@ SchoolYear
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
@@ -40176,7 +40218,7 @@ TeacherCandidateIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkInformation (optional)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkInformation (optional collection)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40246,7 +40288,7 @@ TeacherCandidateIdentifier
             &lt;/xs:appinfo&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;FieldworkInformation&quot; type=&quot;EXTENSION-FieldworkInformation&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;FieldworkInformation&quot; type=&quot;EXTENSION-FieldworkInformation&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Contains information about each fieldwork experience.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -40305,22 +40347,24 @@ TeacherCandidateIdentifier
 BeginDate [DATE] NOT NULL
 FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
+FieldworkSchool [NVARCHAR](60) NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 Internship [BIT] NULL
 HoursPerWeek [DECIMAL](5, 2) NOT NULL
-FieldworkSchool [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
 FieldworkExperienceSchoolId
 FieldworkIdentifier
+FieldworkSchool
 TeacherCandidateIdentifier
 <br />extension.TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName
 
 BeginDate [DATE] NOT NULL
 FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
+FieldworkSchool [NVARCHAR](60) NOT NULL
 FirstName [NVARCHAR](75) NOT NULL
 LastSurname [NVARCHAR](75) NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
@@ -40331,6 +40375,7 @@ Primary Keys:
 BeginDate
 FieldworkExperienceSchoolId
 FieldworkIdentifier
+FieldworkSchool
 FirstName
 LastSurname
 TeacherCandidateIdentifier
@@ -49701,7 +49746,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>The total number of students the teacher is associated with.  </div>
+                <div>The total number of students the teacher is associated with.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -49709,7 +49754,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.TotalNumberStudents (as optional)</div>
+                <div><br />Used By:<br />VASResult.TotalNumberStudents (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -49844,7 +49889,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.VASOverallScore (as optional)</div>
+                <div><br />Used By:<br />VASResult.VASOverallScore (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50558,6 +50603,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>AssessmentResponse [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>AssessmentSubtestGroup</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The subtest group the VAS score is associated with.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 32</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />VASResult.AssessmentSubtestGroup (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-AssessmentSubtestGroup&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The subtest group the VAS score is associated with.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;32&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AssessmentSubtestGroup [NVARCHAR](32)</pre></div>
             </div>
         </p>
         <p>
@@ -52635,7 +52722,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />FieldworkInformation.FieldworkSchool (as required)</div>
+                <div><br />Used By:<br />FieldworkInformation.FieldworkSchool (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53469,7 +53556,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 2<br />max length: 15</div>
+                <div>max length: 240</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
@@ -53485,14 +53572,13 @@ VisaTypeId
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;2&quot; /&gt;
-    &lt;xs:maxLength value=&quot;15&quot; /&gt;
+    &lt;xs:maxLength value=&quot;240&quot; /&gt;
   &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</pre></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>LevelTitle [NVARCHAR](15)</pre></div>
+                <div><pre>LevelTitle [NVARCHAR](240)</pre></div>
             </div>
         </p>
         <p>
@@ -55274,7 +55360,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 2<br />max length: 15</div>
+                <div>max length: 60</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
@@ -55290,14 +55376,13 @@ VisaTypeId
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;2&quot; /&gt;
-    &lt;xs:maxLength value=&quot;15&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
   &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</pre></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>RubricTitle [NVARCHAR](15)</pre></div>
+                <div><pre>RubricTitle [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>

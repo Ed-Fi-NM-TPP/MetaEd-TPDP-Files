@@ -564,6 +564,7 @@
     <Entity table="StaffApplicant" schema="extension"/>
     <Entity table="StaffBackgroundCheck" schema="extension"/>
     <Entity table="StaffEvaluationInformation" schema="extension"/>
+    <Entity table="StaffEvaluationInformationVASResult" schema="extension"/>
     <Entity table="StaffHighlyQualifiedAcademicSubject" schema="extension"/>
     <Entity table="StaffSalary" schema="extension"/>
     <Entity table="StaffSeniority" schema="extension"/>

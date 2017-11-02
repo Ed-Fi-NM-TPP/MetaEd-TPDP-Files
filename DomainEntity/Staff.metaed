@@ -44,5 +44,5 @@ Domain Entity Staff additions
       min length 1
       max length 16
     common EvaluationInformation
-      documentation "?"
+      documentation "The data elements that comprise the evaluation for the staff."
       is optional

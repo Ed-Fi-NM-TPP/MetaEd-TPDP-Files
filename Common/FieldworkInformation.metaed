@@ -9,7 +9,7 @@ Common FieldworkInformation
     is required
   string FieldworkSchool
     documentation "The school at which the teacher candidate completed each fieldwork experience."
-    is required
+    is part of identity
     min length 1
     max length 60
   common CoordinatingTeacherName

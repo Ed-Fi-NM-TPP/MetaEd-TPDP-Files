@@ -6073,7 +6073,7 @@ CREATE TABLE [extension].[PerformanceMeasure](
     [PerformanceMeasureTypeDescriptorId] [INT] NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [AcademicSubjectDescriptorId] [INT] NULL,
     [CourseCode] [NVARCHAR](60) NULL,
@@ -6141,7 +6141,7 @@ GO
 CREATE TABLE [extension].[PerformanceMeasureFacts](
     [FactsAsOfDate] [DATE] NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [PerformanceMeasureTypeDescriptorId] [INT] NOT NULL,
@@ -6192,7 +6192,7 @@ CREATE TABLE [extension].[PerformanceMeasureFactsGradeLevel](
     [FactsAsOfDate] [DATE] NOT NULL,
     [GradeLevelDescriptorId] [INT] NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -7165,7 +7165,7 @@ GO
 
 CREATE TABLE [extension].[Rubric](
     [RubricEducationOrganizationId] [INT] NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [RubricDescription] [NVARCHAR](255) NULL,
     [InterRaterReliabilityScore] [INT] NULL,
@@ -7205,7 +7205,7 @@ GO
 CREATE TABLE [extension].[RubricLevel](
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -7242,10 +7242,10 @@ GO
 CREATE TABLE [extension].[RubricLevelInformation](
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [LevelTypeDescriptorId] [INT] NOT NULL,
-    [LevelTitle] [NVARCHAR](15) NOT NULL,
+    [LevelTitle] [NVARCHAR](240) NOT NULL,
     [LevelDescription] [NVARCHAR](255) NULL,
     [MinimumScore] [NVARCHAR](35) NULL,
     [MaximumScore] [NVARCHAR](35) NULL,
@@ -7289,7 +7289,7 @@ CREATE TABLE [extension].[RubricLevelResponse](
     [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [NumericResponse] [INT] NOT NULL,
     [TextResponse] [NVARCHAR](255) NULL,
@@ -7342,7 +7342,7 @@ CREATE TABLE [extension].[RubricLevelResponseFacts](
     [FactsAsOfDate] [DATE] NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -7387,7 +7387,7 @@ CREATE TABLE [extension].[RubricLevelResponseFactsAggregatedNumericResponse](
     [FactsAsOfDate] [DATE] NOT NULL,
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
@@ -7434,7 +7434,7 @@ GO
 CREATE TABLE [extension].[RubricLevelTheme](
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
-    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTitle] [NVARCHAR](60) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [ThemeDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -9870,8 +9870,6 @@ CREATE TABLE [extension].[StaffEvaluationInformation](
     [NumberDaysAbsent] [INT] NULL,
     [NumberLocations] [INT] NULL,
     [SurveyType] [NVARCHAR](32) NULL,
-    [TotalNumberStudents] [INT] NULL,
-    [VASOverallScore] [INT] NULL,
     [EffectivenessRating] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffEvaluationInformation_PK] PRIMARY KEY CLUSTERED (
@@ -9882,7 +9880,7 @@ GO
 ALTER TABLE [extension].[StaffEvaluationInformation] ADD CONSTRAINT [StaffEvaluationInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The data elements that comprise the evaluation for the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
@@ -9902,11 +9900,36 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of survey that was received', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'SurveyType'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students the teacher is associated with.  ', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'TotalNumberStudents'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall value added score provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'VASOverallScore'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The effectiveness rating provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'EffectivenessRating'
+GO
+
+
+/****** Table: [extension].[StaffEvaluationInformationVASResult] ******/
+
+CREATE TABLE [extension].[StaffEvaluationInformationVASResult](
+    [AssessmentSubtestGroup] [NVARCHAR](32) NOT NULL,
+    [StaffUSI] [INT] NOT NULL,
+    [TotalNumberStudents] [INT] NOT NULL,
+    [VASOverallScore] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [StaffEvaluationInformationVASResult_PK] PRIMARY KEY CLUSTERED (
+        [AssessmentSubtestGroup] ASC,
+        [StaffUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[StaffEvaluationInformationVASResult] ADD CONSTRAINT [StaffEvaluationInformationVASResult_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A collection of data elements that provide information regarding Value Add Scores for the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformationVASResult'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The subtest group the VAS score is associated with.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'AssessmentSubtestGroup'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students the teacher is associated with.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'TotalNumberStudents'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall value added score provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'VASOverallScore'
 GO
 
 
@@ -12439,15 +12462,16 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformatio
     [BeginDate] [DATE] NOT NULL,
     [FieldworkExperienceSchoolId] [INT] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
+    [FieldworkSchool] [NVARCHAR](60) NOT NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
     [Internship] [BIT] NULL,
     [HoursPerWeek] [DECIMAL](5, 2) NOT NULL,
-    [FieldworkSchool] [NVARCHAR](60) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateFieldworkExperienceFieldworkInformation_PK] PRIMARY KEY CLUSTERED (
         [BeginDate] ASC,
         [FieldworkExperienceSchoolId] ASC,
         [FieldworkIdentifier] ASC,
+        [FieldworkSchool] ASC,
         [TeacherCandidateIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12463,13 +12487,13 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school at which the teacher candidate completed each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkSchool'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not the field placement is also considered an intership.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'Internship'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of hours the teacher candidate completed for each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'HoursPerWeek'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school at which the teacher candidate completed each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformation', @level2type=N'COLUMN', @level2name=N'FieldworkSchool'
 GO
 
 
@@ -12479,6 +12503,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformatio
     [BeginDate] [DATE] NOT NULL,
     [FieldworkExperienceSchoolId] [INT] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
+    [FieldworkSchool] [NVARCHAR](60) NOT NULL,
     [FirstName] [NVARCHAR](75) NOT NULL,
     [LastSurname] [NVARCHAR](75) NOT NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
@@ -12488,6 +12513,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformatio
         [BeginDate] ASC,
         [FieldworkExperienceSchoolId] ASC,
         [FieldworkIdentifier] ASC,
+        [FieldworkSchool] ASC,
         [FirstName] ASC,
         [LastSurname] ASC,
         [TeacherCandidateIdentifier] ASC
@@ -12504,6 +12530,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkExperienceSchoolId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school at which the teacher candidate completed each fieldwork experience.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FieldworkSchool'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the Coordinating Teacher associated with the Teacher Candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName', @level2type=N'COLUMN', @level2name=N'FirstName'
 GO
@@ -14978,6 +15006,16 @@ ON DELETE CASCADE
 GO
 
 
+
+ALTER TABLE [extension].[StaffEvaluationInformationVASResult] WITH CHECK ADD CONSTRAINT [FK_StaffEvaluationInformationVASResult_StaffEvaluationInformation] FOREIGN KEY ([StaffUSI])
+REFERENCES [extension].[StaffEvaluationInformation] ([StaffUSI])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StaffEvaluationInformationVASResult_StaffEvaluationInformation]
+ON [extension].[StaffEvaluationInformationVASResult]([StaffUSI] ASC)
+GO
 
 ALTER TABLE [extension].[StudentGradebookEntryExtension] WITH CHECK ADD CONSTRAINT [FK_StudentGradebookEntryExtension_StudentGradebookEntry] FOREIGN KEY ([StudentUSI], [ClassroomIdentificationCode], [SchoolId], [ClassPeriodName], [LocalCourseCode], [SchoolYear], [TermDescriptorId], [UniqueSectionCode], [SequenceOfCourse], [BeginDate], [GradebookEntryTitle], [DateAssigned])
 REFERENCES [edfi].[StudentGradebookEntry] ([StudentUSI], [ClassroomIdentificationCode], [SchoolId], [ClassPeriodName], [LocalCourseCode], [SchoolYear], [TermDescriptorId], [UniqueSectionCode], [SequenceOfCourse], [BeginDate], [GradebookEntryTitle], [DateAssigned])
@@ -20251,16 +20289,18 @@ ON DELETE CASCADE
 
 GO
 
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceFieldworkInformation_TeacherCandidateFieldworkExperience]
+ON [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [TeacherCandidateIdentifier] ASC)
+GO
 
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_TeacherCandidateFieldworkExperienceFieldworkIn] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
-REFERENCES [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [TeacherCandidateIdentifier])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_TeacherCandidateFieldworkExperienceFieldworkIn] FOREIGN KEY ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [FieldworkSchool], [TeacherCandidateIdentifier])
+REFERENCES [extension].[TeacherCandidateFieldworkExperienceFieldworkInformation] ([BeginDate], [FieldworkExperienceSchoolId], [FieldworkIdentifier], [FieldworkSchool], [TeacherCandidateIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName_TeacherCandidateFieldworkExperienceFieldworkIn]
-ON [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [TeacherCandidateIdentifier] ASC)
+ON [extension].[TeacherCandidateFieldworkExperienceFieldworkInformationCoordinatingTeacherName]([BeginDate] ASC, [FieldworkExperienceSchoolId] ASC, [FieldworkIdentifier] ASC, [FieldworkSchool] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_AttendanceEventCategoryDescriptor] FOREIGN KEY ([AttendanceEventCategoryDescriptorId])
