@@ -3264,7 +3264,7 @@ CREATE TABLE [extension].[CredentialExtension](
     [CertificateGranted] [BIT] NULL,
     [LicensureComplete] [BIT] NULL,
     [CertificationLevel] [NVARCHAR](60) NULL,
-    [CertificationType] [NVARCHAR](60) NULL,
+    [TypeOfCertification] [NVARCHAR](60) NULL,
     [CredentialCategory] [NVARCHAR](60) NULL,
     [CredentialStatus] [NVARCHAR](32) NULL,
     CONSTRAINT [CredentialExtension_PK] PRIMARY KEY CLUSTERED (
@@ -3297,7 +3297,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level of certification received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CertificationLevel'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CertificationType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'TypeOfCertification'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialCategory'
 GO
@@ -9869,7 +9869,7 @@ CREATE TABLE [extension].[StaffEvaluationInformation](
     [SurveyScore] [INT] NULL,
     [NumberDaysAbsent] [INT] NULL,
     [NumberLocations] [INT] NULL,
-    [SurveyType] [NVARCHAR](32) NULL,
+    [TypeOfSurvey] [NVARCHAR](32) NULL,
     [EffectivenessRating] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffEvaluationInformation_PK] PRIMARY KEY CLUSTERED (
@@ -9898,7 +9898,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of locations at which the teacher attendance was taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'NumberLocations'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of survey that was received', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'SurveyType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of survey that was received', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'TypeOfSurvey'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The effectiveness rating provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'EffectivenessRating'
 GO
@@ -13399,7 +13399,7 @@ GO
 CREATE TABLE [extension].[TeacherPreparationProvider](
     [TeacherPreparationProviderId] [INT] NOT NULL,
     [UniversityId] [INT] NULL,
-    [ProgramType] [NVARCHAR](60) NOT NULL,
+    [TypeOfProgram] [NVARCHAR](60) NOT NULL,
     CONSTRAINT [TeacherPreparationProvider_PK] PRIMARY KEY CLUSTERED (
         [TeacherPreparationProviderId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -13413,7 +13413,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique ide
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identification code of the University', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'UniversityId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'ProgramType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'TypeOfProgram'
 GO
 
 

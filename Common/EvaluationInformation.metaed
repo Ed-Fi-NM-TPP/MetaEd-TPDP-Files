@@ -22,7 +22,7 @@ Common EvaluationInformation
   integer NumberLocations
     documentation "The number of locations at which the teacher attendance was taken."
     is optional
-  string SurveyType
+  string TypeOfSurvey
     documentation "The type of survey that was received"
     is optional
     min length 1

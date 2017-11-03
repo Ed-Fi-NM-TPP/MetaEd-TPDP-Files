@@ -951,7 +951,7 @@
               <xs:documentation>The level of certification received.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="CertificationType" type="EXTENSION-CertificationType" minOccurs="0">
+          <xs:element name="TypeOfCertification" type="EXTENSION-TypeOfCertification" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The type of credential received.</xs:documentation>
             </xs:annotation>
@@ -4092,7 +4092,7 @@
               <xs:documentation>The post secondary institution of which the teacher preparation provider is a component of.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ProgramType" type="EXTENSION-ProgramType">
+          <xs:element name="TypeOfProgram" type="EXTENSION-TypeOfProgram">
             <xs:annotation>
               <xs:documentation>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</xs:documentation>
             </xs:annotation>
@@ -9453,7 +9453,7 @@
           <xs:documentation>The number of locations at which the teacher attendance was taken.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SurveyType" type="EXTENSION-SurveyType" minOccurs="0">
+      <xs:element name="TypeOfSurvey" type="EXTENSION-TypeOfSurvey" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The type of survey that was received</xs:documentation>
         </xs:annotation>
@@ -11829,18 +11829,6 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-CertificationType">
-    <xs:annotation>
-      <xs:documentation>The type of credential received.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-Comments">
     <xs:annotation>
       <xs:documentation>Any comments about the performance measure to be captured</xs:documentation>
@@ -12134,18 +12122,6 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ProgramType">
-    <xs:annotation>
-      <xs:documentation>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-ProspectIdentifier">
     <xs:annotation>
       <xs:documentation>Identifier assigned to a prospect for employment or contract.</xs:documentation>
@@ -12348,18 +12324,6 @@
       <xs:maxLength value="50" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-SurveyType">
-    <xs:annotation>
-      <xs:documentation>The type of survey that was received</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="32" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-SuspensionReason">
     <xs:annotation>
       <xs:documentation>Expanded reason for the suspension of credential.</xs:documentation>
@@ -12442,6 +12406,42 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="0" />
       <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-TypeOfCertification">
+    <xs:annotation>
+      <xs:documentation>The type of credential received.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-TypeOfProgram">
+    <xs:annotation>
+      <xs:documentation>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-TypeOfSurvey">
+    <xs:annotation>
+      <xs:documentation>The type of survey that was received</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-Whereabouts">

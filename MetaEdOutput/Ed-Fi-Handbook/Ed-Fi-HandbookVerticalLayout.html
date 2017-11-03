@@ -8563,7 +8563,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />SurveyType (optional)<br />TotalEvalPoints (optional)<br />VASResult (optional collection)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
+                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />TotalEvalPoints (optional)<br />TypeOfSurvey (optional)<br />VASResult (optional collection)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8610,7 +8610,7 @@ BeginDate
         &lt;xs:documentation&gt;The number of locations at which the teacher attendance was taken.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;SurveyType&quot; type=&quot;EXTENSION-SurveyType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;TypeOfSurvey&quot; type=&quot;EXTENSION-TypeOfSurvey&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The type of survey that was received&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -41198,7 +41198,7 @@ FiscalYear
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ProgramType (required)<br />TeacherPreparationProviderId (identity)<br />University (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)</div>
+                <div><br />Contains:<br />TeacherPreparationProviderId (identity)<br />TypeOfProgram (required)<br />University (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -41222,7 +41222,7 @@ FiscalYear
             &lt;xs:documentation&gt;The post secondary institution of which the teacher preparation provider is a component of.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ProgramType&quot; type=&quot;EXTENSION-ProgramType&quot;&gt;
+        &lt;xs:element name=&quot;TypeOfProgram&quot; type=&quot;EXTENSION-TypeOfProgram&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -41238,7 +41238,7 @@ FiscalYear
 
 TeacherPreparationProviderId [INT] NOT NULL
 UniversityId [INT] NULL
-ProgramType [NVARCHAR](60) NOT NULL
+TypeOfProgram [NVARCHAR](60) NOT NULL
 
 Primary Keys:
 TeacherPreparationProviderId
@@ -51068,48 +51068,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>CertificationType</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The type of credential received.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>String Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 1<br />max length: 60</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.CertificationType (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CertificationType&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;1&quot; /&gt;
-    &lt;xs:maxLength value=&quot;60&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>CertificationType [NVARCHAR](60)</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>CIPCode</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -54548,48 +54506,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>ProgramType</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>String Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 1<br />max length: 60</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherPreparationProvider.ProgramType (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ProgramType&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;1&quot; /&gt;
-    &lt;xs:maxLength value=&quot;60&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProgramType [NVARCHAR](60)</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>ProspectIdentifier</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -55890,48 +55806,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>SurveyType</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The type of survey that was received</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>String Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 1<br />max length: 32</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.SurveyType (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-SurveyType&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The type of survey that was received&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;1&quot; /&gt;
-    &lt;xs:maxLength value=&quot;32&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>SurveyType [NVARCHAR](32)</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>SuspensionReason</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -56265,6 +56139,132 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>TouchpointContent [NVARCHAR](255)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TypeOfCertification</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The type of credential received.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Credential.TypeOfCertification (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TypeOfCertification&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>TypeOfCertification [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TypeOfProgram</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 60</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherPreparationProvider.TypeOfProgram (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TypeOfProgram&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>TypeOfProgram [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TypeOfSurvey</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The type of survey that was received</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 32</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.TypeOfSurvey (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TypeOfSurvey&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The type of survey that was received&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;32&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>TypeOfSurvey [NVARCHAR](32)</pre></div>
             </div>
         </p>
         <p>

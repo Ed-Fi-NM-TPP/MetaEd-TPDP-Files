@@ -11,7 +11,7 @@ Domain Entity TeacherPreparationProvider based on EducationOrganization
       is optional
 
     // NM TPP Extensions
-    string ProgramType
+    string TypeOfProgram
       documentation "An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program."
       is required
       min length 1
