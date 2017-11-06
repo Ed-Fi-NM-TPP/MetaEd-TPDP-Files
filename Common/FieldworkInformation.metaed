@@ -14,4 +14,4 @@ Common FieldworkInformation
     max length 60
   common CoordinatingTeacherName
     documentation "A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience."
-    is optional collection
+    is optional

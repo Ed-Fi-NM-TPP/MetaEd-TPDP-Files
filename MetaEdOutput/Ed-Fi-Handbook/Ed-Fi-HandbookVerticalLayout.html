@@ -7992,7 +7992,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />MiddleName (optional)<br /><br />Used By:<br />FieldworkInformation.CoordinatingTeacherName (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />MiddleName (optional)<br /><br />Used By:<br />FieldworkInformation.CoordinatingTeacherName (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8725,7 +8725,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CoordinatingTeacherName (optional collection)<br />FieldworkSchool (identity)<br />HoursPerWeek (required)<br />Internship (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.FieldworkInformation (as optional collection)</div>
+                <div><br />Contains:<br />CoordinatingTeacherName (optional)<br />FieldworkSchool (identity)<br />HoursPerWeek (required)<br />Internship (optional)<br /><br />Used By:<br />TeacherCandidateFieldworkExperience.FieldworkInformation (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8752,7 +8752,7 @@ BeginDate
         &lt;xs:documentation&gt;The school at which the teacher candidate completed each fieldwork experience.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;EXTENSION-CoordinatingTeacherName&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+    &lt;xs:element name=&quot;CoordinatingTeacherName&quot; type=&quot;EXTENSION-CoordinatingTeacherName&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;A complex element that holds information regarding the the name of the coordinating teacher the teacher candidate is assigned to during a field experience.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -11723,7 +11723,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AssessmentSubtestGroup (identity)<br />TotalNumberStudents (required)<br />VASOverallScore (required)<br /><br />Used By:<br />EvaluationInformation.VASResult (as optional collection)</div>
+                <div><br />Contains:<br />AssessmentSubtestGroup (identity)<br />TotalNumberStudents (required)<br />VASOverallScore (required)<br />YearOfAssessment (identity)<br /><br />Used By:<br />EvaluationInformation.VASResult (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -11735,6 +11735,11 @@ BeginDate
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;YearOfAssessment&quot; type=&quot;xs:int&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The shool year in which the assessment was completed.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;AssessmentSubtestGroup&quot; type=&quot;EXTENSION-AssessmentSubtestGroup&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The subtest group the VAS score is associated with.&lt;/xs:documentation&gt;
@@ -17546,6 +17551,48 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>SectionRating [DECIMAL](9, 3)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>ValueAdd</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The possible points for the student achievement indicator for the teacher evaluation.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />PerformanceMeasure.ValueAdd (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ValueAdd&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>ValueAdd [DECIMAL](18, 4)</pre></div>
             </div>
         </p>
         <p>
@@ -32283,7 +32330,7 @@ AsOfDate
             &lt;xs:documentation&gt;Any comments about the performance measure to be captured&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;EXTENSION-ValueAdd&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -32313,7 +32360,7 @@ DurationOfPerformanceMeasure [INT] NULL
 Announced [BIT] NULL
 CoteachingObserved [BIT] NULL
 Comments [NVARCHAR](1024) NULL
-ValueAdd [INT] NULL
+ValueAdd [DECIMAL](18, 4) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -40365,10 +40412,10 @@ BeginDate [DATE] NOT NULL
 FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 FieldworkSchool [NVARCHAR](60) NOT NULL
-FirstName [NVARCHAR](75) NOT NULL
-LastSurname [NVARCHAR](75) NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+FirstName [NVARCHAR](75) NOT NULL
 MiddleName [NVARCHAR](75) NULL
+LastSurname [NVARCHAR](75) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -40376,8 +40423,6 @@ BeginDate
 FieldworkExperienceSchoolId
 FieldworkIdentifier
 FieldworkSchool
-FirstName
-LastSurname
 TeacherCandidateIdentifier
 </pre></div>
             </div>
@@ -49847,33 +49892,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>ValueAdd</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The possible points for the student achievement indicator for the teacher evaluation.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />PerformanceMeasure.ValueAdd (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ValueAdd [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>VASOverallScore</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -49933,6 +49951,33 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>Version [INT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>YearOfAssessment</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The shool year in which the assessment was completed.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />VASResult.YearOfAssessment (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>YearOfAssessment [INT]</pre></div>
             </div>
         </p>
         <p>
