@@ -71,5 +71,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |
 | PerformanceLevelDescriptor | Optional.  This descriptor defines various levels or thresholds for performance on the assessment. |
+| ProgramGatewayDescriptor | Optional.  The descriptor holds the program gateway that is associated with continuation in a program. |
 
 
