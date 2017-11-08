@@ -88,7 +88,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | FederalLocaleCodeDescriptor | Optional.  (TPDP Extension) The descriptor holds the federal locale code applicable to an education organization. |
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | ProgramCharacteristicDescriptor | Optional.  This descriptor defines important characteristics of the Program, such as categories or particular indications. |
-| SchoolStatusDescriptor | Optional.  The descriptor holds the status of a school e.g. priority or focus. |
 | ServiceDescriptor | Optional.  This descriptor defines the services provided by an education organization to populations of students associated with a program. |
 | TeacherPreparationProgramTypeDescriptor | Optional.  The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.). |
 | TPPDegreeTypeDescriptor | Required.  The descriptor holds the degree that a teacher candidate accomplishes. |

@@ -1557,43 +1557,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indicator o
 GO
 
 
-/****** Table: [extension].[AssessmentExtension] ******/
-
-CREATE TABLE [extension].[AssessmentExtension](
-    [AcademicSubjectDescriptorId] [INT] NOT NULL,
-    [AssessedGradeLevelDescriptorId] [INT] NOT NULL,
-    [AssessmentTitle] [NVARCHAR](60) NOT NULL,
-    [Version] [INT] NOT NULL,
-    [ProgramGatewayDescriptorId] [INT] NULL,
-    CONSTRAINT [AssessmentExtension_PK] PRIMARY KEY CLUSTERED (
-        [AcademicSubjectDescriptorId] ASC,
-        [AssessedGradeLevelDescriptorId] ASC,
-        [AssessmentTitle] ASC,
-        [Version] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'AssessmentExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an assessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AssessmentExtension', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The typical grade level for which an assessment is designed. If the assessment spans a range of grades, then this attribute holds the highest grade assessed. If only one grade level is assessed then only this attribute is used. For example:
-        Adult
-        Prekindergarten
-        First grade
-        Second grade
-        ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AssessmentExtension', @level2type=N'COLUMN', @level2name=N'AssessedGradeLevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the Assessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AssessmentExtension', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The version identifier for the assessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AssessmentExtension', @level2type=N'COLUMN', @level2name=N'Version'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies the program gateway an assessment may be associated with for continuation in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AssessmentExtension', @level2type=N'COLUMN', @level2name=N'ProgramGatewayDescriptorId'
-GO
-
-
 /****** Table: [extension].[BackgroundCheckStatusDescriptor] ******/
 
 CREATE TABLE [extension].[BackgroundCheckStatusDescriptor](
@@ -7569,29 +7532,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SalaryTypeDescriptor', @level2type=N'COLUMN', @level2name=N'SalaryTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SalaryTypeDescriptor', @level2type=N'COLUMN', @level2name=N'SalaryTypeId'
-GO
-
-
-/****** Table: [extension].[SchoolExtension] ******/
-
-CREATE TABLE [extension].[SchoolExtension](
-    [SchoolId] [INT] NOT NULL,
-    [SchoolStatusDescriptorId] [INT] NULL,
-    [ImprovingSchool] [BIT] NULL,
-    CONSTRAINT [SchoolExtension_PK] PRIMARY KEY CLUSTERED (
-        [SchoolId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SchoolExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolExtension', @level2type=N'COLUMN', @level2name=N'SchoolId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of school e.g. priority or focus.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolExtension', @level2type=N'COLUMN', @level2name=N'SchoolStatusDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a school is identified as an improving school.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolExtension', @level2type=N'COLUMN', @level2name=N'ImprovingSchool'
 GO
 
 
@@ -14585,24 +14525,6 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[AssessmentExtension] WITH CHECK ADD CONSTRAINT [FK_AssessmentExtension_Assessment] FOREIGN KEY ([AssessmentTitle], [AssessedGradeLevelDescriptorId], [AcademicSubjectDescriptorId], [Version])
-REFERENCES [edfi].[Assessment] ([AssessmentTitle], [AssessedGradeLevelDescriptorId], [AcademicSubjectDescriptorId], [Version])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[AssessmentExtension] WITH CHECK ADD CONSTRAINT [FK_AssessmentExtension_ProgramGatewayDescriptor] FOREIGN KEY ([ProgramGatewayDescriptorId])
-REFERENCES [extension].[ProgramGatewayDescriptor] ([ProgramGatewayDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_AssessmentExtension_ProgramGatewayDescriptor]
-ON [extension].[AssessmentExtension]([ProgramGatewayDescriptorId] ASC)
-GO
-
 ALTER TABLE [extension].[CredentialExtension] WITH CHECK ADD CONSTRAINT [FK_CredentialExtension_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
@@ -14787,24 +14709,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_GradebookEntryExtension_ProgramGatewayDescriptor]
 ON [extension].[GradebookEntryExtension]([ProgramGatewayDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_School] FOREIGN KEY ([SchoolId])
-REFERENCES [edfi].[School] ([SchoolId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_SchoolStatusDescriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
-REFERENCES [extension].[SchoolStatusDescriptor] ([SchoolStatusDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SchoolExtension_SchoolStatusDescriptor]
-ON [extension].[SchoolExtension]([SchoolStatusDescriptorId] ASC)
 GO
 
 ALTER TABLE [extension].[StaffExtension] WITH CHECK ADD CONSTRAINT [FK_StaffExtension_GenderType] FOREIGN KEY ([GenderTypeId])

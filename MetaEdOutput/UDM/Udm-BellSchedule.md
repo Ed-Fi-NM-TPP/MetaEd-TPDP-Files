@@ -17,7 +17,7 @@ The BellSchedule represents the class period scheduling in a day or over a cours
 | ClassPeriod | This entity represents the designation of a regularly scheduled series of class meetings at designated times and days of the week. |
 | EducationOrganization | This entity represents any public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. |
 | MeetingTime | This entity represents the set of elements defining the meeting time for a class period. |
-| School |  |
+| School | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
 | Section | This entity represents a setting in which organized instruction of course content is provided, in-person or otherwise, to one or more students for a given period of time. A course offering may be offered to more than one section. |
 | Session | This entity represents the prescribed span of time when an education institution is open, instruction is provided and students are under the direction and guidance of teachers and/or education institution administration. A session may be interrupted by one or more vacations. |
 

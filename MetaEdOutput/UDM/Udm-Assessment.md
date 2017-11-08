@@ -42,7 +42,7 @@ The student's assessment results follow a similar structure to the assessment me
 
 | Name        | Description  |
 |-----------------|------------------|
-| Assessment |  |
+| Assessment | This entity represents a tool, instrument, process, or exhibition composed of a systematic sampling of behavior for measuring a student's competence, knowledge,skills, or behavior. An assessment can be used to measure differences inindividuals or groups and changes in performance from one occasion to the next. |
 | AssessmentFamily | This entity represents a logical grouping or association of assessments that share a common purpose, heritage or content standard. There may be hierarchiesof assessment families, characteristics (e.g., Academic Subject) specified for assessment families, by convention, are inherited by the Assessments associated with the AssessmentFamily. |
 | AssessmentItem | This entity represents one of many single measures that make up an assessment. |
 | LearningObjective | This entity represents identified learning objectives for courses in specific grades. |

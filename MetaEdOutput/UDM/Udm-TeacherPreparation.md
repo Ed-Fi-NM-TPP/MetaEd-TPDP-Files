@@ -13,7 +13,7 @@
 | AnonymizedStudentAssessment | This entity represents the analysis or scoring of a Student's response on an assessment. The analysis results in a value that represents a Student's performance on a set of items on a test. |
 | AnonymizedStudentCourseTranscript | The date for which the data element is relevant |
 | Applicant | A person who makes a formal application for an OpenStaffPosition. |
-| Assessment |  |
+| Assessment | This entity represents a tool, instrument, process, or exhibition composed of a systematic sampling of behavior for measuring a student's competence, knowledge,skills, or behavior. An assessment can be used to measure differences inindividuals or groups and changes in performance from one occasion to the next. |
 | CourseCourseTranscriptFacts | Data about the final grade earned of the group. |
 | CourseStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | CourseStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
@@ -44,7 +44,7 @@
 | RubricLevel | This entity represents the level of the rubric. |
 | RubricLevelResponse | This entity represents the response to the rubric level. |
 | RubricLevelResponseFacts | This entity represents the rubric level response at the aggregate level. |
-| School |  |
+| School | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
 | SectionCourseTranscriptFacts | Data about the final grade earned of the group. |
 | SectionStudentAcademicRecordFacts | Complex type that provides data about a group of students and their academic record. |
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
