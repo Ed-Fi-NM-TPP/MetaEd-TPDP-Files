@@ -12208,7 +12208,9 @@ CREATE TABLE [edfi].[StaffCredential](
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffCredential_PK] PRIMARY KEY CLUSTERED (
-        [StaffUSI] ASC
+        [StaffUSI] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -16651,6 +16653,40 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for 
 GO
 
 
+/****** Table: [edfi].[ValueType] ******/
+
+CREATE TABLE [edfi].[ValueType](
+    [ValueTypeId] [INT] IDENTITY(1,1) NOT NULL,
+    [CodeValue] [NVARCHAR](50) NOT NULL,
+    [Description] [NVARCHAR](1024) NOT NULL,
+    [ShortDescription] [NVARCHAR](450) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [ValueType_PK] PRIMARY KEY CLUSTERED (
+        [ValueTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[ValueType] ADD CONSTRAINT [ValueType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [edfi].[ValueType] ADD CONSTRAINT [ValueType_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [edfi].[ValueType] ADD CONSTRAINT [ValueType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type (i.e. actual or projected) of value.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'ValueType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for Value', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This column is deprecated.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'CodeValue'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the Value type.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'Description'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the Value type.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
+GO
+
+
 /****** Table: [edfi].[VisaType] ******/
 
 CREATE TABLE [edfi].[VisaType](
@@ -20069,7 +20105,7 @@ ON [edfi].[Credential]([TeachingCredentialDescriptorId] ASC)
 GO
 
 ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -28321,6 +28357,12 @@ INSERT INTO [edfi].[TitleIPartASchoolDesignationType] ([CodeValue],[Description]
 INSERT INTO [edfi].[TitleIPartASchoolDesignationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Title I targeted eligible school - no program','Title I targeted eligible school - no program')
 
 INSERT INTO [edfi].[TitleIPartASchoolDesignationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Title I targeted school','Title I targeted school')
+
+INSERT INTO [edfi].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Actual','Actual')
+
+INSERT INTO [edfi].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')
+
+INSERT INTO [edfi].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Projected','Projected')
 
 INSERT INTO [edfi].[VisaType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','B1 - Business Visa','B1 - Business Visa')
 

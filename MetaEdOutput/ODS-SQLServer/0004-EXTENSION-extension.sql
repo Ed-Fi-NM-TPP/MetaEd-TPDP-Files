@@ -12783,40 +12783,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique ide
 GO
 
 
-/****** Table: [extension].[ValueType] ******/
-
-CREATE TABLE [extension].[ValueType](
-    [ValueTypeId] [INT] IDENTITY(1,1) NOT NULL,
-    [CodeValue] [NVARCHAR](50) NOT NULL,
-    [Description] [NVARCHAR](1024) NOT NULL,
-    [ShortDescription] [NVARCHAR](450) NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    [LastModifiedDate] [DATETIME] NOT NULL,
-    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
-    CONSTRAINT [ValueType_PK] PRIMARY KEY CLUSTERED (
-        [ValueTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ValueType] ADD CONSTRAINT [ValueType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-ALTER TABLE [extension].[ValueType] ADD CONSTRAINT [ValueType_DF_Id] DEFAULT (newid()) FOR [Id]
-GO
-ALTER TABLE [extension].[ValueType] ADD CONSTRAINT [ValueType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type (i.e. actual or projected) of value.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ValueType'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for Value', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This column is deprecated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'CodeValue'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the Value type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'Description'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the Value type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ValueType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
-GO
-
-
 
 ALTER TABLE [extension].[AbsenceEventCategoryDescriptor] WITH CHECK ADD CONSTRAINT [FK_AbsenceEventCategoryDescriptor_AbsenceEventCategoryType] FOREIGN KEY ([AbsenceEventCategoryTypeId])
 REFERENCES [extension].[AbsenceEventCategoryType] ([AbsenceEventCategoryTypeId])
@@ -13747,7 +13713,7 @@ ON [extension].[AnonymizedStudent]([SexTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudent] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudent_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14511,7 +14477,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14577,7 +14543,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14671,7 +14637,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAssessmentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14747,7 +14713,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14777,7 +14743,7 @@ ON [extension].[CourseStudentFactsAggregatedSex]([SexTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSex_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14807,7 +14773,7 @@ ON [extension].[CourseStudentFactsAggregatedGender]([GenderTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedGender_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14827,7 +14793,7 @@ ON [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity]([CourseCode
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14857,7 +14823,7 @@ ON [extension].[CourseStudentFactsAggregatedRace]([RaceTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedRace_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14887,7 +14853,7 @@ ON [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility]([Scho
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSchoolFoodServicesEligibility_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14917,7 +14883,7 @@ ON [extension].[CourseStudentFactsAggregatedLanguage]([LanguageDescriptorId] ASC
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedLanguage_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14947,7 +14913,7 @@ ON [extension].[CourseStudentFactsAggregatedByDisability]([DisabilityDescriptorI
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedByDisability] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedByDisability_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14965,7 +14931,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -14983,7 +14949,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedELLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15001,7 +14967,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedESLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15019,7 +14985,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSection504Enrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15037,7 +15003,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSPED_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15055,7 +15021,7 @@ GO
 
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedTitleIEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15177,7 +15143,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15245,7 +15211,7 @@ ON [extension].[EducationOrganizationFactsVacancies]([EducationOrganizationId] A
 GO
 
 ALTER TABLE [extension].[EducationOrganizationFactsVacancies] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationFactsVacancies_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15311,7 +15277,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15405,7 +15371,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAssessmentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15481,7 +15447,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15511,7 +15477,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedSex]([SexTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSex_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15541,7 +15507,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedGender]([GenderTypeId
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedGender_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15561,7 +15527,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnici
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15591,7 +15557,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedRace]([RaceTypeId] AS
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedRace_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15621,7 +15587,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEli
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15651,7 +15617,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedLanguage]([LanguageDe
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedLanguage_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15681,7 +15647,7 @@ ON [extension].[EducationOrganizationStudentFactsAggregatedByDisability]([Educat
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedByDisability] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedByDisability_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15699,7 +15665,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15717,7 +15683,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedELLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15735,7 +15701,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedESLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15753,7 +15719,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSection504Enrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15771,7 +15737,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSPED_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -15789,7 +15755,7 @@ GO
 
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedTitleIEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -16959,7 +16925,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17005,7 +16971,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17089,7 +17055,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAssessmentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17165,7 +17131,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17195,7 +17161,7 @@ ON [extension].[SectionStudentFactsAggregatedSex]([SexTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSex_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17225,7 +17191,7 @@ ON [extension].[SectionStudentFactsAggregatedGender]([ClassPeriodName] ASC, [Cla
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedGender_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17245,7 +17211,7 @@ ON [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity]([ClassPeri
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17275,7 +17241,7 @@ ON [extension].[SectionStudentFactsAggregatedRace]([ClassPeriodName] ASC, [Class
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedRace_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17305,7 +17271,7 @@ ON [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility]([Cla
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSchoolFoodServicesEligibility_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17335,7 +17301,7 @@ ON [extension].[SectionStudentFactsAggregatedLanguage]([ClassPeriodName] ASC, [C
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedLanguage_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17365,7 +17331,7 @@ ON [extension].[SectionStudentFactsAggregatedByDisability]([ClassPeriodName] ASC
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedByDisability] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedByDisability_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17383,7 +17349,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17401,7 +17367,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedELLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17419,7 +17385,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedESLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17437,7 +17403,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSection504Enrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17455,7 +17421,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSPED_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -17473,7 +17439,7 @@ GO
 
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedTitleIEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
+REFERENCES [edfi].[ValueType] ([ValueTypeId])
 
 
 GO
@@ -20731,12 +20697,6 @@ INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[Shor
 INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Residency','Residency')
 
 INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Traditional','Traditional')
-
-INSERT INTO [extension].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Actual','Actual')
-
-INSERT INTO [extension].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')
-
-INSERT INTO [extension].[ValueType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Projected','Projected')
 
 GO
 

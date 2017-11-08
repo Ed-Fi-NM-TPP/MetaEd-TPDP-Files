@@ -972,6 +972,9 @@
   <Aggregate root="TitleIPartASchoolDesignationType">
     <Entity table="TitleIPartASchoolDesignationType"/>
   </Aggregate>
+  <Aggregate root="ValueType">
+    <Entity table="ValueType"/>
+  </Aggregate>
   <Aggregate root="VisaType">
     <Entity table="VisaType"/>
   </Aggregate>

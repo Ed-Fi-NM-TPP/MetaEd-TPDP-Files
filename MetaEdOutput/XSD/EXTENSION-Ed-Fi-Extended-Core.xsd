@@ -33,7 +33,7 @@
               <xs:documentation>The date for which the data element is relevant</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+          <xs:element name="ValueType" type="ValueType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Domain entity to collect data for indiviudal students with whom the teacher candidate is associated through field work or student teaching</xs:documentation>
             </xs:annotation>
@@ -8265,7 +8265,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8323,7 +8323,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8348,7 +8348,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8373,7 +8373,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8423,7 +8423,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8453,7 +8453,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8483,7 +8483,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8604,7 +8604,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8669,7 +8669,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8737,7 +8737,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8787,7 +8787,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8817,7 +8817,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -8872,7 +8872,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -9115,66 +9115,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EvaluationInformation">
-    <xs:annotation>
-      <xs:documentation>The data elements that comprise the evaluation for the staff.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="AttendanceScore" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The score that reflects the teachers attendance.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ProfessionalismScore" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The score that reflects the teachers professionalism.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ClassroomObservationScore" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The score that reflects the teachers classroom observation rating.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TotalEvalPoints" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The score that reflects the teachers total evalutation.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="SurveyScore" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The score that reflects the teachers survey rating.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="NumberDaysAbsent" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The number of days the teacher was absent.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="NumberLocations" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The number of locations at which the teacher attendance was taken.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TypeOfSurvey" type="EXTENSION-TypeOfSurvey" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The type of survey that was received</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="VASResult" type="EXTENSION-VASResult" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>A collection of data elements that provide information regarding Value Add Scores for the staff.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="EffectivenessRating" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The effectiveness rating provided for the teacher.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="EXTENSION-FieldworkExperience">
     <xs:annotation>
       <xs:documentation>The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students.</xs:documentation>
@@ -9409,41 +9349,6 @@
       <xs:element name="TotalHours" type="xs:int" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The number of total hours the professional development contains.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-ProgramInformation">
-    <xs:annotation>
-      <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="OtherMinor" type="EXTENSION-OtherMinor" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ConcentrationArea" type="EXTENSION-ConcentrationArea" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="PrimarySubjectArea" type="EXTENSION-PrimarySubjectArea" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="SecondarySubjectArea" type="EXTENSION-SecondarySubjectArea" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="BilingualMinor" type="EXTENSION-BilingualMinor" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9727,7 +9632,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
@@ -10063,7 +9968,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+      <xs:element name="ValueType" type="ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The type (i.e. actual or projected) of value.</xs:documentation>
         </xs:annotation>
@@ -10079,36 +9984,6 @@
       <xs:element name="NumberOfVacancies" type="xs:int">
         <xs:annotation>
           <xs:documentation>The number of vacancies, projected or actual, associated with an education organization.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-VASResult">
-    <xs:annotation>
-      <xs:documentation>A collection of data elements that provide information regardnig Value Add Scores for the staff.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="YearOfAssessment" type="xs:int">
-        <xs:annotation>
-          <xs:documentation>The shool year in which the assessment was completed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="AssessmentSubtestGroup" type="EXTENSION-AssessmentSubtestGroup">
-        <xs:annotation>
-          <xs:documentation>The subtest group the VAS score is associated with.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TotalNumberStudents" type="xs:int">
-        <xs:annotation>
-          <xs:documentation>The total number of students the teacher is associated with.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="VASOverallScore" type="xs:int">
-        <xs:annotation>
-          <xs:documentation>The overall value added score provided for the teacher.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -11391,31 +11266,6 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ValueType">
-    <xs:annotation>
-      <xs:documentation>The type (i.e. actual or projected) of value.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Enumeration</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:token">
-      <xs:enumeration value="Actual">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Projected">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:annotation>
     <xs:documentation>===== String Simple Types =====</xs:documentation>
   </xs:annotation>
@@ -11491,30 +11341,6 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-AssessmentSubtestGroup">
-    <xs:annotation>
-      <xs:documentation>The subtest group the VAS score is associated with.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="32" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-BilingualMinor">
-    <xs:annotation>
-      <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-CertificationExamTitle">
     <xs:annotation>
       <xs:documentation>The title or name of the certification.</xs:documentation>
@@ -11536,18 +11362,6 @@
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="1024" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ConcentrationArea">
-    <xs:annotation>
-      <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-EventDescription">
@@ -11724,18 +11538,6 @@
       <xs:maxLength value="255" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-OtherMinor">
-    <xs:annotation>
-      <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-PerformanceMeasureIdentifier">
     <xs:annotation>
       <xs:documentation>An assigned unique identifier for the performance measure instance.</xs:documentation>
@@ -11746,18 +11548,6 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="64" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-PrimarySubjectArea">
-    <xs:annotation>
-      <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-ProfessionalDevelopmentReason">
@@ -11887,18 +11677,6 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-SecondarySubjectArea">
-    <xs:annotation>
-      <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
@@ -12080,18 +11858,6 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="60" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-TypeOfSurvey">
-    <xs:annotation>
-      <xs:documentation>The type of survey that was received</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="32" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-Whereabouts">

@@ -1079,7 +1079,7 @@
               <xs:documentation>Indicator of whether this is the credential currently being used for employment.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ValueType" type="EXTENSION-ValueType">
+          <xs:element name="ValueType" type="ValueType">
             <xs:annotation>
               <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
             </xs:annotation>
@@ -1114,7 +1114,7 @@
               <xs:documentation>The status of the credential.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ProgramInformation" type="EXTENSION-ProgramInformation" minOccurs="0">
+          <xs:element name="ProgramInformation" type="ProgramInformation" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
             </xs:annotation>
@@ -3186,7 +3186,7 @@
               <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="EvaluationInformation" type="EXTENSION-EvaluationInformation" minOccurs="0">
+          <xs:element name="EvaluationInformation" type="EvaluationInformation" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The data elements that comprise the evaluation for the staff.</xs:documentation>
             </xs:annotation>
@@ -11873,6 +11873,66 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="EvaluationInformation">
+    <xs:annotation>
+      <xs:documentation>The data elements that comprise the evaluation for the staff.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AttendanceScore" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The score that reflects the teachers attendance.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProfessionalismScore" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The score that reflects the teachers professionalism.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ClassroomObservationScore" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The score that reflects the teachers classroom observation rating.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TotalEvalPoints" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The score that reflects the teachers total evalutation.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SurveyScore" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The score that reflects the teachers survey rating.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NumberDaysAbsent" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The number of days the teacher was absent.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NumberLocations" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The number of locations at which the teacher attendance was taken.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TypeOfSurvey" type="TypeOfSurvey" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The type of survey that was received</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VASResult" type="VASResult" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>A collection of data elements that provide information regarding Value Add Scores for the staff.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EffectivenessRating" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The effectiveness rating provided for the teacher.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="IdentificationDocument">
     <xs:annotation>
       <xs:documentation>Represents the valid document that a person uses for identification.</xs:documentation>
@@ -12402,6 +12462,41 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="ProgramInformation">
+    <xs:annotation>
+      <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OtherMinor" type="OtherMinor" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ConcentrationArea" type="ConcentrationArea" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PrimarySubjectArea" type="PrimarySubjectArea" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SecondarySubjectArea" type="SecondarySubjectArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BilingualMinor" type="BilingualMinor" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="ProgramParticipation">
     <xs:annotation>
       <xs:documentation>Programs the student is participating in or receiving services from.</xs:documentation>
@@ -12852,6 +12947,36 @@
       <xs:element name="TextMessageCapabilityIndicator" type="xs:boolean" minOccurs="0">
         <xs:annotation>
           <xs:documentation>An indication that the telephone number is technically capable of sending and receiving Short Message Service (SMS) text messages.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VASResult">
+    <xs:annotation>
+      <xs:documentation>A collection of data elements that provide information regardnig Value Add Scores for the staff.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="YearOfAssessment" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The shool year in which the assessment was completed.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AssessmentSubtestGroup" type="AssessmentSubtestGroup">
+        <xs:annotation>
+          <xs:documentation>The subtest group the VAS score is associated with.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TotalNumberStudents" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The total number of students the teacher is associated with.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VASOverallScore" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The overall value added score provided for the teacher.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -21013,6 +21138,31 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="ValueType">
+    <xs:annotation>
+      <xs:documentation>The type (i.e. actual or projected) of value.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Enumeration</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Actual">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Projected">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="VisaType">
     <xs:annotation>
       <xs:documentation>An indicator of a non-U.S. citizen's Visa type.</xs:documentation>
@@ -21232,6 +21382,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="AssessmentSubtestGroup">
+    <xs:annotation>
+      <xs:documentation>The subtest group the VAS score is associated with.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="AssessmentTitle">
     <xs:annotation>
       <xs:documentation>The title or name of the assessment.</xs:documentation>
@@ -21271,6 +21433,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
   <xs:simpleType name="BellScheduleName">
     <xs:annotation>
       <xs:documentation>The title or name of the bell schedule.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BilingualMinor">
+    <xs:annotation>
+      <xs:documentation>An minor that is specific to bilingual education identified in the teacher candidates educational programming.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Simple</ann:TypeGroup>
       </xs:appinfo>
@@ -21410,6 +21584,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConcentrationArea">
+    <xs:annotation>
+      <xs:documentation>A concentration area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ContactRestrictions">
@@ -21976,6 +22162,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="16" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="OtherMinor">
+    <xs:annotation>
+      <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="PersonalTitlePrefix">
     <xs:annotation>
       <xs:documentation>A prefix used to denote the title, degree, position, or seniority of the person.</xs:documentation>
@@ -22022,6 +22220,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="30" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrimarySubjectArea">
+    <xs:annotation>
+      <xs:documentation>The primary subject area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ProfileThumbnail">
@@ -22180,6 +22390,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="35" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="SecondarySubjectArea">
+    <xs:annotation>
+      <xs:documentation>The secondary subject area identified in the teacher candidates educational programming.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="ServiceCategory">
     <xs:annotation>
       <xs:documentation>The category of service provided by a program.</xs:documentation>
@@ -22259,6 +22481,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeOfSurvey">
+    <xs:annotation>
+      <xs:documentation>The type of survey that was received</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="UniqueId">

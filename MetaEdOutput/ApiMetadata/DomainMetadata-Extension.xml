@@ -545,8 +545,5 @@
   <Aggregate root="University">
     <Entity table="University" isA="EducationOrganization" schema="extension"/>
   </Aggregate>
-  <Aggregate root="ValueType">
-    <Entity table="ValueType" schema="extension"/>
-  </Aggregate>
 
 </AggregateExtensions>
