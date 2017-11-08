@@ -1079,6 +1079,46 @@
               <xs:documentation>Indicator of whether this is the credential currently being used for employment.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="ValueType" type="EXTENSION-ValueType">
+            <xs:annotation>
+              <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CertificateGranted" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indication of whether or not a if a certificate for a person has been granted.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="LicensureComplete" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indication of whether or not a person has completed their licensure.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CertificationLevel" type="CertificationLevel" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The level of certification received.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TypeOfCertification" type="TypeOfCertification" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The type of credential received.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialCategory" type="CredentialCategory" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The type of credential received.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialStatus" type="CredentialStatus" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The status of the credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ProgramInformation" type="EXTENSION-ProgramInformation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Information about the program details for the teacher candidate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3139,6 +3179,16 @@
           <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ObservationEndYear" type="ObservationEndYear" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EvaluationInformation" type="EXTENSION-EvaluationInformation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The data elements that comprise the evaluation for the staff.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -21266,6 +21316,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="20" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="CertificationLevel">
+    <xs:annotation>
+      <xs:documentation>The level of certification received.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="CIPCode">
     <xs:annotation>
       <xs:documentation>Number and description of the CIP Code associated with the student's CTE program.</xs:documentation>
@@ -21482,6 +21544,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="CredentialCategory">
+    <xs:annotation>
+      <xs:documentation>The type of credential received.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="CredentialEndorsement">
     <xs:annotation>
       <xs:documentation>Endorsements are attachments to teaching certificates and indicate areas of specialization.</xs:documentation>
@@ -21492,6 +21566,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CredentialStatus">
+    <xs:annotation>
+      <xs:documentation>The status of the credential.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="Criteria">
@@ -21878,6 +21964,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="ObservationEndYear">
+    <xs:annotation>
+      <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="16" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="PersonalTitlePrefix">
     <xs:annotation>
       <xs:documentation>A prefix used to denote the title, degree, position, or seniority of the person.</xs:documentation>
@@ -22150,6 +22248,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:duration" />
+  </xs:simpleType>
+  <xs:simpleType name="TypeOfCertification">
+    <xs:annotation>
+      <xs:documentation>The type of credential received.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="UniqueId">
     <xs:annotation>

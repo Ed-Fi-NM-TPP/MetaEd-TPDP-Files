@@ -3578,37 +3578,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>AssignmentPassed</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Indication of whether the assignment was passed or not.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Boolean Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentGradebookEntry.AssignmentPassed (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;AssignmentPassed&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Indication of whether the assignment was passed or not.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>AssignmentPassed [BIT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>AtriskIndicator</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -5603,68 +5572,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>Tenured</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Indicator of whether the staff member is tenured.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Boolean Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Staff.Tenured (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;Tenured&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Indicator of whether the staff member is tenured.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>Tenured [BIT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>TenureTrack</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>An indication that the staff is on track for tenure.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Boolean Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Staff.TenureTrack (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;TenureTrack&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;An indication that the staff is on track for tenure.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>TenureTrack [BIT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>TextMessageCapabilityIndicator</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -7522,7 +7429,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BackgroundCheckCompletedDate (optional)<br />BackgroundCheckRequestedDate (required)<br />BackgroundCheckStatus (optional)<br />BackgroundCheckType (identity)<br />Fingerprint (optional)<br /><br />Used By:<br />Staff.BackgroundCheck (as optional collection)<br />Applicant.BackgroundCheck (as optional collection)<br />TeacherCandidate.BackgroundCheck (as optional)</div>
+                <div><br />Contains:<br />BackgroundCheckCompletedDate (optional)<br />BackgroundCheckRequestedDate (required)<br />BackgroundCheckStatus (optional)<br />BackgroundCheckType (identity)<br />Fingerprint (optional)<br /><br />Used By:<br />Applicant.BackgroundCheck (as optional collection)<br />TeacherCandidate.BackgroundCheck (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7630,7 +7537,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BoardCertification (optional)<br />BoardCertificationDate (optional)<br />BoardCertificationType (required)<br /><br />Used By:<br />Credential.BoardCertification (as optional)</div>
+                <div><br />Contains:<br />BoardCertification (optional)<br />BoardCertificationDate (optional)<br />BoardCertificationType (required)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7731,7 +7638,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CertificationExamOverallScore (required)<br />CertificationExamTitle (required)<br />CertificationExamType (optional)<br /><br />Used By:<br />Credential.CertificationExam (as optional)</div>
+                <div><br />Contains:<br />CertificationExamOverallScore (required)<br />CertificationExamTitle (required)<br />CertificationExamType (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10044,7 +9951,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CredentialField (optional)<br />Level (required)<br />TeachingCredential (required)<br /><br />Used By:<br />Credential.Recommendation (as optional)</div>
+                <div><br />Contains:<br />CredentialField (optional)<br />Level (required)<br />TeachingCredential (required)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10100,7 +10007,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />RecommendingDate (optional)<br />RecommendingInstitutionCountry (optional)<br />RecommendingInstitutionStateAbbreviation (optional)<br />RecommendingInstutionName (required)<br /><br />Used By:<br />Credential.RecommendingInstitution (as optional)</div>
+                <div><br />Contains:<br />RecommendingDate (optional)<br />RecommendingInstitutionCountry (optional)<br />RecommendingInstitutionStateAbbreviation (optional)<br />RecommendingInstutionName (required)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10314,7 +10221,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />SalaryAmount (optional)<br />SalaryMaxRange (optional)<br />SalaryMinRange (optional)<br />SalaryType (optional)<br /><br />Used By:<br />Staff.Salary (as optional)</div>
+                <div><br />Contains:<br />SalaryAmount (optional)<br />SalaryMaxRange (optional)<br />SalaryMinRange (optional)<br />SalaryType (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10416,7 +10323,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CredentialField (identity)<br />NameOfInstitution (identity)<br />YearsExperience (required)<br /><br />Used By:<br />Staff.Seniority (as optional collection)</div>
+                <div><br />Contains:<br />CredentialField (identity)<br />NameOfInstitution (identity)<br />YearsExperience (required)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -11375,7 +11282,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ResearchExperienceDate (required)<br />ResearchExperienceDescription (optional)<br />ResearchExperienceTitle (optional)<br /><br />Used By:<br />Staff.TeacherEducatorResearch (as optional)</div>
+                <div><br />Contains:<br />ResearchExperienceDate (required)<br />ResearchExperienceDescription (optional)<br />ResearchExperienceTitle (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -11422,7 +11329,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />GPA (optional)<br />LevelOfDegreeAwarded (required)<br />MajorSpecialization (required)<br />NameOfInstitution (required)<br />TeacherPreparationProgramIdentifier (optional)<br />TeacherPreparationProgramName (identity)<br />TeacherPreparationProgramType (required)<br /><br />Used By:<br />Staff.TeacherPreparationProgram (as optional collection)<br />Applicant.TeacherPreparationProgram (as optional collection)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />GPA (optional)<br />LevelOfDegreeAwarded (required)<br />MajorSpecialization (required)<br />NameOfInstitution (required)<br />TeacherPreparationProgramIdentifier (optional)<br />TeacherPreparationProgramName (identity)<br />TeacherPreparationProgramType (required)<br /><br />Used By:<br />Applicant.TeacherPreparationProgram (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -13624,37 +13531,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>DateCompleted</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The date that the assignment was completed.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentGradebookEntry.DateCompleted (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;DateCompleted&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The date that the assignment was completed.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>DateCompleted [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>DateCourseAdopted</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -13931,37 +13807,6 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>DocumentExpirationDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>DueDate</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The date that the assignment was due.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />GradebookEntry.DueDate (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;DueDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The date that the assignment was due.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>DueDate [DATE]</pre></div>
             </div>
         </p>
         <p>
@@ -16104,37 +15949,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>ProbationCompleteDate</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The date the probation period ended or is scheduled to end.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Staff.ProbationCompleteDate (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;ProbationCompleteDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The date the probation period ended or is scheduled to end.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProbationCompleteDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>ProjectedGraduationDate</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -16538,37 +16352,6 @@ BeginDate
             </div>
         </p>
         <p>
-            <h2>RevocationDate</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The month, day, and year on which an active credential held by an individual was revoked.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.RevocationDate (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;RevocationDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The month, day, and year on which an active credential held by an individual was revoked.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>RevocationDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>ScheduleDateOfPerformanceMeasure</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -16690,37 +16473,6 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>StudentGrowthMeasureDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>SuspensionDate</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The month, day, and year on which an active credential held by an individual was suspended.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.SuspensionDate (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;SuspensionDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The month, day, and year on which an active credential held by an individual was suspended.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>SuspensionDate [DATE]</pre></div>
             </div>
         </p>
         <p>
@@ -17335,7 +17087,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Applicant.YearsOfPriorProfessionalExperience (as optional)<br />Applicant.YearsOfPriorTeachingExperience (as optional)<br />EducationOrganizationFacts.AverageYearsInDistrictEmployed (as optional)<br />Seniority.YearsExperience (as required)<br />Staff.YearsOfPriorProfessionalExperience (as optional)<br />Staff.YearsOfPriorTeachingExperience (as optional)<br />StaffEducationOrganizationAssignmentAssociation.YearsOfExperienceAtCurrentEducationOrganization (as optional)</div>
+                <div><br />Used By:<br />Applicant.YearsOfPriorProfessionalExperience (as optional)<br />Applicant.YearsOfPriorTeachingExperience (as optional)<br />EducationOrganizationFacts.AverageYearsInDistrictEmployed (as optional)<br />Seniority.YearsExperience (as required)<br />Staff.YearsOfPriorProfessionalExperience (as optional)<br />Staff.YearsOfPriorTeachingExperience (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -17694,7 +17446,7 @@ AbsenceEventCategoryTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.AcademicSubject (as optional collection)<br />StaffTeacherPreparationProviderAssociation.AcademicSubject (as optional collection)<br />CreditsBySubject.AcademicSubject (as identity)<br />CurrentPosition.AcademicSubject (as optional)<br />TPPProgramDegree.AcademicSubject (as required)<br />Vacancies.AcademicSubject (as identity)<br />CredentialField.AcademicSubject (as optional)<br />Staff.HighlyQualifiedAcademicSubject (as optional collection)<br />Assessment.AcademicSubject (as identity)<br />AssessmentFamily.AcademicSubject (as optional)<br />Cohort.AcademicSubject (as optional)<br />Course.AcademicSubject (as optional)<br />LearningObjective.AcademicSubject (as identity)<br />LearningStandard.AcademicSubject (as required)<br />OpenStaffPosition.AcademicSubject (as optional collection)<br />AnonymizedStudentAssessment.AcademicSubject (as optional)<br />Applicant.HighlyQualifiedAcademicSubject (as optional)<br />CourseStudentAssessmentFacts.AcademicSubject (as optional)<br />EducationOrganizationStudentAssessmentFacts.AcademicSubject (as optional)<br />ExternalCourseTranscript.AcademicSubject (as optional)<br />PerformanceMeasure.AcademicSubject (as optional)<br />PerformanceMeasureFacts.AcademicSubject (as optional)<br />SectionStudentAssessmentFacts.AcademicSubject (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.AcademicSubject (as optional collection)<br />StaffTeacherPreparationProviderAssociation.AcademicSubject (as optional collection)<br />CreditsBySubject.AcademicSubject (as identity)<br />CurrentPosition.AcademicSubject (as optional)<br />TPPProgramDegree.AcademicSubject (as required)<br />Vacancies.AcademicSubject (as identity)<br />CredentialField.AcademicSubject (as optional)<br />Assessment.AcademicSubject (as identity)<br />AssessmentFamily.AcademicSubject (as optional)<br />Cohort.AcademicSubject (as optional)<br />Course.AcademicSubject (as optional)<br />LearningObjective.AcademicSubject (as identity)<br />LearningStandard.AcademicSubject (as required)<br />OpenStaffPosition.AcademicSubject (as optional collection)<br />AnonymizedStudentAssessment.AcademicSubject (as optional)<br />Applicant.HighlyQualifiedAcademicSubject (as optional)<br />CourseStudentAssessmentFacts.AcademicSubject (as optional)<br />EducationOrganizationStudentAssessmentFacts.AcademicSubject (as optional)<br />ExternalCourseTranscript.AcademicSubject (as optional)<br />PerformanceMeasure.AcademicSubject (as optional)<br />PerformanceMeasureFacts.AcademicSubject (as optional)<br />SectionStudentAssessmentFacts.AcademicSubject (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -20808,7 +20560,7 @@ ProgramCharacteristicTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />GradebookEntry.ProgramGateway (as optional)<br />PerformanceMeasure.ProgramGateway (as optional collection)<br />StaffFieldworkExperience.ProgramGateway (as optional)<br />TeacherCandidateAcademicRecord.ProgramGateway (as required)<br />TeacherCandidateFieldworkExperience.ProgramGateway (as optional)</div>
+                <div><br />Used By:<br />PerformanceMeasure.ProgramGateway (as optional collection)<br />StaffFieldworkExperience.ProgramGateway (as optional)<br />TeacherCandidateAcademicRecord.ProgramGateway (as required)<br />TeacherCandidateFieldworkExperience.ProgramGateway (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -23573,7 +23325,7 @@ TermDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />Aid (optional collection)<br />ApplicantIdentifier (identity)<br />BackgroundCheck (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />Disability (optional collection)<br />EducationOrganization (identity)<br />ElectronicMail (optional collection)<br />Gender (optional)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedAcademicSubject (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />Prospect (optional)<br />Race (optional collection)<br />ScoreResult (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />TeacherPreparationProgram (optional collection)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />SurveyResponderChoice.Applicant (as required)<br />Staff.Applicant (as optional collection)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />Aid (optional collection)<br />ApplicantIdentifier (identity)<br />BackgroundCheck (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />Disability (optional collection)<br />EducationOrganization (identity)<br />ElectronicMail (optional collection)<br />Gender (optional)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedAcademicSubject (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />Prospect (optional)<br />Race (optional collection)<br />ScoreResult (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />TeacherPreparationProgram (optional collection)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />SurveyResponderChoice.Applicant (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -26967,7 +26719,7 @@ CourseCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CredentialEndorsement (optional collection)<br />CredentialField (required)<br />CredentialIdentifier (identity)<br />CredentialType (required)<br />CurrentCredential (optional)<br />EffectiveDate (optional)<br />ExpirationDate (optional)<br />GradeLevel (required)<br />IssuanceDate (required)<br />StateOfIssueStateAbbreviation (identity)<br />TeachingCredential (required)<br />TeachingCredentialBasis (optional)<br /><br />Used By:<br />Staff.Credential (as optional collection)<br />Applicant.Credential (as optional collection)<br />Prospect.Credential (as optional collection)<br />TeacherCandidate.Credential (as optional collection)</div>
+                <div><br />Contains:<br />CertificateGranted (optional)<br />CertificationLevel (optional)<br />CredentialCategory (optional)<br />CredentialEndorsement (optional collection)<br />CredentialField (required)<br />CredentialIdentifier (identity)<br />CredentialStatus (optional)<br />CredentialType (required)<br />CurrentCredential (optional)<br />EffectiveDate (optional)<br />ExpirationDate (optional)<br />GradeLevel (required)<br />IssuanceDate (required)<br />LicensureComplete (optional)<br />ProgramInformation (optional)<br />StateOfIssueStateAbbreviation (identity)<br />TeachingCredential (required)<br />TeachingCredentialBasis (optional)<br />TypeOfCertification (optional)<br />ValueType (required)<br /><br />Used By:<br />Staff.Credential (as optional collection)<br />Applicant.Credential (as optional collection)<br />Prospect.Credential (as optional collection)<br />TeacherCandidate.Credential (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -27050,6 +26802,46 @@ CourseCode
             &lt;xs:documentation&gt;Indicator of whether this is the credential currently being used for employment.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CertificateGranted&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication of whether or not a if a certificate for a person has been granted.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;LicensureComplete&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication of whether or not a person has completed their licensure.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CertificationLevel&quot; type=&quot;CertificationLevel&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The level of certification received.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TypeOfCertification&quot; type=&quot;TypeOfCertification&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CredentialCategory&quot; type=&quot;CredentialCategory&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CredentialStatus&quot; type=&quot;CredentialStatus&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The status of the credential.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramInformation&quot; type=&quot;EXTENSION-ProgramInformation&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Information about the program details for the teacher candidate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -27070,6 +26862,13 @@ GradeLevelDescriptorId [INT] NOT NULL
 TeachingCredentialDescriptorId [INT] NOT NULL
 TeachingCredentialBasisTypeId [INT] NULL
 CurrentCredential [BIT] NULL
+ValueTypeId [INT] NOT NULL
+CertificateGranted [BIT] NULL
+LicensureComplete [BIT] NULL
+CertificationLevel [NVARCHAR](60) NULL
+TypeOfCertification [NVARCHAR](60) NULL
+CredentialCategory [NVARCHAR](60) NULL
+CredentialStatus [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -27087,6 +26886,60 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 CredentialEndorsement
 CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />edfi.CredentialProgramInformation
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+SecondarySubjectArea [NVARCHAR](60) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />edfi.CredentialProgramInformationBilingualMinor
+
+BilingualMinor [NVARCHAR](60) NOT NULL
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+BilingualMinor
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />edfi.CredentialProgramInformationConcentrationArea
+
+ConcentrationArea [NVARCHAR](60) NOT NULL
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+ConcentrationArea
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />edfi.CredentialProgramInformationOtherMinor
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+OtherMinor [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+OtherMinor
+StateOfIssueStateAbbreviationTypeId
+<br />edfi.CredentialProgramInformationPrimarySubjectArea
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+PrimarySubjectArea [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+PrimarySubjectArea
 StateOfIssueStateAbbreviationTypeId
 </pre></div>
             </div>
@@ -35952,7 +35805,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.PersonBeingReviewedStaff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.ReviewerStaff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />EvaluationInformation (optional)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />ObservationEndYear (optional)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.PersonBeingReviewedStaff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.ReviewerStaff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -36089,6 +35942,16 @@ BeginDate
             &lt;xs:documentation&gt;The legal document giving authorization to perform teaching assignment services.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ObservationEndYear&quot; type=&quot;ObservationEndYear&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EvaluationInformation&quot; type=&quot;EXTENSION-EvaluationInformation&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The data elements that comprise the evaluation for the staff.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -36115,6 +35978,7 @@ YearsOfPriorProfessionalExperience [DECIMAL](5, 2) NULL
 YearsOfPriorTeachingExperience [DECIMAL](5, 2) NULL
 LoginId [NVARCHAR](60) NULL
 HighlyQualifiedTeacher [BIT] NULL
+ObservationEndYear [NVARCHAR](16) NULL
 StaffUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -36163,6 +36027,35 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 StaffUSI
 ElectronicMailTypeId
+<br />edfi.StaffEvaluationInformation
+
+StaffUSI [INT] NOT NULL
+AttendanceScore [INT] NULL
+ProfessionalismScore [INT] NULL
+ClassroomObservationScore [INT] NULL
+TotalEvalPoints [INT] NULL
+SurveyScore [INT] NULL
+NumberDaysAbsent [INT] NULL
+NumberLocations [INT] NULL
+TypeOfSurvey [NVARCHAR](32) NULL
+EffectivenessRating [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+StaffUSI
+<br />edfi.StaffEvaluationInformationVASResult
+
+AssessmentSubtestGroup [NVARCHAR](32) NOT NULL
+StaffUSI [INT] NOT NULL
+YearOfAssessment [INT] NOT NULL
+TotalNumberStudents [INT] NOT NULL
+VASOverallScore [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AssessmentSubtestGroup
+StaffUSI
+YearOfAssessment
 <br />edfi.StaffIdentificationCode
 
 StaffIdentificationSystemDescriptorId [INT] NOT NULL
@@ -43545,7 +43438,7 @@ EventCircumstanceTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedGender.Gender (as identity)<br />Staff.Gender (as optional)<br />AnonymizedStudent.Gender (as optional)<br />Applicant.Gender (as optional)<br />Prospect.Gender (as optional)<br />TeacherCandidate.Gender (as optional)</div>
+                <div><br />Used By:<br />AggregatedGender.Gender (as identity)<br />AnonymizedStudent.Gender (as optional)<br />Applicant.Gender (as optional)<br />Prospect.Gender (as optional)<br />TeacherCandidate.Gender (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51059,7 +50952,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CertificationLevel&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;CertificationLevel&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The level of certification received.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -51898,7 +51791,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CredentialCategory&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;CredentialCategory&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -51982,7 +51875,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-CredentialStatus&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;CredentialStatus&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The status of the credential.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -53993,7 +53886,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ObservationEndYear&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;ObservationEndYear&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -55164,10 +55057,6 @@ VisaTypeId
                 <div>min length: 1<br />max length: 40</div>
             </div>
             <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.RevocationReason (as optional)</div>
-            </div>
-            <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-RevocationReason&quot;&gt;
   &lt;xs:annotation&gt;
@@ -55834,10 +55723,6 @@ VisaTypeId
                 <div>min length: 1<br />max length: 40</div>
             </div>
             <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Credential.SuspensionReason (as optional)</div>
-            </div>
-            <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-SuspensionReason&quot;&gt;
   &lt;xs:annotation&gt;
@@ -56175,7 +56060,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TypeOfCertification&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;TypeOfCertification&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The type of credential received.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;

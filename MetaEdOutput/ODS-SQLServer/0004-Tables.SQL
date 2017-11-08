@@ -3337,6 +3337,13 @@ CREATE TABLE [edfi].[Credential](
     [TeachingCredentialDescriptorId] [INT] NOT NULL,
     [TeachingCredentialBasisTypeId] [INT] NULL,
     [CurrentCredential] [BIT] NULL,
+    [ValueTypeId] [INT] NOT NULL,
+    [CertificateGranted] [BIT] NULL,
+    [LicensureComplete] [BIT] NULL,
+    [CertificationLevel] [NVARCHAR](60) NULL,
+    [TypeOfCertification] [NVARCHAR](60) NULL,
+    [CredentialCategory] [NVARCHAR](60) NULL,
+    [CredentialStatus] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -3376,6 +3383,20 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator of whether this is the credential currently being used for employment.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CurrentCredential'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not a if a certificate for a person has been granted.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CertificateGranted'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not a person has completed their licensure.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'LicensureComplete'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level of certification received.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CertificationLevel'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TypeOfCertification'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of credential received.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CredentialCategory'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CredentialStatus'
 GO
 
 
@@ -3423,6 +3444,140 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialFieldDescriptor', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A classification of the certification fields to academic subjects.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialFieldDescriptor', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
+GO
+
+
+/****** Table: [edfi].[CredentialProgramInformation] ******/
+
+CREATE TABLE [edfi].[CredentialProgramInformation](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [SecondarySubjectArea] [NVARCHAR](60) NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformation_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialProgramInformation] ADD CONSTRAINT [CredentialProgramInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the program details for the teacher candidate.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialProgramInformation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The secondary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformation', @level2type=N'COLUMN', @level2name=N'SecondarySubjectArea'
+GO
+
+
+/****** Table: [edfi].[CredentialProgramInformationBilingualMinor] ******/
+
+CREATE TABLE [edfi].[CredentialProgramInformationBilingualMinor](
+    [BilingualMinor] [NVARCHAR](60) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationBilingualMinor_PK] PRIMARY KEY CLUSTERED (
+        [BilingualMinor] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialProgramInformationBilingualMinor] ADD CONSTRAINT [CredentialProgramInformationBilingualMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationBilingualMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An minor that is specific to bilingual education identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'BilingualMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationBilingualMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [edfi].[CredentialProgramInformationConcentrationArea] ******/
+
+CREATE TABLE [edfi].[CredentialProgramInformationConcentrationArea](
+    [ConcentrationArea] [NVARCHAR](60) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationConcentrationArea_PK] PRIMARY KEY CLUSTERED (
+        [ConcentrationArea] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialProgramInformationConcentrationArea] ADD CONSTRAINT [CredentialProgramInformationConcentrationArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationConcentrationArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A concentration area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'ConcentrationArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationConcentrationArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [edfi].[CredentialProgramInformationOtherMinor] ******/
+
+CREATE TABLE [edfi].[CredentialProgramInformationOtherMinor](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [OtherMinor] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationOtherMinor_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [OtherMinor] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialProgramInformationOtherMinor] ADD CONSTRAINT [CredentialProgramInformationOtherMinor_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationOtherMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An additional minor identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'OtherMinor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationOtherMinor', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
+/****** Table: [edfi].[CredentialProgramInformationPrimarySubjectArea] ******/
+
+CREATE TABLE [edfi].[CredentialProgramInformationPrimarySubjectArea](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [PrimarySubjectArea] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialProgramInformationPrimarySubjectArea_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [PrimarySubjectArea] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialProgramInformationPrimarySubjectArea] ADD CONSTRAINT [CredentialProgramInformationPrimarySubjectArea_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialProgramInformationPrimarySubjectArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary subject area identified in the teacher candidates educational programming.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'PrimarySubjectArea'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialProgramInformationPrimarySubjectArea', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
 
 
@@ -11813,6 +11968,7 @@ CREATE TABLE [edfi].[Staff](
     [YearsOfPriorTeachingExperience] [DECIMAL](5, 2) NULL,
     [LoginId] [NVARCHAR](60) NULL,
     [HighlyQualifiedTeacher] [BIT] NULL,
+    [ObservationEndYear] [NVARCHAR](16) NULL,
     [StaffUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -11880,6 +12036,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The login ID for the user; used for security access control interface.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'LoginId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher is classified as highly qualified for his/her assignment according to state definition. This attribute indicates the teacher is highly qualified for ALL Sections being taught.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'HighlyQualifiedTeacher'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the last teacher observation was conducted for the staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'ObservationEndYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'StaffUniqueId'
 GO
@@ -12225,6 +12383,85 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The electronic mail (e-mail) address listed for an individual or organization.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffElectronicMail', @level2type=N'COLUMN', @level2name=N'ElectronicMailAddress'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the electronic mail address should be used as the principal electronic mail address for an individual or organization.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffElectronicMail', @level2type=N'COLUMN', @level2name=N'PrimaryEmailAddressIndicator'
+GO
+
+
+/****** Table: [edfi].[StaffEvaluationInformation] ******/
+
+CREATE TABLE [edfi].[StaffEvaluationInformation](
+    [StaffUSI] [INT] NOT NULL,
+    [AttendanceScore] [INT] NULL,
+    [ProfessionalismScore] [INT] NULL,
+    [ClassroomObservationScore] [INT] NULL,
+    [TotalEvalPoints] [INT] NULL,
+    [SurveyScore] [INT] NULL,
+    [NumberDaysAbsent] [INT] NULL,
+    [NumberLocations] [INT] NULL,
+    [TypeOfSurvey] [NVARCHAR](32) NULL,
+    [EffectivenessRating] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [StaffEvaluationInformation_PK] PRIMARY KEY CLUSTERED (
+        [StaffUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StaffEvaluationInformation] ADD CONSTRAINT [StaffEvaluationInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The data elements that comprise the evaluation for the staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers attendance.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'AttendanceScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers professionalism.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'ProfessionalismScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers classroom observation rating.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'ClassroomObservationScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers total evalutation.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'TotalEvalPoints'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers survey rating.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'SurveyScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days the teacher was absent.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'NumberDaysAbsent'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of locations at which the teacher attendance was taken.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'NumberLocations'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of survey that was received', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'TypeOfSurvey'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The effectiveness rating provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'EffectivenessRating'
+GO
+
+
+/****** Table: [edfi].[StaffEvaluationInformationVASResult] ******/
+
+CREATE TABLE [edfi].[StaffEvaluationInformationVASResult](
+    [AssessmentSubtestGroup] [NVARCHAR](32) NOT NULL,
+    [StaffUSI] [INT] NOT NULL,
+    [YearOfAssessment] [INT] NOT NULL,
+    [TotalNumberStudents] [INT] NOT NULL,
+    [VASOverallScore] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [StaffEvaluationInformationVASResult_PK] PRIMARY KEY CLUSTERED (
+        [AssessmentSubtestGroup] ASC,
+        [StaffUSI] ASC,
+        [YearOfAssessment] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StaffEvaluationInformationVASResult] ADD CONSTRAINT [StaffEvaluationInformationVASResult_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A collection of data elements that provide information regarding Value Add Scores for the staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformationVASResult'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The subtest group the VAS score is associated with.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'AssessmentSubtestGroup'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The shool year in which the assessment was completed.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'YearOfAssessment'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students the teacher is associated with.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'TotalNumberStudents'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall value added score provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformationVASResult', @level2type=N'COLUMN', @level2name=N'VASOverallScore'
 GO
 
 
@@ -19831,6 +20068,16 @@ CREATE NONCLUSTERED INDEX [FK_Credential_TeachingCredentialDescriptor]
 ON [edfi].[Credential]([TeachingCredentialDescriptorId] ASC)
 GO
 
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_ValueType] FOREIGN KEY ([ValueTypeId])
+REFERENCES [extension].[ValueType] ([ValueTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_ValueType]
+ON [edfi].[Credential]([ValueTypeId] ASC)
+GO
+
 ALTER TABLE [edfi].[CredentialEndorsement] WITH CHECK ADD CONSTRAINT [FK_CredentialEndorsement_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 ON DELETE CASCADE
@@ -19839,6 +20086,54 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_CredentialEndorsement_Credential]
 ON [edfi].[CredentialEndorsement]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[CredentialProgramInformation] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformation_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [edfi].[CredentialProgramInformationOtherMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationOtherMinor_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationOtherMinor_CredentialProgramInformation]
+ON [edfi].[CredentialProgramInformationOtherMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[CredentialProgramInformationConcentrationArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationConcentrationArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationConcentrationArea_CredentialProgramInformation]
+ON [edfi].[CredentialProgramInformationConcentrationArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[CredentialProgramInformationPrimarySubjectArea] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationPrimarySubjectArea_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationPrimarySubjectArea_CredentialProgramInformation]
+ON [edfi].[CredentialProgramInformationPrimarySubjectArea]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[CredentialProgramInformationBilingualMinor] WITH CHECK ADD CONSTRAINT [FK_CredentialProgramInformationBilingualMinor_CredentialProgramInformation] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[CredentialProgramInformation] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialProgramInformationBilingualMinor_CredentialProgramInformation]
+ON [edfi].[CredentialProgramInformationBilingualMinor]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [edfi].[DisciplineAction] WITH CHECK ADD CONSTRAINT [FK_DisciplineAction_DisciplineActionLengthDifferenceReasonType] FOREIGN KEY ([DisciplineActionLengthDifferenceReasonTypeId])
@@ -22709,6 +23004,24 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_StaffCredential_Staff]
 ON [edfi].[StaffCredential]([StaffUSI] ASC)
+GO
+
+ALTER TABLE [edfi].[StaffEvaluationInformation] WITH CHECK ADD CONSTRAINT [FK_StaffEvaluationInformation_Staff] FOREIGN KEY ([StaffUSI])
+REFERENCES [edfi].[Staff] ([StaffUSI])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [edfi].[StaffEvaluationInformationVASResult] WITH CHECK ADD CONSTRAINT [FK_StaffEvaluationInformationVASResult_StaffEvaluationInformation] FOREIGN KEY ([StaffUSI])
+REFERENCES [edfi].[StaffEvaluationInformation] ([StaffUSI])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StaffEvaluationInformationVASResult_StaffEvaluationInformation]
+ON [edfi].[StaffEvaluationInformationVASResult]([StaffUSI] ASC)
 GO
 
 ALTER TABLE [edfi].[Student] WITH CHECK ADD CONSTRAINT [FK_Student_CitizenshipStatusType] FOREIGN KEY ([CitizenshipStatusTypeId])

@@ -549,27 +549,4 @@
     <Entity table="ValueType" schema="extension"/>
   </Aggregate>
 
-  <AggregateExtension root="Credential">
-    <Entity table="CredentialBoardCertification" schema="extension"/>
-    <Entity table="CredentialCertificationExam" schema="extension"/>
-    <Entity table="CredentialProgramInformation" schema="extension"/>
-    <Entity table="CredentialProgramInformationBilingualMinor" schema="extension"/>
-    <Entity table="CredentialProgramInformationConcentrationArea" schema="extension"/>
-    <Entity table="CredentialProgramInformationOtherMinor" schema="extension"/>
-    <Entity table="CredentialProgramInformationPrimarySubjectArea" schema="extension"/>
-    <Entity table="CredentialRecommendation" schema="extension"/>
-    <Entity table="CredentialRecommendingInstitution" schema="extension"/>
-  </AggregateExtension>
-  <AggregateExtension root="Staff">
-    <Entity table="StaffApplicant" schema="extension"/>
-    <Entity table="StaffBackgroundCheck" schema="extension"/>
-    <Entity table="StaffEvaluationInformation" schema="extension"/>
-    <Entity table="StaffEvaluationInformationVASResult" schema="extension"/>
-    <Entity table="StaffHighlyQualifiedAcademicSubject" schema="extension"/>
-    <Entity table="StaffSalary" schema="extension"/>
-    <Entity table="StaffSeniority" schema="extension"/>
-    <Entity table="StaffTeacherEducatorResearch" schema="extension"/>
-    <Entity table="StaffTeacherPreparationProgram" schema="extension"/>
-    <Entity table="StaffTeacherPreparationProgramAddress" schema="extension"/>
-  </AggregateExtension>
 </AggregateExtensions>

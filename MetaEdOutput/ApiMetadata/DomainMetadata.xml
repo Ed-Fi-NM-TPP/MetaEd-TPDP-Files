@@ -227,6 +227,11 @@
   <Aggregate root="Credential">
     <Entity table="Credential"/>
     <Entity table="CredentialEndorsement"/>
+    <Entity table="CredentialProgramInformation"/>
+    <Entity table="CredentialProgramInformationBilingualMinor"/>
+    <Entity table="CredentialProgramInformationConcentrationArea"/>
+    <Entity table="CredentialProgramInformationOtherMinor"/>
+    <Entity table="CredentialProgramInformationPrimarySubjectArea"/>
   </Aggregate>
   <Aggregate root="CredentialFieldDescriptor">
     <Entity table="CredentialFieldDescriptor" isA="Descriptor"/>
@@ -770,6 +775,8 @@
     <Entity table="StaffAddress"/>
     <Entity table="StaffCredential"/>
     <Entity table="StaffElectronicMail"/>
+    <Entity table="StaffEvaluationInformation"/>
+    <Entity table="StaffEvaluationInformationVASResult"/>
     <Entity table="StaffIdentificationCode"/>
     <Entity table="StaffIdentificationDocument"/>
     <Entity table="StaffInternationalAddress"/>

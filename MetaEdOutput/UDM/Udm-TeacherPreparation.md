@@ -21,7 +21,7 @@
 | CourseSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | CourseSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | CourseSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
-| Credential |  |
+| Credential | The legal document giving authorization to perform teaching assignment services. |
 | EducationOrganizationCourseTranscriptFacts | Data about the final grade earned of the group. |
 | EducationOrganizationFacts | Selective fact(s) about the education organization used for comparative analysis. |
 | EducationOrganizationStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
@@ -33,7 +33,7 @@
 | ExternalCourseTranscript | This entity is the final record of a student's performance in their courses at the end of a semester or school year of an ExternalEducationOrgnaization. |
 | ExternalEducationOrganization | This entity represents any external public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. This entity is provided to refer to organizations about which local school and districts have little to no information. |
 | ExternalStudentAcademicRecord | This educational entity represents the cumulative record of academic achievement for a student that is being collected from an extrnal education organization about which local school and districts have little to no information. |
-| GradebookEntry |  |
+| GradebookEntry | This entity represents an assignment, homework, or classroom assessment to be recorded in a gradebook. |
 | PerformanceMeasure | Information about the performance measure |
 | PerformanceMeasureFacts | This entity represents aggregated information regarding performance measure data. |
 | ProfessionalDevelopmentEvent | Information about a professional development event. |
@@ -52,12 +52,12 @@
 | SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | SectionSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
-| Staff |  |
+| Staff | This entity represents an individual who performs specified activities for any public or private education institution or agency that provides instructional and/or support services to students or staff at the early childhood level through high school completion. For example, this includes:<br/>    1. An "employee" who performs services under the direction of the employing institution or agency is compensated for such services by the employer and is eligible for employee benefits and wage or salary tax withholdings<br/>    2. A "contractor" or "consultant" who performs services for an agreed upon fee or an employee of a management service contracted to work on site<br/>    3. A "volunteer" who performs services on a voluntary and uncompensated basis<br/>    4. An in-kind service provider<br/>    5. An independent contractor or businessperson working at a school site. |
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | StaffProfessionalDevelopmentEventAttendance | This event entity represents the recording of whether a staff is in attendance for professional development. |
 | StaffStudentGrowthMeasure | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
-| StudentGradebookEntry |  |
+| StudentGradebookEntry | This entity holds a student's grade or competency level for a gradebook entry. |
 | Survey | A survey to identified or anonymous respondants. |
 | SurveyQuestion | The questions for the survey. |
 | SurveyQuestionResponse | The response to a survey question. |
