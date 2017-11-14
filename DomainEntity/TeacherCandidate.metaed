@@ -146,20 +146,3 @@ Domain Entity TeacherCandidate
   integer SATScore
     documentation "The SAT score the Teacher Candidate provided at the time of admission."
     is optional
-  string AdmissionStatus
-    documentation "The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted."
-    is optional
-    min length 1
-    max length 32
-  integer ExpectedEndMonth
-    documentation "The anticipated month the teacher candidate will complete the program."
-    is optional
-  integer ExpectedEndYear
-    documentation "The anticipated year the teacher candidate will complete the program."
-    is optional
-  integer ProgramStartMonth
-    documentation "The month, numerically, the Teacher Candidate started the EPP program."
-    is required
-  integer ProgramStartYear
-    documentation "The year the Teacher Candidate started the EPP program."
-    is required

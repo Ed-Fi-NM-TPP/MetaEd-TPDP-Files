@@ -2849,7 +2849,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ClassOfSchoolYear (optional)<br />EntryDate (identity)<br />EntryType (optional)<br />ExitWithdrawDate (optional)<br />ExitWithdrawType (optional)<br />SchoolYear (optional)<br />TeacherCandidate (identity)<br />TeacherPreparationProvider (identity)<br /></div>
+                <div><br />Contains:<br />AdmissionStartMonth (optional)<br />AdmissionStartYear (optional)<br />AdmissionStatus (optional)<br />ClassOfSchoolYear (optional)<br />CompleterStartMonth (optional)<br />CompleterStartYear (optional)<br />EntryDate (identity)<br />EntryType (optional)<br />ExitWithdrawDate (optional)<br />ExitWithdrawType (optional)<br />ExpectedEndMonth (optional)<br />ExpectedEndYear (optional)<br />FileStatus (required)<br />SchoolYear (optional)<br />TeacherCandidate (identity)<br />TeacherPreparationProvider (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -2909,6 +2909,46 @@ UniqueSectionCode
             &lt;xs:documentation&gt;School Year cohort for the association&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AdmissionStatus&quot; type=&quot;EXTENSION-AdmissionStatus&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ExpectedEndMonth&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The anticipated month the teacher candidate will complete the program.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ExpectedEndYear&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The anticipated year the teacher candidate will complete the program.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AdmissionStartMonth&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The month, numerically, the Teacher Candidate started the EPP program as an admissions candidate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AdmissionStartYear&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The year the Teacher Candidate started the EPP program as an admissions candidate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CompleterStartMonth&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The month, numerically, the Teacher Candidate started the EPP program as a completer.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CompleterStartYear&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The year the Teacher Candidate started the EPP program as a completer.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;FileStatus&quot; type=&quot;EXTENSION-FileStatus&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication of whether the teacher candidate is from the Admissions file or the Completer file.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -2926,6 +2966,14 @@ EntryTypeDescriptorId [INT] NULL
 ExitWithdrawDate [DATE] NULL
 ExitWithdrawTypeDescriptorId [INT] NULL
 ClassOfSchoolYear [SMALLINT] NULL
+AdmissionStatus [NVARCHAR](32) NULL
+ExpectedEndMonth [INT] NULL
+ExpectedEndYear [INT] NULL
+AdmissionStartMonth [INT] NULL
+AdmissionStartYear [INT] NULL
+CompleterStartMonth [INT] NULL
+CompleterStartYear [INT] NULL
+FileStatus [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -38960,7 +39008,7 @@ SurveySectionTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ACTScore (optional)<br />Address (optional collection)<br />AdmissionStatus (optional)<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Credential (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />EnglishLanguageExam (optional)<br />ExpectedEndMonth (optional)<br />ExpectedEndYear (optional)<br />Gender (optional)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />NMEthnicity (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />PreviousCareer (optional)<br />ProfileThumbnail (optional)<br />ProgramComplete (optional)<br />ProgramParticipation (optional collection)<br />ProgramStartMonth (required)<br />ProgramStartYear (required)<br />Race (optional collection)<br />SATScore (optional)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateCharacteristic (optional collection)<br />TeacherCandidateIdentificationCode (optional collection)<br />TeacherCandidateIdentifier (identity)<br />TeacherCandidateIndicator (optional collection)<br />Telephone (optional collection)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateAcademicRecord.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />ACTScore (optional)<br />Address (optional collection)<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Credential (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />NMEthnicity (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />PreviousCareer (optional)<br />ProfileThumbnail (optional)<br />ProgramComplete (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SATScore (optional)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateCharacteristic (optional collection)<br />TeacherCandidateIdentificationCode (optional collection)<br />TeacherCandidateIdentifier (identity)<br />TeacherCandidateIndicator (optional collection)<br />Telephone (optional collection)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateAcademicRecord.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -39192,31 +39240,6 @@ SurveySectionTitle
             &lt;xs:documentation&gt;The SAT score the Teacher Candidate provided at the time of admission.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AdmissionStatus&quot; type=&quot;EXTENSION-AdmissionStatus&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ExpectedEndMonth&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The anticipated month the teacher candidate will complete the program.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ExpectedEndYear&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The anticipated year the teacher candidate will complete the program.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ProgramStartMonth&quot; type=&quot;xs:int&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The month, numerically, the Teacher Candidate started the EPP program.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ProgramStartYear&quot; type=&quot;xs:int&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The year the Teacher Candidate started the EPP program.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -39260,11 +39283,6 @@ StaffUSI [INT] NULL
 NMEthnicity [NVARCHAR](32) NOT NULL
 ACTScore [INT] NULL
 SATScore [INT] NULL
-AdmissionStatus [NVARCHAR](32) NULL
-ExpectedEndMonth [INT] NULL
-ExpectedEndYear [INT] NULL
-ProgramStartMonth [INT] NOT NULL
-ProgramStartYear [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -41101,7 +41119,7 @@ FiscalYear
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />TeacherPreparationProviderId (identity)<br />TypeOfProgram (required)<br />University (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)</div>
+                <div><br />Contains:<br />TeacherPreparationProviderId (identity)<br />University (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherPreparationProvider (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -41125,11 +41143,6 @@ FiscalYear
             &lt;xs:documentation&gt;The post secondary institution of which the teacher preparation provider is a component of.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TypeOfProgram&quot; type=&quot;EXTENSION-TypeOfProgram&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -41141,7 +41154,6 @@ FiscalYear
 
 TeacherPreparationProviderId [INT] NOT NULL
 UniversityId [INT] NULL
-TypeOfProgram [NVARCHAR](60) NOT NULL
 
 Primary Keys:
 TeacherPreparationProviderId
@@ -47268,6 +47280,60 @@ VisaTypeId
             </div>
         </p>
         <p>
+            <h2>AdmissionStartMonth</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The month, numerically, the Teacher Candidate started the EPP program as an admissions candidate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.AdmissionStartMonth (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AdmissionStartMonth [INT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>AdmissionStartYear</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The year the Teacher Candidate started the EPP program as an admissions candidate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.AdmissionStartYear (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AdmissionStartYear [INT]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>AttendanceScore</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -47373,6 +47439,60 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>ClassroomObservationScore [INT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>CompleterStartMonth</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The month, numerically, the Teacher Candidate started the EPP program as a completer.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.CompleterStartMonth (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CompleterStartMonth [INT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>CompleterStartYear</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The year the Teacher Candidate started the EPP program as a completer.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.CompleterStartYear (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CompleterStartYear [INT]</pre></div>
             </div>
         </p>
         <p>
@@ -47675,7 +47795,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.ExpectedEndMonth (as optional)</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.ExpectedEndMonth (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -47702,7 +47822,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.ExpectedEndYear (as optional)</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.ExpectedEndYear (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -48911,60 +49031,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>ProgramStartMonth</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The month, numerically, the Teacher Candidate started the EPP program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.ProgramStartMonth (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProgramStartMonth [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>ProgramStartYear</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The year the Teacher Candidate started the EPP program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.ProgramStartYear (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProgramStartYear [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>RaceTypeNumber</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -50150,7 +50216,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.AdmissionStatus (as optional)</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.AdmissionStatus (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52603,6 +52669,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>FieldworkSchool [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>FileStatus</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>An indication of whether the teacher candidate is from the Admissions file or the Completer file.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 32</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.FileStatus (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-FileStatus&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;An indication of whether the teacher candidate is from the Admissions file or the Completer file.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;32&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>FileStatus [NVARCHAR](32)</pre></div>
             </div>
         </p>
         <p>
@@ -56076,48 +56184,6 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>TypeOfCertification [NVARCHAR](60)</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>TypeOfProgram</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>String Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 1<br />max length: 60</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherPreparationProvider.TypeOfProgram (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TypeOfProgram&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;1&quot; /&gt;
-    &lt;xs:maxLength value=&quot;60&quot; /&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>TypeOfProgram [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>

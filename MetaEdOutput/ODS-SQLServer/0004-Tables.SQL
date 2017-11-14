@@ -12208,9 +12208,7 @@ CREATE TABLE [edfi].[StaffCredential](
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffCredential_PK] PRIMARY KEY CLUSTERED (
-        [StaffUSI] ASC,
-        [CredentialIdentifier] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
+        [StaffUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO

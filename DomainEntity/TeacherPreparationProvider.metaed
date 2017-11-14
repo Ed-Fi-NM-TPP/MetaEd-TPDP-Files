@@ -9,10 +9,3 @@ Domain Entity TeacherPreparationProvider based on EducationOrganization
   	domain entity University
       documentation "The post secondary institution of which the teacher preparation provider is a component of."
       is optional
-
-    // NM TPP Extensions
-    string TypeOfProgram
-      documentation "An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program."
-      is required
-      min length 1
-      max length 60

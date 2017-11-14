@@ -10416,11 +10416,6 @@ CREATE TABLE [extension].[TeacherCandidate](
     [NMEthnicity] [NVARCHAR](32) NOT NULL,
     [ACTScore] [INT] NULL,
     [SATScore] [INT] NULL,
-    [AdmissionStatus] [NVARCHAR](32) NULL,
-    [ExpectedEndMonth] [INT] NULL,
-    [ExpectedEndYear] [INT] NULL,
-    [ProgramStartMonth] [INT] NOT NULL,
-    [ProgramStartYear] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -10510,16 +10505,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The ACT score the Teacher Candidate provided at the time of admission.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ACTScore'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The SAT score the Teacher Candidate provided at the time of admission.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'SATScore'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'AdmissionStatus'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The anticipated month the teacher candidate will complete the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ExpectedEndMonth'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The anticipated year the teacher candidate will complete the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ExpectedEndYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, numerically, the Teacher Candidate started the EPP program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ProgramStartMonth'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the Teacher Candidate started the EPP program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ProgramStartYear'
 GO
 
 
@@ -12276,6 +12261,14 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation]
     [ExitWithdrawDate] [DATE] NULL,
     [ExitWithdrawTypeDescriptorId] [INT] NULL,
     [ClassOfSchoolYear] [SMALLINT] NULL,
+    [AdmissionStatus] [NVARCHAR](32) NULL,
+    [ExpectedEndMonth] [INT] NULL,
+    [ExpectedEndYear] [INT] NULL,
+    [AdmissionStartMonth] [INT] NULL,
+    [AdmissionStartYear] [INT] NULL,
+    [CompleterStartMonth] [INT] NULL,
+    [CompleterStartYear] [INT] NULL,
+    [FileStatus] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -12310,6 +12303,22 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Exit type for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'ExitWithdrawTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'School Year cohort for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'ClassOfSchoolYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'AdmissionStatus'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The anticipated month the teacher candidate will complete the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'ExpectedEndMonth'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The anticipated year the teacher candidate will complete the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'ExpectedEndYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, numerically, the Teacher Candidate started the EPP program as an admissions candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'AdmissionStartMonth'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the Teacher Candidate started the EPP program as an admissions candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'AdmissionStartYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, numerically, the Teacher Candidate started the EPP program as a completer.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'CompleterStartMonth'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the Teacher Candidate started the EPP program as a completer.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'CompleterStartYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether the teacher candidate is from the Admissions file or the Completer file.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'FileStatus'
 GO
 
 
@@ -12474,7 +12483,6 @@ GO
 CREATE TABLE [extension].[TeacherPreparationProvider](
     [TeacherPreparationProviderId] [INT] NOT NULL,
     [UniversityId] [INT] NULL,
-    [TypeOfProgram] [NVARCHAR](60) NOT NULL,
     CONSTRAINT [TeacherPreparationProvider_PK] PRIMARY KEY CLUSTERED (
         [TeacherPreparationProviderId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -12487,8 +12495,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identification code for the Teacher Preparation Provider', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'TeacherPreparationProviderId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identification code of the University', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'UniversityId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProvider', @level2type=N'COLUMN', @level2name=N'TypeOfProgram'
 GO
 
 

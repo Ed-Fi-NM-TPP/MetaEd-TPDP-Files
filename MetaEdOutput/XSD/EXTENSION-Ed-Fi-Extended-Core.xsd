@@ -3298,31 +3298,6 @@
               <xs:documentation>The SAT score the Teacher Candidate provided at the time of admission.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AdmissionStatus" type="EXTENSION-AdmissionStatus" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ExpectedEndMonth" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The anticipated month the teacher candidate will complete the program.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ExpectedEndYear" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The anticipated year the teacher candidate will complete the program.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ProgramStartMonth" type="xs:int">
-            <xs:annotation>
-              <xs:documentation>The month, numerically, the Teacher Candidate started the EPP program.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ProgramStartYear" type="xs:int">
-            <xs:annotation>
-              <xs:documentation>The year the Teacher Candidate started the EPP program.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3814,11 +3789,6 @@
           <xs:element name="UniversityReference" type="EXTENSION-UniversityReferenceType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The post secondary institution of which the teacher preparation provider is a component of.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="TypeOfProgram" type="EXTENSION-TypeOfProgram">
-            <xs:annotation>
-              <xs:documentation>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -4865,6 +4835,46 @@
           <xs:element name="ClassOfSchoolYear" type="SchoolYearType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>School Year cohort for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AdmissionStatus" type="EXTENSION-AdmissionStatus" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The admission status of the teacher candidate, if the teacher candidate is fully admitted or not fully admitted.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ExpectedEndMonth" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The anticipated month the teacher candidate will complete the program.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ExpectedEndYear" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The anticipated year the teacher candidate will complete the program.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AdmissionStartMonth" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, numerically, the Teacher Candidate started the EPP program as an admissions candidate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AdmissionStartYear" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The year the Teacher Candidate started the EPP program as an admissions candidate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CompleterStartMonth" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, numerically, the Teacher Candidate started the EPP program as a completer.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CompleterStartYear" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The year the Teacher Candidate started the EPP program as a completer.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FileStatus" type="EXTENSION-FileStatus">
+            <xs:annotation>
+              <xs:documentation>An indication of whether the teacher candidate is from the Admissions file or the Completer file.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11433,6 +11443,18 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-FileStatus">
+    <xs:annotation>
+      <xs:documentation>An indication of whether the teacher candidate is from the Admissions file or the Completer file.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-FullName">
     <xs:annotation>
       <xs:documentation>Full name of a person.</xs:documentation>
@@ -11846,18 +11868,6 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="0" />
       <xs:maxLength value="255" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-TypeOfProgram">
-    <xs:annotation>
-      <xs:documentation>An indication of the type of program the EPP is, whether it is a Traditional Undergraduate, Alternative Undergraduate, Traditional Graduate or Alternative Graduate program.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-Whereabouts">
