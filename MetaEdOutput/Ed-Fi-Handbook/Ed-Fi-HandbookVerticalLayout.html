@@ -8504,22 +8504,22 @@ BeginDate
         &lt;xs:documentation&gt;The score that reflects the teachers attendance.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;ProfessionalismScore&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;ProfessionalismScore&quot; type=&quot;ProfessionalismScore&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The score that reflects the teachers professionalism.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;ClassroomObservationScore&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;ClassroomObservationScore&quot; type=&quot;ClassroomObservationScore&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The score that reflects the teachers classroom observation rating.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;TotalEvalPoints&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;TotalEvalPoints&quot; type=&quot;TotalEvalPoints&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The score that reflects the teachers total evalutation.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;SurveyScore&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;SurveyScore&quot; type=&quot;SurveyScore&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The score that reflects the teachers survey rating.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -8544,7 +8544,7 @@ BeginDate
         &lt;xs:documentation&gt;A collection of data elements that provide information regarding Value Add Scores for the staff.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;EffectivenessRating&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;EffectivenessRating&quot; type=&quot;EffectivenessRating&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The effectiveness rating provided for the teacher.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -11674,7 +11674,7 @@ BeginDate
         &lt;xs:documentation&gt;The total number of students the teacher is associated with.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;VASOverallScore&quot; type=&quot;xs:int&quot;&gt;
+    &lt;xs:element name=&quot;VASOverallScore&quot; type=&quot;VASOverallScore&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The overall value added score provided for the teacher.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -16690,6 +16690,48 @@ BeginDate
             </div>
         </p>
         <p>
+            <h2>ClassroomObservationScore</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The score that reflects the teachers classroom observation rating.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.ClassroomObservationScore (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;ClassroomObservationScore&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The score that reflects the teachers classroom observation rating.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>ClassroomObservationScore [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>CreditConversion</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -17242,6 +17284,48 @@ BeginDate
             </div>
         </p>
         <p>
+            <h2>ProfessionalismScore</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The score that reflects the teachers professionalism.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.ProfessionalismScore (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;ProfessionalismScore&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The score that reflects the teachers professionalism.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>ProfessionalismScore [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>ScoreResultAverage</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -17323,6 +17407,90 @@ BeginDate
             </div>
         </p>
         <p>
+            <h2>SurveyScore</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The score that reflects the teachers survey rating.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.SurveyScore (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;SurveyScore&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The score that reflects the teachers survey rating.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>SurveyScore [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TotalEvalPoints</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The score that reflects the teachers total evalutation.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.TotalEvalPoints (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;TotalEvalPoints&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The score that reflects the teachers total evalutation.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>TotalEvalPoints [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>ValueAdd</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -17362,6 +17530,48 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>ValueAdd [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>VASOverallScore</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The overall value added score provided for the teacher.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />VASResult.VASOverallScore (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;VASOverallScore&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The overall value added score provided for the teacher.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>VASOverallScore [DECIMAL](18, 4)</pre></div>
             </div>
         </p>
         <p>
@@ -36079,14 +36289,14 @@ ElectronicMailTypeId
 
 StaffUSI [INT] NOT NULL
 AttendanceScore [INT] NULL
-ProfessionalismScore [INT] NULL
-ClassroomObservationScore [INT] NULL
-TotalEvalPoints [INT] NULL
-SurveyScore [INT] NULL
+ProfessionalismScore [DECIMAL](18, 4) NULL
+ClassroomObservationScore [DECIMAL](18, 4) NULL
+TotalEvalPoints [DECIMAL](18, 4) NULL
+SurveyScore [DECIMAL](18, 4) NULL
 NumberDaysAbsent [INT] NULL
 NumberLocations [INT] NULL
 TypeOfSurvey [NVARCHAR](32) NULL
-EffectivenessRating [INT] NULL
+EffectivenessRating [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -36097,7 +36307,7 @@ AssessmentSubtestGroup [NVARCHAR](32) NOT NULL
 StaffUSI [INT] NOT NULL
 YearOfAssessment [INT] NOT NULL
 TotalNumberStudents [INT] NOT NULL
-VASOverallScore [INT] NOT NULL
+VASOverallScore [DECIMAL](18, 4) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -47415,33 +47625,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>ClassroomObservationScore</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The score that reflects the teachers classroom observation rating.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.ClassroomObservationScore (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ClassroomObservationScore [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>CompleterStartMonth</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -47696,33 +47879,6 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>EducationServiceCenterId [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>EffectivenessRating</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The effectiveness rating provided for the teacher.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.EffectivenessRating (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>EffectivenessRating [INT]</pre></div>
             </div>
         </p>
         <p>
@@ -49004,33 +49160,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>ProfessionalismScore</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The score that reflects the teachers professionalism.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.ProfessionalismScore (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ProfessionalismScore [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>RaceTypeNumber</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -49505,33 +49634,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>SurveyScore</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The score that reflects the teachers survey rating.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.SurveyScore (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>SurveyScore [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>TeacherPreparationProviderId</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -49583,33 +49685,6 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>TitleIEnrollmentNumber [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>TotalEvalPoints</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The score that reflects the teachers total evalutation.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.TotalEvalPoints (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>TotalEvalPoints [INT]</pre></div>
             </div>
         </p>
         <p>
@@ -49813,33 +49888,6 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>UniversityId [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>VASOverallScore</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The overall value added score provided for the teacher.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />VASResult.VASOverallScore (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>VASOverallScore [INT]</pre></div>
             </div>
         </p>
         <p>
@@ -52377,6 +52425,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>DocumentTitle [NVARCHAR](60)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EffectivenessRating</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The effectiveness rating provided for the teacher.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 32</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.EffectivenessRating (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EffectivenessRating&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The effectiveness rating provided for the teacher.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;32&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EffectivenessRating [NVARCHAR](32)</pre></div>
             </div>
         </p>
         <p>

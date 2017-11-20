@@ -11886,22 +11886,22 @@
           <xs:documentation>The score that reflects the teachers attendance.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ProfessionalismScore" type="xs:int" minOccurs="0">
+      <xs:element name="ProfessionalismScore" type="ProfessionalismScore" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The score that reflects the teachers professionalism.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ClassroomObservationScore" type="xs:int" minOccurs="0">
+      <xs:element name="ClassroomObservationScore" type="ClassroomObservationScore" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The score that reflects the teachers classroom observation rating.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="TotalEvalPoints" type="xs:int" minOccurs="0">
+      <xs:element name="TotalEvalPoints" type="TotalEvalPoints" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The score that reflects the teachers total evalutation.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SurveyScore" type="xs:int" minOccurs="0">
+      <xs:element name="SurveyScore" type="SurveyScore" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The score that reflects the teachers survey rating.</xs:documentation>
         </xs:annotation>
@@ -11926,7 +11926,7 @@
           <xs:documentation>A collection of data elements that provide information regarding Value Add Scores for the staff.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="EffectivenessRating" type="xs:int" minOccurs="0">
+      <xs:element name="EffectivenessRating" type="EffectivenessRating" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The effectiveness rating provided for the teacher.</xs:documentation>
         </xs:annotation>
@@ -12974,7 +12974,7 @@
           <xs:documentation>The total number of students the teacher is associated with.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VASOverallScore" type="xs:int">
+      <xs:element name="VASOverallScore" type="VASOverallScore">
         <xs:annotation>
           <xs:documentation>The overall value added score provided for the teacher.</xs:documentation>
         </xs:annotation>
@@ -21886,6 +21886,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EffectivenessRating">
+    <xs:annotation>
+      <xs:documentation>The effectiveness rating provided for the teacher.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="ElectronicMailAddress">
     <xs:annotation>
       <xs:documentation>The electronic mail (e-mail) address listed for an individual or organization.</xs:documentation>
@@ -22546,6 +22558,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
   <xs:annotation>
     <xs:documentation>===== Numeric Simple Types =====</xs:documentation>
   </xs:annotation>
+  <xs:simpleType name="ClassroomObservationScore">
+    <xs:annotation>
+      <xs:documentation>The score that reflects the teachers classroom observation rating.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="CreditConversion">
     <xs:annotation>
       <xs:documentation>Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.</xs:documentation>
@@ -22739,6 +22763,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="ProfessionalismScore">
+    <xs:annotation>
+      <xs:documentation>The score that reflects the teachers professionalism.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="SequenceOfCourse">
     <xs:annotation>
       <xs:documentation>When a Section is part of a sequence of parts for a course, the number if the sequence. If the course has only one part, the value of this Section attribute should be 1.</xs:documentation>
@@ -22751,6 +22787,30 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxInclusive value="8" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="SurveyScore">
+    <xs:annotation>
+      <xs:documentation>The score that reflects the teachers survey rating.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalEvalPoints">
+    <xs:annotation>
+      <xs:documentation>The score that reflects the teachers total evalutation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="TotalInstructionalDays">
     <xs:annotation>
       <xs:documentation>Total days available for educational instruction during the grading period.</xs:documentation>
@@ -22760,6 +22820,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     </xs:annotation>
     <xs:restriction base="xs:int">
       <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VASOverallScore">
+    <xs:annotation>
+      <xs:documentation>The overall value added score provided for the teacher.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="Version">
