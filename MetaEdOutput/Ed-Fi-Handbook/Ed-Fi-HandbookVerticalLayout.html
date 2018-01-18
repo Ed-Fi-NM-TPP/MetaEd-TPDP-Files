@@ -8524,7 +8524,7 @@ BeginDate
         &lt;xs:documentation&gt;The score that reflects the teachers survey rating.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;NumberDaysAbsent&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;NumberDaysAbsent&quot; type=&quot;NumberDaysAbsent&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The number of days the teacher was absent.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -17069,6 +17069,48 @@ BeginDate
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>Learning [DECIMAL](5, 4)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>NumberDaysAbsent</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The number of days the teacher was absent.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.NumberDaysAbsent (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;NumberDaysAbsent&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The number of days the teacher was absent.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>NumberDaysAbsent [DECIMAL](18, 4)</pre></div>
             </div>
         </p>
         <p>
@@ -32292,7 +32334,7 @@ AsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br />ValueAdd (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />ObservationEndYear (optional)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br />ValueAdd (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32406,6 +32448,11 @@ AsOfDate
             &lt;xs:documentation&gt;Any comments about the performance measure to be captured&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ObservationEndYear&quot; type=&quot;EXTENSION-ObservationEndYear&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
         &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;EXTENSION-ValueAdd&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
@@ -32436,6 +32483,7 @@ DurationOfPerformanceMeasure [INT] NULL
 Announced [BIT] NULL
 CoteachingObserved [BIT] NULL
 Comments [NVARCHAR](1024) NULL
+ObservationEndYear [NVARCHAR](16) NULL
 ValueAdd [DECIMAL](18, 4) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -36063,7 +36111,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />EvaluationInformation (optional)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />ObservationEndYear (optional)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.PersonBeingReviewedStaff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.ReviewerStaff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />EvaluationInformation (optional)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.PersonBeingReviewedStaff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.ReviewerStaff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -36200,11 +36248,6 @@ BeginDate
             &lt;xs:documentation&gt;The legal document giving authorization to perform teaching assignment services.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ObservationEndYear&quot; type=&quot;ObservationEndYear&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
         &lt;xs:element name=&quot;EvaluationInformation&quot; type=&quot;EvaluationInformation&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The data elements that comprise the evaluation for the staff.&lt;/xs:documentation&gt;
@@ -36236,7 +36279,6 @@ YearsOfPriorProfessionalExperience [DECIMAL](5, 2) NULL
 YearsOfPriorTeachingExperience [DECIMAL](5, 2) NULL
 LoginId [NVARCHAR](60) NULL
 HighlyQualifiedTeacher [BIT] NULL
-ObservationEndYear [NVARCHAR](16) NULL
 StaffUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -36293,7 +36335,7 @@ ProfessionalismScore [DECIMAL](18, 4) NULL
 ClassroomObservationScore [DECIMAL](18, 4) NULL
 TotalEvalPoints [DECIMAL](18, 4) NULL
 SurveyScore [DECIMAL](18, 4) NULL
-NumberDaysAbsent [INT] NULL
+NumberDaysAbsent [DECIMAL](18, 4) NULL
 NumberLocations [INT] NULL
 TypeOfSurvey [NVARCHAR](32) NULL
 EffectivenessRating [NVARCHAR](32) NULL
@@ -48476,33 +48518,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>NumberDaysAbsent</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The number of days the teacher was absent.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.NumberDaysAbsent (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>NumberDaysAbsent [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>NumberLocations</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -54080,11 +54095,11 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Staff.ObservationEndYear (as optional)</div>
+                <div><br />Used By:<br />PerformanceMeasure.ObservationEndYear (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;ObservationEndYear&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ObservationEndYear&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;

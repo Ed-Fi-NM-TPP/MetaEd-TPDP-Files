@@ -55,6 +55,11 @@ Domain Entity PerformanceMeasure
     max length 1024
 
     // NM TPP Extensions
+    string ObservationEndYear
+      documentation "The year the last teacher observation was conducted for the staff."
+      is optional
+      min length 1
+      max length 16
     decimal ValueAdd
       documentation "The possible points for the student achievement indicator for the teacher evaluation."
       is optional

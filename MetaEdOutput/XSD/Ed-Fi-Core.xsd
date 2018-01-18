@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- (c)2017 Ed-Fi Alliance, LLC. All Rights Reserved. -->
+<!-- (c)2018 Ed-Fi Alliance, LLC. All Rights Reserved. -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ed-fi.org/0200" xmlns:ann="http://ed-fi.org/annotation" targetNamespace="http://ed-fi.org/0200" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:import namespace="http://ed-fi.org/annotation" schemaLocation="SchemaAnnotation.xsd" />
   <xs:annotation>
@@ -3179,11 +3179,6 @@
           <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ObservationEndYear" type="ObservationEndYear" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="EvaluationInformation" type="EvaluationInformation" minOccurs="0">
@@ -11906,7 +11901,7 @@
           <xs:documentation>The score that reflects the teachers survey rating.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NumberDaysAbsent" type="xs:int" minOccurs="0">
+      <xs:element name="NumberDaysAbsent" type="NumberDaysAbsent" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The number of days the teacher was absent.</xs:documentation>
         </xs:annotation>
@@ -22162,18 +22157,6 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="ObservationEndYear">
-    <xs:annotation>
-      <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="16" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="OtherMinor">
     <xs:annotation>
       <xs:documentation>An additional minor identified in the teacher candidates educational programming.</xs:documentation>
@@ -22673,6 +22656,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     </xs:annotation>
     <xs:restriction base="xs:decimal">
       <xs:totalDigits value="5" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumberDaysAbsent">
+    <xs:annotation>
+      <xs:documentation>The number of days the teacher was absent.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
       <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>

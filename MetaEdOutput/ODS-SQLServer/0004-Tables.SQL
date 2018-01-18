@@ -1,4 +1,4 @@
-﻿/****** Table: [edfi].[AcademicHonorCategoryType] ******/
+/****** Table: [edfi].[AcademicHonorCategoryType] ******/
 
 CREATE TABLE [edfi].[AcademicHonorCategoryType](
     [AcademicHonorCategoryTypeId] [INT] IDENTITY(1,1) NOT NULL,
@@ -11968,7 +11968,6 @@ CREATE TABLE [edfi].[Staff](
     [YearsOfPriorTeachingExperience] [DECIMAL](5, 2) NULL,
     [LoginId] [NVARCHAR](60) NULL,
     [HighlyQualifiedTeacher] [BIT] NULL,
-    [ObservationEndYear] [NVARCHAR](16) NULL,
     [StaffUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -12036,8 +12035,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The login ID for the user; used for security access control interface.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'LoginId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher is classified as highly qualified for his/her assignment according to state definition. This attribute indicates the teacher is highly qualified for ALL Sections being taught.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'HighlyQualifiedTeacher'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the last teacher observation was conducted for the staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'ObservationEndYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Staff', @level2type=N'COLUMN', @level2name=N'StaffUniqueId'
 GO
@@ -12208,9 +12205,7 @@ CREATE TABLE [edfi].[StaffCredential](
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffCredential_PK] PRIMARY KEY CLUSTERED (
-        [StaffUSI] ASC,
-        [CredentialIdentifier] ASC,
-        [StateOfIssueStateAbbreviationTypeId] ASC
+        [StaffUSI] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -12393,14 +12388,14 @@ GO
 CREATE TABLE [edfi].[StaffEvaluationInformation](
     [StaffUSI] [INT] NOT NULL,
     [AttendanceScore] [INT] NULL,
-    [ProfessionalismScore] [INT] NULL,
-    [ClassroomObservationScore] [INT] NULL,
-    [TotalEvalPoints] [INT] NULL,
-    [SurveyScore] [INT] NULL,
-    [NumberDaysAbsent] [INT] NULL,
+    [ProfessionalismScore] [DECIMAL](18, 4) NULL,
+    [ClassroomObservationScore] [DECIMAL](18, 4) NULL,
+    [TotalEvalPoints] [DECIMAL](18, 4) NULL,
+    [SurveyScore] [DECIMAL](18, 4) NULL,
+    [NumberDaysAbsent] [DECIMAL](18, 4) NULL,
     [NumberLocations] [INT] NULL,
     [TypeOfSurvey] [NVARCHAR](32) NULL,
-    [EffectivenessRating] [INT] NULL,
+    [EffectivenessRating] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffEvaluationInformation_PK] PRIMARY KEY CLUSTERED (
         [StaffUSI] ASC
@@ -12441,7 +12436,7 @@ CREATE TABLE [edfi].[StaffEvaluationInformationVASResult](
     [StaffUSI] [INT] NOT NULL,
     [YearOfAssessment] [INT] NOT NULL,
     [TotalNumberStudents] [INT] NOT NULL,
-    [VASOverallScore] [INT] NOT NULL,
+    [VASOverallScore] [DECIMAL](18, 4) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffEvaluationInformationVASResult_PK] PRIMARY KEY CLUSTERED (
         [AssessmentSubtestGroup] ASC,
