@@ -12205,7 +12205,9 @@ CREATE TABLE [edfi].[StaffCredential](
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffCredential_PK] PRIMARY KEY CLUSTERED (
-        [StaffUSI] ASC
+	[StaffUSI] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -12387,7 +12389,8 @@ GO
 
 CREATE TABLE [edfi].[StaffEvaluationInformation](
     [StaffUSI] [INT] NOT NULL,
-    [AttendanceScore] [INT] NULL,
+    [EvaluationSchoolYear] [INT] NOT NULL,
+    [AttendanceScore] [DECIMAL](18, 4) NULL,
     [ProfessionalismScore] [DECIMAL](18, 4) NULL,
     [ClassroomObservationScore] [DECIMAL](18, 4) NULL,
     [TotalEvalPoints] [DECIMAL](18, 4) NULL,
@@ -12396,6 +12399,7 @@ CREATE TABLE [edfi].[StaffEvaluationInformation](
     [NumberLocations] [INT] NULL,
     [TypeOfSurvey] [NVARCHAR](32) NULL,
     [EffectivenessRating] [NVARCHAR](32) NULL,
+    [ValueAdd] [DECIMAL](18, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffEvaluationInformation_PK] PRIMARY KEY CLUSTERED (
         [StaffUSI] ASC
@@ -12408,6 +12412,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The data elements that comprise the evaluation for the staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffEvaluationInformation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year in which the evaluation was completed.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'EvaluationSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score that reflects the teachers attendance.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'AttendanceScore'
 GO
@@ -12426,6 +12432,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of survey that was received', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'TypeOfSurvey'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The effectiveness rating provided for the teacher.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'EffectivenessRating'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffEvaluationInformation', @level2type=N'COLUMN', @level2name=N'ValueAdd'
 GO
 
 
