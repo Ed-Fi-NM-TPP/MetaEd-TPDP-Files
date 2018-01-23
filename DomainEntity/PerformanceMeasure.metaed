@@ -60,8 +60,3 @@ Domain Entity PerformanceMeasure
       is optional
       min length 1
       max length 16
-    decimal ValueAdd
-      documentation "The possible points for the student achievement indicator for the teacher evaluation."
-      is optional
-      total digits 18
-      decimal places 4

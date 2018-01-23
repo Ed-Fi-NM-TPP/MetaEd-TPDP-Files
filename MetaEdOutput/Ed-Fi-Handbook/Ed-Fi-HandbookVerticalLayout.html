@@ -8487,7 +8487,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />TotalEvalPoints (optional)<br />TypeOfSurvey (optional)<br />VASResult (optional collection)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
+                <div><br />Contains:<br />AttendanceScore (optional)<br />ClassroomObservationScore (optional)<br />EffectivenessRating (optional)<br />EvaluationSchoolYear (required)<br />NumberDaysAbsent (optional)<br />NumberLocations (optional)<br />ProfessionalismScore (optional)<br />SurveyScore (optional)<br />TotalEvalPoints (optional)<br />TypeOfSurvey (optional)<br />ValueAdd (optional)<br />VASResult (optional collection)<br /><br />Used By:<br />Staff.EvaluationInformation (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8499,7 +8499,12 @@ BeginDate
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;AttendanceScore&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;EvaluationSchoolYear&quot; type=&quot;xs:int&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year in which the evaluation was completed.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AttendanceScore&quot; type=&quot;AttendanceScore&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The score that reflects the teachers attendance.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -8547,6 +8552,11 @@ BeginDate
     &lt;xs:element name=&quot;EffectivenessRating&quot; type=&quot;EffectivenessRating&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The effectiveness rating provided for the teacher.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;ValueAdd&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -16648,6 +16658,48 @@ BeginDate
             </div>
         </p>
         <p>
+            <h2>AttendanceScore</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The score that reflects the teachers attendance.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Decimal Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>total digits: 18<br />decimal places: 4</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.AttendanceScore (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;AttendanceScore&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The score that reflects the teachers attendance.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;
+    &lt;xs:totalDigits value=&quot;18&quot; /&gt;
+    &lt;xs:fractionDigits value=&quot;4&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AttendanceScore [DECIMAL](18, 4)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>AverageNumericResponse</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -17540,7 +17592,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>The possible points for the student achievement indicator for the teacher evaluation.</div>
+                <div>The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -17552,13 +17604,13 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />PerformanceMeasure.ValueAdd (as optional)</div>
+                <div><br />Used By:<br />EvaluationInformation.ValueAdd (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-ValueAdd&quot;&gt;
+                <div><pre>&lt;xs:simpleType name=&quot;ValueAdd&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -32334,7 +32386,7 @@ AsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />ObservationEndYear (optional)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br />ValueAdd (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />ActualDateOfPerformanceMeasure (required)<br />Announced (optional)<br />Comments (optional)<br />CoteachingObserved (optional)<br />Course (optional)<br />DurationOfPerformanceMeasure (optional)<br />GradeLevel (optional collection)<br />ObservationEndYear (optional)<br />PerformanceMeasureIdentifier (identity)<br />PerformanceMeasureType (required)<br />PersonBeingReviewed (optional)<br />ProgramGateway (optional collection)<br />Reviewer (optional collection)<br />Rubric (required)<br />ScheduleDateOfPerformanceMeasure (optional)<br />Term (required)<br />TimeOfPerformanceMeasure (optional)<br /><br />Used By:<br />RubricLevelResponse.PerformanceMeasure (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32453,11 +32505,6 @@ AsOfDate
             &lt;xs:documentation&gt;The year the last teacher observation was conducted for the staff.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ValueAdd&quot; type=&quot;EXTENSION-ValueAdd&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The possible points for the student achievement indicator for the teacher evaluation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -32484,7 +32531,6 @@ Announced [BIT] NULL
 CoteachingObserved [BIT] NULL
 Comments [NVARCHAR](1024) NULL
 ObservationEndYear [NVARCHAR](16) NULL
-ValueAdd [DECIMAL](18, 4) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -36330,7 +36376,8 @@ ElectronicMailTypeId
 <br />edfi.StaffEvaluationInformation
 
 StaffUSI [INT] NOT NULL
-AttendanceScore [INT] NULL
+EvaluationSchoolYear [INT] NOT NULL
+AttendanceScore [DECIMAL](18, 4) NULL
 ProfessionalismScore [DECIMAL](18, 4) NULL
 ClassroomObservationScore [DECIMAL](18, 4) NULL
 TotalEvalPoints [DECIMAL](18, 4) NULL
@@ -36339,6 +36386,7 @@ NumberDaysAbsent [DECIMAL](18, 4) NULL
 NumberLocations [INT] NULL
 TypeOfSurvey [NVARCHAR](32) NULL
 EffectivenessRating [NVARCHAR](32) NULL
+ValueAdd [DECIMAL](18, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -47586,33 +47634,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>AttendanceScore</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The score that reflects the teachers attendance.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />EvaluationInformation.AttendanceScore (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>AttendanceScore [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>CertificationExamOverallScore</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -47975,6 +47996,33 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>ESLEnrollmentNumber [INT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EvaluationSchoolYear</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The school year in which the evaluation was completed.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />EvaluationInformation.EvaluationSchoolYear (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EvaluationSchoolYear [INT]</pre></div>
             </div>
         </p>
         <p>

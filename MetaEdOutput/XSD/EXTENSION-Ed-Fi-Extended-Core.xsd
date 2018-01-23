@@ -1741,11 +1741,6 @@
               <xs:documentation>The year the last teacher observation was conducted for the staff.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ValueAdd" type="EXTENSION-ValueAdd" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -11987,18 +11982,6 @@
       <xs:minInclusive value="0" />
       <xs:totalDigits value="9" />
       <xs:fractionDigits value="3" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ValueAdd">
-    <xs:annotation>
-      <xs:documentation>The possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:decimal">
-      <xs:totalDigits value="18" />
-      <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-YearsOfService">

@@ -11876,7 +11876,12 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="AttendanceScore" type="xs:int" minOccurs="0">
+      <xs:element name="EvaluationSchoolYear" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The school year in which the evaluation was completed.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AttendanceScore" type="AttendanceScore" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The score that reflects the teachers attendance.</xs:documentation>
         </xs:annotation>
@@ -11924,6 +11929,11 @@
       <xs:element name="EffectivenessRating" type="EffectivenessRating" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The effectiveness rating provided for the teacher.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ValueAdd" type="ValueAdd" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -22541,6 +22551,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
   <xs:annotation>
     <xs:documentation>===== Numeric Simple Types =====</xs:documentation>
   </xs:annotation>
+  <xs:simpleType name="AttendanceScore">
+    <xs:annotation>
+      <xs:documentation>The score that reflects the teachers attendance.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="ClassroomObservationScore">
     <xs:annotation>
       <xs:documentation>The score that reflects the teachers classroom observation rating.</xs:documentation>
@@ -22815,6 +22837,18 @@ A weapon designed or redesigned, made or remade, and intended to be fired from t
     </xs:annotation>
     <xs:restriction base="xs:int">
       <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValueAdd">
+    <xs:annotation>
+      <xs:documentation>The student achievement points divided by possible points for the student achievement indicator for the teacher evaluation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="4" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="VASOverallScore">

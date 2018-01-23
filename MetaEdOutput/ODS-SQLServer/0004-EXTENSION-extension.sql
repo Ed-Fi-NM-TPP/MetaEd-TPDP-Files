@@ -5671,7 +5671,6 @@ CREATE TABLE [extension].[PerformanceMeasure](
     [CoteachingObserved] [BIT] NULL,
     [Comments] [NVARCHAR](1024) NULL,
     [ObservationEndYear] [NVARCHAR](16) NULL,
-    [ValueAdd] [DECIMAL](18, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -5722,8 +5721,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any comments about the performance measure to be captured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'Comments'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year the last teacher observation was conducted for the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ObservationEndYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The possible points for the student achievement indicator for the teacher evaluation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ValueAdd'
 GO
 
 
